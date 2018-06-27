@@ -20,6 +20,9 @@ call plug#end()
 " =========================================================
 let mapleader=' '
 
+" lower the delay, because we are using <space> as leader
+set timeoutlen=400
+
 
 " =========================================================
 " CtrlSF config
