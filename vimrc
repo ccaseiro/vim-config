@@ -32,4 +32,26 @@ nmap     <leader>fp <Plug>CtrlSFPwordPath
 nnoremap <leader>fo :CtrlSFOpen<CR>
 nnoremap <leader>ft :CtrlSFToggle<CR>
 inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
+
+
+" =========================================================
+" Emacs keybindings while inserting. 
+" =========================================================
+" map! <c-a> <c-o>^
+" map! <c-e> <c-o>$
+noremap! <c-a> <Home>
+noremap! <c-e> <End>
+noremap! <c-f> <Right>
+noremap! <c-b> <Left>
+noremap! <c-d> <Delete>
+noremap! <c-n> <Down>
+noremap! <c-p> <Up>
+inoremap <c-g> <c-p>
+
+" Command line (Need to map these once more for inc-search to work).
+cnoremap <c-a> <Home>
+cnoremap <c-e> <End>
+cnoremap <c-f> <Right>
+cnoremap <c-b> <Left>
+cnoremap <c-d> <Delete>
 " =========================================================
