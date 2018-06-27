@@ -54,4 +54,12 @@ cnoremap <c-e> <End>
 cnoremap <c-f> <Right>
 cnoremap <c-b> <Left>
 cnoremap <c-d> <Delete>
+
+
 " =========================================================
+" Mutiple cursor
+" =========================================================
+" If set to 0, then pressing g:multi_cursor_quit_key in visual/insert
+" mode will not quit and delete all existing cursors
+let g:multi_cursor_exit_from_visual_mode = 0
+let g:multi_cursor_exit_from_insert_mode = 0
