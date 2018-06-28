@@ -16,9 +16,11 @@ Plug 'terryma/vim-multiple-cursors'
 "  - Comments
 "  - Unimpaired (like [<Space> and ]<Space>)
 "  - Surround (ex. cs"' )
+"  - Repeat (.) plugin commands
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
