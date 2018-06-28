@@ -15,8 +15,10 @@ Plug 'terryma/vim-multiple-cursors'
 " Tim Pope plugins
 "  - Comments
 "  - Unimpaired (like [<Space> and ]<Space>)
+"  - Surround (ex. cs"' )
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
