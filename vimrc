@@ -12,6 +12,9 @@ Plug 'dyng/ctrlsf.vim'
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
+" Comments
+Plug 'tomtom/tcomment_vim'
+
 call plug#end()
 
 
