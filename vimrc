@@ -12,8 +12,11 @@ Plug 'dyng/ctrlsf.vim'
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
-" Comments
+" Tim Pope plugins
+"  - Comments
+"  - Unimpaired (like [<Space> and ]<Space>)
 Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-unimpaired'
 
 call plug#end()
 
