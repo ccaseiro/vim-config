@@ -4,9 +4,11 @@
 call plug#begin()
 
 " Tim Pope plugins
+"  - Sensible (configuration)
 "  - Unimpaired (like [<Space> and ]<Space>)
 "  - Surround (ex. cs"' )
 "  - Repeat (.) plugin commands
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
