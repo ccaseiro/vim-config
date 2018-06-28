@@ -3,6 +3,14 @@
 " =========================================================
 call plug#begin()
 
+" Tim Pope plugins
+"  - Unimpaired (like [<Space> and ]<Space>)
+"  - Surround (ex. cs"' )
+"  - Repeat (.) plugin commands
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+
 " highlight yanked text
 Plug 'machakann/vim-highlightedyank'
 
@@ -12,15 +20,8 @@ Plug 'dyng/ctrlsf.vim'
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
-" Tim Pope plugins
-"  - Comments
-"  - Unimpaired (like [<Space> and ]<Space>)
-"  - Surround (ex. cs"' )
-"  - Repeat (.) plugin commands
+" Comments
 Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
 
 call plug#end()
 
