@@ -34,8 +34,7 @@ nmap     <leader>fn <Plug>CtrlSFCwordPath
 nmap     <leader>fp <Plug>CtrlSFPwordPath
 nnoremap <leader>fo :CtrlSFOpen<CR>
 nnoremap <leader>ft :CtrlSFToggle<CR>
-inoremap <leader>ft <Esc>:CtrlSFToggle<CR>
-
+inoremap <c-space>ft <Esc>:CtrlSFToggle<CR>
 
 " =========================================================
 " Emacs keybindings while inserting. 
