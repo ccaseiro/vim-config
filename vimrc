@@ -36,6 +36,8 @@ let mapleader=' '
 " lower the delay, because we are using <space> as leader
 set timeoutlen=400
 
+" highlight all search matches
+set hlsearch
 
 " =========================================================
 " CtrlSF config
