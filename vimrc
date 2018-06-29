@@ -39,6 +39,10 @@ set timeoutlen=400
 " highlight all search matches
 set hlsearch
 
+" font
+set guifont=Dank\ Mono:h12,Fira\ Code:h12
+
+
 " =========================================================
 " CtrlSF config
 " =========================================================
