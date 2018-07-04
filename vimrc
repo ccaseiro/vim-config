@@ -25,6 +25,9 @@ Plug 'terryma/vim-multiple-cursors'
 " Comments
 Plug 'tomtom/tcomment_vim'
 
+" Leader-Guide (similar to spacemacs) 
+Plug 'hecal3/vim-leader-guide'
+
 call plug#end()
 
 
@@ -105,5 +108,36 @@ if has('nvim')
   highlight! link TermCursor Cursor
   highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
 endif
+
+" =========================================================
+" vim-leader-guide
+" =========================================================
+
+" set up dictionary for <localleader>
+let g:llmap = {}
+
+let g:lmap =  {}
+
+let g:lmap.f =  {}
+let g:lmap.f.e = { 
+                  \'name' : '+vimrc',
+                  \'d' : ['e ~/.vim/vimrc', '.vimrc'],
+                  \'v' : ['e $MYVIMRC', '$MYVIMRC'],
+                  \'r' : ['so $MYVIMRC', 'sync $MYVIMRC'],
+                  \'R' : ['so $MYVIMRC', 'sync $MYVIMRC'],
+                  \}
+
+" combine the two dictionaries into a single top-level dictionary:
+let g:topdict = {}
+let g:topdict[' '] = g:lmap
+let g:topdict[' ']['name'] = '<leader>'
+let g:topdict[','] = g:llmap
+let g:topdict[',']['name'] = '<localleader>'
+
+" register it with the guide:
+call leaderGuide#register_prefix_descriptions("", "g:topdict")
+
+" define mappings:
+nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
 
 
