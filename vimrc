@@ -84,3 +84,12 @@ cnoremap <c-d> <Delete>
 " mode will not quit and delete all existing cursors
 let g:multi_cursor_exit_from_visual_mode = 0
 let g:multi_cursor_exit_from_insert_mode = 0
+
+" =========================================================
+" Tab
+" =========================================================
+set listchars=tab:▸\ ,eol:¬
+let &tabstop=exists('g:tabSize') ? g:tabSize : 2
+let &softtabstop=exists('g:tabSize') ? g:tabSize : 2
+let &shiftwidth=exists('g:tabSize') ? g:tabSize : 2
+set expandtab
