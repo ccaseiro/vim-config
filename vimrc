@@ -25,6 +25,10 @@ Plug 'terryma/vim-multiple-cursors'
 " Comments
 Plug 'tomtom/tcomment_vim'
 
+" FZF
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
 " Leader-Guide (similar to spacemacs) 
 Plug 'hecal3/vim-leader-guide'
 
@@ -140,4 +144,41 @@ call leaderGuide#register_prefix_descriptions("", "g:topdict")
 " define mappings:
 nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
 
+" =========================================================
+" FZF
+" =========================================================
+
+" localleader = f
+
+"nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <silent> <Leader>ff  :Files<CR>
+nnoremap <silent> <Leader>bb  :Buffers<CR>
+nnoremap <silent> <leader>fr :History<CR>
+
+" [Tags] Command to generate tags file
+" let g:fzf_tags_command = 'ctags -R'
+
+" nnoremap <silent> <Leader><Leader> :Files<CR>
+" nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+nnoremap <silent> <Leader>fc        :Colors<CR>
+nnoremap <silent> <Leader>fC        :Commands<CR>
+nnoremap <silent> <Leader>pg        :Tags<CR>
+
+" nnoremap <silent> <Leader>/         :Lines<CR>
+nnoremap <silent> <Leader>/         :BLines<CR>
+" nnoremap <silent> <Leader>/         :Ag<CR>
+nnoremap <silent> <Leader>sp        :Ag<CR>
+
+" nnoremap <silent> <Leader>*         :Ag <C-R><C-W><CR>
+nnoremap <silent> <Leader>sP        :Ag <C-R><C-W><CR>
+
+nnoremap <silent> <Leader>sW        :Ag <C-R><C-A><CR>
+xnoremap <silent> <Leader>sP        y:Ag <C-R>"<CR>
+
+nnoremap <silent> <Leader>fm        :Marks<CR>
+nnoremap <silent> <Leader>fM        :Maps<CR>
+nnoremap <silent> <Leader>fM        :Maps<CR>
+
+nnoremap <silent> <leader>f: :History:<CR>
+nnoremap <silent> <leader>f/ :History/<CR>
 
