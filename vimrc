@@ -93,3 +93,17 @@ let &tabstop=exists('g:tabSize') ? g:tabSize : 2
 let &softtabstop=exists('g:tabSize') ? g:tabSize : 2
 let &shiftwidth=exists('g:tabSize') ? g:tabSize : 2
 set expandtab
+
+" =========================================================
+" Terminal
+" =========================================================
+tnoremap <Esc> <C-\><C-N>
+" tnoremap <M-[> <Esc>
+tnoremap <C-v><Esc> <Esc>
+
+if has('nvim')
+  highlight! link TermCursor Cursor
+  highlight! TermCursorNC guibg=red guifg=white ctermbg=1 ctermfg=15
+endif
+
+
