@@ -32,6 +32,10 @@ Plug 'junegunn/fzf.vim'
 " Leader-Guide (similar to spacemacs) 
 Plug 'hecal3/vim-leader-guide'
 
+" Session
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-session'
+
 call plug#end()
 
 
@@ -130,6 +134,13 @@ let g:lmap.f.e = {
                   \'r' : ['so $MYVIMRC', 'sync $MYVIMRC'],
                   \'R' : ['so $MYVIMRC', 'sync $MYVIMRC'],
                   \}
+let g:lmap.t = {
+                \'name' : 'Tab',
+                \'t' : ['tablast | tab new', 'tab new'],
+                \'o' : ['SessionTabOpen', 'Session Tab Open'],
+                \'c' : ['SessionTabClose', 'Session Tab Close'],
+                \'s' : ['SessionTabSave', 'Session Tab Save'],
+                \}
 
 " combine the two dictionaries into a single top-level dictionary:
 let g:topdict = {}
@@ -181,4 +192,12 @@ nnoremap <silent> <Leader>fM        :Maps<CR>
 
 nnoremap <silent> <leader>f: :History:<CR>
 nnoremap <silent> <leader>f/ :History/<CR>
+
+" =========================================================
+" FZF
+" =========================================================
+
+let g:session_command_aliases = 1
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
 
