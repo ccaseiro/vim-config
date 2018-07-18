@@ -57,14 +57,14 @@ set guifont=Dank\ Mono:h12,Fira\ Code:h12
 " =========================================================
 " CtrlSF config
 " =========================================================
-nmap     <leader>ff <Plug>CtrlSFPrompt
-vmap     <leader>ff <Plug>CtrlSFVwordPath
-vmap     <leader>fF <Plug>CtrlSFVwordExec
-nmap     <leader>fn <Plug>CtrlSFCwordPath
-nmap     <leader>fp <Plug>CtrlSFPwordPath
-nnoremap <leader>fo :CtrlSFOpen<CR>
-nnoremap <leader>ft :CtrlSFToggle<CR>
-inoremap <c-space>ft <Esc>:CtrlSFToggle<CR>
+nmap     <leader>sff <Plug>CtrlSFPrompt
+vmap     <leader>sff <Plug>CtrlSFVwordPath
+vmap     <leader>sfF <Plug>CtrlSFVwordExec
+nmap     <leader>sfn <Plug>CtrlSFCwordPath
+nmap     <leader>sfp <Plug>CtrlSFPwordPath
+nnoremap <leader>sfo :CtrlSFOpen<CR>
+nnoremap <leader>sft :CtrlSFToggle<CR>
+inoremap <c-space>sft <Esc>:CtrlSFToggle<CR>
 
 " =========================================================
 " Emacs keybindings while inserting. 
