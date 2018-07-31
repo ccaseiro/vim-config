@@ -36,6 +36,9 @@ Plug 'hecal3/vim-leader-guide'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
+" NERDTree
+Plug 'scrooloose/nerdtree'
+
 call plug#end()
 
 
@@ -126,7 +129,10 @@ let g:llmap = {}
 
 let g:lmap =  {}
 
-let g:lmap.f =  {}
+let g:lmap.f =  {
+                \'name' : '+files',
+                \'t' : ['NERDTreeToggle', 'NERDTree'],
+                \}
 let g:lmap.f.e = { 
                   \'name' : '+vimrc',
                   \'d' : ['e ~/.vim/vimrc', '.vimrc'],
