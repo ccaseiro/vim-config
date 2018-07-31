@@ -1,2 +1,4 @@
 .netrwhist
 /plugged/
+/sessions/*.vim
+/sessions/.gitignore
