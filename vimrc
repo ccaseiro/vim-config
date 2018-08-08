@@ -39,8 +39,23 @@ Plug 'xolox/vim-session'
 " NERDTree
 Plug 'scrooloose/nerdtree'
 
+" Colorscheme
+Plug 'haishanh/night-owl.vim'
+
 call plug#end()
 
+
+" =========================================================
+" colorscheme config
+" =========================================================
+" enable 24bit true color (If you have vim >=8.0 or Neovim >= 0.1.5)
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+colorscheme night-owl
 
 " =========================================================
 " General config
