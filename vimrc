@@ -46,6 +46,9 @@ Plug 'haishanh/night-owl.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
+" Emmet
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 
 
@@ -217,6 +220,17 @@ nnoremap <silent> <Leader>fM        :Maps<CR>
 
 nnoremap <silent> <leader>f: :History:<CR>
 nnoremap <silent> <leader>f/ :History/<CR>
+
+" =========================================================
+" Emmet
+" =========================================================
+let g:user_emmet_leader_key='<Tab>'
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
+
 
 " =========================================================
 " FZF
