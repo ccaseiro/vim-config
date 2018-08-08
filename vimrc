@@ -42,6 +42,10 @@ Plug 'scrooloose/nerdtree'
 " Colorscheme
 Plug 'haishanh/night-owl.vim'
 
+" Syntax Highlighting - Javascript
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
 call plug#end()
 
 
