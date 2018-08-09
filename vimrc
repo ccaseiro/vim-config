@@ -195,7 +195,9 @@ nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
 "nnoremap <C-p> :<C-u>FZF<CR>
 nnoremap <silent> <Leader>ff  :Files<CR>
 nnoremap <silent> <Leader>bb  :Buffers<CR>
-nnoremap <silent> <leader>fr :History<CR>
+nnoremap <silent> <leader>fr  :History<CR>
+nnoremap <silent> <Leader>/   :BLines<CR>
+nnoremap <silent> <Leader>fl  :BLines<CR>
 
 " [Tags] Command to generate tags file
 " let g:fzf_tags_command = 'ctags -R'
@@ -207,7 +209,6 @@ nnoremap <silent> <Leader>fC        :Commands<CR>
 nnoremap <silent> <Leader>pg        :Tags<CR>
 
 " nnoremap <silent> <Leader>/         :Lines<CR>
-nnoremap <silent> <Leader>/         :BLines<CR>
 " nnoremap <silent> <Leader>/         :Ag<CR>
 nnoremap <silent> <Leader>sp        :Ag<CR>
 
