@@ -45,6 +45,7 @@ Plug 'haishanh/night-owl.vim'
 " Syntax Highlighting - Javascript
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
+Plug 'moll/vim-node'
 
 " Emmet
 Plug 'mattn/emmet-vim'
