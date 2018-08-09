@@ -233,7 +233,8 @@ nnoremap <silent> <leader>f/ :History/<CR>
 " =========================================================
 " Emmet
 " =========================================================
-let g:user_emmet_leader_key='<Tab>'
+""" default key is <C-y>
+" let g:user_emmet_leader_key='<Tab>'
 let g:user_emmet_settings = {
   \  'javascript.jsx' : {
     \      'extends' : 'jsx',
