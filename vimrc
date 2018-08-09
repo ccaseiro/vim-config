@@ -13,6 +13,10 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
+" Snipets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " highlight yanked text
 Plug 'machakann/vim-highlightedyank'
 
