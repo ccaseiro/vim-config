@@ -33,6 +33,9 @@ Plug 'tomtom/tcomment_vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
+" FZF-notational
+Plug 'alok/notational-fzf-vim'
+
 " Leader-Guide (similar to spacemacs) 
 Plug 'hecal3/vim-leader-guide'
 
@@ -161,6 +164,7 @@ let g:lmap =  {}
 
 let g:lmap.f =  {
                 \'name' : '+files',
+                \'n' : ['NV', 'notes'],
                 \'t' : ['NERDTreeToggle', 'NERDTree'],
                 \}
 let g:lmap.f.e = { 
@@ -229,6 +233,16 @@ nnoremap <silent> <Leader>fM        :Maps<CR>
 
 nnoremap <silent> <leader>f: :History:<CR>
 nnoremap <silent> <leader>f/ :History/<CR>
+
+" =========================================================
+" FZF - notational
+" =========================================================
+" -   `c-x`: Use search string as filename and open in vertical split.
+" -   `c-v`: Open in vertical split
+" -   `c-s`: Open in horizontal split
+" -   `c-t`: Open in new tab
+" -   `<Enter>`: Open highlighted search result in current buffer
+let g:nv_search_paths = ['~/Dropbox/Notes', 'readme.md', 'docs.md' , './notes.md']
 
 " =========================================================
 " Emmet
