@@ -89,6 +89,24 @@ set hlsearch
 " font
 set guifont=Dank\ Mono:h12,Fira\ Code:h12
 
+" =========================================================
+" Copy to global clipboard
+" =========================================================
+let g:clipboard = {
+      \   'name': 'myClipboard',
+      \   'copy': {
+      \      '+': 'pbcopy',
+      \      '*': 'pbcopy',
+      \   },
+      \   'paste': {
+      \      '+': '+',
+      \      '*': '*',
+      \   },
+      \   'cache_enabled': 1,
+      \ }
+
+set clipboard+=unnamedplus,unnamed
+" set clipboard+=unnamedplus
 
 " =========================================================
 " CtrlSF config
