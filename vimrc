@@ -294,3 +294,37 @@ let g:session_command_aliases = 1
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 
+" =========================================================
+" move to windows keybindings
+" =========================================================
+" This is needed in normal vim
+if !has('nvim')
+  execute "set <M-h>=\<Esc>h"
+  execute "set <M-j>=\<Esc>j"
+  execute "set <M-k>=\<Esc>k"
+  execute "set <M-l>=\<Esc>l"
+end
+
+" Insert:
+inoremap <M-h> <Esc><c-w>h
+inoremap <M-j> <Esc><c-w>j
+inoremap <M-k> <Esc><c-w>k
+inoremap <M-l> <Esc><c-w>l
+" Visual:
+vnoremap <M-h> <Esc><c-w>h
+vnoremap <M-j> <Esc><c-w>j
+vnoremap <M-k> <Esc><c-w>k
+vnoremap <M-l> <Esc><c-w>l
+" Normal:
+nnoremap <A-h> <c-w>h
+nnoremap <A-j> <c-w>j
+nnoremap <A-k> <c-w>k
+nnoremap <A-l> <c-w>l
+
+if has('nvim')
+  " Terminal:
+  tnoremap <M-h> <c-\><c-n><c-w>h
+  tnoremap <M-j> <c-\><c-n><c-w>j
+  tnoremap <M-k> <c-\><c-n><c-w>k
+  tnoremap <M-l> <c-\><c-n><c-w>l
+endif
