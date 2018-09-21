@@ -395,3 +395,10 @@ if has('nvim')
   tnoremap <M-l> <c-\><c-n><c-w>l
   tnoremap <M-s> <c-\><c-n>:w<CR>
 endif
+
+" =========================================================
+" Tricks
+" =========================================================
+" write file with sudo
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
