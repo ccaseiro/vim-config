@@ -92,6 +92,11 @@ set guifont=Dank\ Mono:h12,Fira\ Code:h12
 " Saving marks and jumps
 set viminfo='100,f1
 
+" auto reload
+set autoread
+au FocusGained * :checktime
+"au CursorHold * checktime
+
 " =========================================================
 " Copy to global clipboard
 " =========================================================
