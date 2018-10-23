@@ -1,4 +1,3 @@
-" =========================================================
 " Plugins
 " =========================================================
 call plug#begin()
@@ -53,6 +52,7 @@ Plug 'haishanh/night-owl.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
+Plug 'jparise/vim-graphql'
 
 " Emmet
 Plug 'mattn/emmet-vim'
@@ -370,6 +370,7 @@ let g:ale_sign_warning = '.'
 " let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 "
 let g:ale_fixers = {}
+let g:ale_fixers['graphql'] = ['prettier']
 let g:ale_fixers['javascript'] = ['prettier']
 
 let g:ale_fix_on_save = 1
