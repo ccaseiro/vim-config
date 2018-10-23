@@ -178,6 +178,24 @@ endif
 " Check space-vim form more: https://github.com/liuchengxu/space-vim/blob/master/core/autoload/spacevim/map/leader.vim
 let g:lmap =  {}
 
+let g:lmap[' '] = {
+      \ 'name': '+tab' ,
+      \ ' ' : ['tabn',   'Next Tab']  ,
+      \ 'l' : ['tabn',   'Next Tab']  ,
+      \ ']' : ['tabn',   'Next Tab']  ,
+      \ '[' : ['tabp',   'Prev Tab']  ,
+      \ 'h' : ['tabp',   'Prev Tab']  ,
+      \ '1' : ['tabn 1', 'tab-1']  ,
+      \ '2' : ['tabn 2', 'tab-2']  ,
+      \ '3' : ['tabn 3', 'tab-3']  ,
+      \ '4' : ['tabn 4', 'tab-4']  ,
+      \ '5' : ['tabn 5', 'tab-5']  ,
+      \ '6' : ['tabn 6', 'tab-6']  ,
+      \ '7' : ['tabn 7', 'tab-7']  ,
+      \ '8' : ['tabn 8', 'tab-8']  ,
+      \ '9' : ['tabn 9', 'tab-9']  ,
+      \ }
+
 let g:lmap.b = {
       \ 'name' : '+buffer' ,
       \ '1' : ['b1'        , 'buffer-1']        ,
