@@ -89,6 +89,9 @@ set hlsearch
 " font
 set guifont=Dank\ Mono:h12,Fira\ Code:h12
 
+" Saving marks and jumps
+set viminfo='100,f1
+
 " =========================================================
 " Copy to global clipboard
 " =========================================================
