@@ -378,6 +378,7 @@ let g:ale_sign_warning = '.'
 let g:ale_fixers = {}
 let g:ale_fixers['graphql'] = ['prettier']
 let g:ale_fixers['javascript'] = ['prettier']
+let g:ale_fixers['json'] = ['prettier']
 
 let g:ale_fix_on_save = 1
 
