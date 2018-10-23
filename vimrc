@@ -295,6 +295,7 @@ let g:lmap.t = {
                 \'o' : ['SessionTabOpen', 'Session Tab Open'],
                 \'c' : ['SessionTabClose', 'Session Tab Close'],
                 \'s' : ['SessionTabSave', 'Session Tab Save'],
+                \'v' : ['SessionView', 'Session View'],
                 \}
 
 call which_key#register('<Space>', "g:lmap")
