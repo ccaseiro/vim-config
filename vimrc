@@ -80,6 +80,12 @@ colorscheme night-owl
 " =========================================================
 let mapleader=' '
 
+" Required for operations modifying multiple buffers like rename.
+set hidden
+
+" relativenumber
+set number relativenumber
+
 " lower the delay, because we are using <space> as leader
 set timeoutlen=400
 
