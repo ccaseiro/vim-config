@@ -374,6 +374,8 @@ let g:user_emmet_settings = {
 " =========================================================
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
+set signcolumn=yes
+" let g:ale_sign_column_always=1 " always show sign column
 " let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 "
 let g:ale_fixers = {}
