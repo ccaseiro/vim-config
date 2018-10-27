@@ -28,6 +28,9 @@ Plug 'terryma/vim-multiple-cursors'
 " Comments
 Plug 'tomtom/tcomment_vim'
 
+" Auto close bracket / parenthises
+Plug 'jiangmiao/auto-pairs'
+
 " FZF
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
