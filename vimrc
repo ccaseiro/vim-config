@@ -256,10 +256,10 @@ let g:lmap.f = {
       \ '9' : ['set foldlevel=9'    , '9-fold-level']                    ,
       \ 'b' : ['BLines'             , 'fzf-find-current-buffer']         ,
       \ 'd' : ['NERDTreeFind'       , 'find-current-buffer-in-NERDTree'] ,
-      \ 'f' : ['Files ~'            , 'files-in-home-direcotry']         ,
+      \ '~' : ['Files ~'            , 'files-in-home-direcotry']         ,
       \ 's' : ['save'               , 'save-file']                       ,
       \ 't' : ['NERDTreeToggle'     , 'toggle-NERDTree']                 ,
-      \ '?' : ['Files'              , 'files-in-current-direcotry']      ,
+      \ 'f' : ['Files'              , 'files-in-current-direcotry']      ,
       \ 'R' : ['source $MYVIMRC'    , 'reload-vimrc']                    ,
       \ }
 
