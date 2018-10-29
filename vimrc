@@ -91,6 +91,7 @@ set number relativenumber
 
 " lower the delay, because we are using <space> as leader
 set timeoutlen=400
+set ttimeoutlen=0
 
 " highlight all search matches
 set hlsearch
