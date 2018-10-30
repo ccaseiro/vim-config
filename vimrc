@@ -208,7 +208,9 @@ endif
 " =========================================================
 
 " Check space-vim form more: https://github.com/liuchengxu/space-vim/blob/master/core/autoload/spacevim/map/leader.vim
-let g:lmap =  {}
+let g:lmap =  {
+      \ "'" : ['below 20sp term://$SHELL | startinsert',   'Terminal']  ,
+      \ }
 
 let g:lmap[' '] = {
       \ 'name': '+tab' ,
