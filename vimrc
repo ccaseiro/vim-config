@@ -123,6 +123,9 @@ let g:UltiSnipsListSnippets="<c-l>"
 " Mouse
 set mouse=a
 
+" Window sizing
+set winheight=20
+set winminheight=0
 
 " =========================================================
 " Copy to global clipboard
