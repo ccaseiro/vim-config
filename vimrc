@@ -113,6 +113,14 @@ au FocusGained * :checktime
 " autocomplete
 let g:deoplete#enable_at_startup = 1
 
+" Snipets
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" let g:UltiSnipsExpandTrigger="<tab>"
+" let g:UltiSnipsJumpForwardTrigger="<c-j>"
+" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsListSnippets="<c-l>"
+
+
 " =========================================================
 " Copy to global clipboard
 " =========================================================
