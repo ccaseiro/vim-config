@@ -423,10 +423,10 @@ vnoremap <M-k> <Esc><c-w>k
 vnoremap <M-l> <Esc><c-w>l
 vnoremap <A-s> <Esc>:w<CR>
 " Normal:
-nnoremap <A-h> <c-w>h
-nnoremap <A-j> <c-w>j
-nnoremap <A-k> <c-w>k
-nnoremap <A-l> <c-w>l
+" nnoremap <D-h> <c-w>h
+" nnoremap <D-j> <c-w>j
+" nnoremap <D-k> <c-w>k
+" nnoremap <A-l> <c-w>l
 nnoremap <A-s> :w<CR>
 
 if has('nvim')
