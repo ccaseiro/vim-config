@@ -421,6 +421,15 @@ let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 
 " =========================================================
+" External re-mappins (karabiner and iTerm)
+" =========================================================
+" F6  - <C-i>
+" F20 - <M-h>
+" F21 - <M-j>
+" F22 - <M-k>
+" F23 - <M-l>
+
+" =========================================================
 " move to windows keybindings
 " =========================================================
 " This is needed in normal vim
@@ -433,31 +442,31 @@ if !has('nvim')
 end
 
 " Insert:
-inoremap <M-h> <Esc><c-w>h
-inoremap <M-j> <Esc><c-w>j
-inoremap <M-k> <Esc><c-w>k
-inoremap <M-l> <Esc><c-w>l
+inoremap <F20> <Esc><c-w>h
+inoremap <F21> <Esc><c-w>j
+inoremap <F22> <Esc><c-w>k
+inoremap <F23> <Esc><c-w>l
 inoremap <A-s> <Esc>:w<CR>
 " Visual:
-vnoremap <M-h> <Esc><c-w>h
-vnoremap <M-j> <Esc><c-w>j
-vnoremap <M-k> <Esc><c-w>k
-vnoremap <M-l> <Esc><c-w>l
+vnoremap <F20> <Esc><c-w>h
+vnoremap <F21> <Esc><c-w>j
+vnoremap <F22> <Esc><c-w>k
+vnoremap <F23> <Esc><c-w>l
 vnoremap <A-s> <Esc>:w<CR>
 " Normal:
-" nnoremap <D-h> <c-w>h
-" nnoremap <D-j> <c-w>j
-" nnoremap <D-k> <c-w>k
-" nnoremap <A-l> <c-w>l
+nnoremap <F20> <c-w>h
+nnoremap <F21> <c-w>j
+nnoremap <F22> <c-w>k
+nnoremap <F23> <c-w>l
 nnoremap <A-s> :w<CR>
 
 if has('nvim')
   " Terminal:
-  tnoremap <M-h> <c-\><c-n><c-w>h
-  tnoremap <M-j> <c-\><c-n><c-w>j
-  tnoremap <M-k> <c-\><c-n><c-w>k
-  tnoremap <M-l> <c-\><c-n><c-w>l
-  tnoremap <M-s> <c-\><c-n>:w<CR>
+  tnoremap <F20> <c-\><c-n><c-w>h
+  tnoremap <F21> <c-\><c-n><c-w>j
+  tnoremap <F22> <c-\><c-n><c-w>k
+  tnoremap <F23> <c-\><c-n><c-w>l
+  tnoremap <A-s> <c-\><c-n>:w<CR>
 endif
 
 " =========================================================
