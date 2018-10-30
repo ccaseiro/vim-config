@@ -16,6 +16,9 @@ Plug 'tpope/vim-repeat'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
+" Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " highlight yanked text
 Plug 'machakann/vim-highlightedyank'
 
@@ -106,6 +109,9 @@ set viminfo='100,f1
 set autoread
 au FocusGained * :checktime
 "au CursorHold * checktime
+
+" autocomplete
+let g:deoplete#enable_at_startup = 1
 
 " =========================================================
 " Copy to global clipboard
