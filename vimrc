@@ -120,6 +120,9 @@ let g:deoplete#enable_at_startup = 1
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-l>"
 
+" Mouse
+set mouse=a
+
 
 " =========================================================
 " Copy to global clipboard
