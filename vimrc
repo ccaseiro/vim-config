@@ -12,12 +12,13 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
+" Autocomplete
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'lifepillar/vim-mucomplete'
+
 " Snipets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
-" Autocomplete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " highlight yanked text
 Plug 'machakann/vim-highlightedyank'
@@ -111,10 +112,11 @@ au FocusGained * :checktime
 "au CursorHold * checktime
 
 " autocomplete
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
+
 " deoplete tab-complete
 " set completeopt=menuone,longest,preview,noinsert
-"
+" set completeopt=menuone,noinsert
 
 " inoremap <expr> <TAB> pumvisible() ? "\<C-y><tab>" : "\<tab>"
 " inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
@@ -124,11 +126,21 @@ let g:deoplete#enable_at_startup = 1
 
 " inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 " inoremap <silent><expr><tab> pumvisible() ? "\<c-y>" : "\<tab>"
+
 "
+" mucomplete
+" Some configuration is in 'after/plugin/mucomplete.vim'
+set completeopt=menuone,noinsert
+let g:mucomplete#enable_auto_at_startup = 1
+"
+let g:mucomplete#chains = {}
+let g:mucomplete#chains.default  = ['path', 'omni', 'ulti', 'keyn', 'dict', 'uspl']
+
 
 " Snipets
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsExpandTrigger="<tab>"
+" Change to F5 to use Tab with mucomplete
+let g:UltiSnipsExpandTrigger="<F5>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-l>"
