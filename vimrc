@@ -112,6 +112,19 @@ au FocusGained * :checktime
 
 " autocomplete
 let g:deoplete#enable_at_startup = 1
+" deoplete tab-complete
+" set completeopt=menuone,longest,preview,noinsert
+"
+
+" inoremap <expr> <TAB> pumvisible() ? "\<C-y><tab>" : "\<tab>"
+" inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+" inoremap <expr> <C-j> pumvisible() ? "\<Down>" : "\<C-j>"
+" inoremap <expr> <C-k> pumvisible() ? "\<Up>" : "\<C-k>"
+
+
+" inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+" inoremap <silent><expr><tab> pumvisible() ? "\<c-y>" : "\<tab>"
+"
 
 " Snipets
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -168,7 +181,7 @@ noremap! <c-e> <End>
 noremap! <c-f> <Right>
 noremap! <c-b> <Left>
 noremap! <c-d> <Delete>
-noremap! <c-n> <Down>
+" noremap! <c-n> <Down>
 noremap! <c-p> <Up>
 inoremap <c-g> <c-p>
 
@@ -487,4 +500,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " <C-i> (have it send F6 instead for <C-i>).
 nnoremap <F6> <C-i>
 
+" Remapping
+nnoremap Y y$
 
