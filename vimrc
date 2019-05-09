@@ -60,6 +60,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
 Plug 'jparise/vim-graphql'
+Plug 'AndrewRadev/tagalong.vim'
 
 " Emmet
 Plug 'mattn/emmet-vim'
