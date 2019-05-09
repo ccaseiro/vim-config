@@ -405,6 +405,7 @@ nnoremap <silent> <leader>f/ :History/<CR>
 " -   `c-v`: Open in vertical split
 " -   `c-s`: Open in horizontal split
 " -   `c-t`: Open in new tab
+" -   `c-y`: Yank the selected filenames
 " -   `<Enter>`: Open highlighted search result in current buffer
 let g:nv_search_paths = ['~/Dropbox/Notes', 'readme.md', 'docs.md' , './notes.md']
 
