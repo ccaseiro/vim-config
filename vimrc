@@ -307,15 +307,15 @@ let g:lmap.f = {
       \ 's' : ['save'               , 'save-file']                       ,
       \ 't' : ['NERDTreeToggle'     , 'toggle-NERDTree']                 ,
       \ 'f' : ['Files'              , 'files-in-current-direcotry']      ,
-      \ 'R' : ['source $MYVIMRC'    , 'reload-vimrc']                    ,
+      \ 'R' : [':source $MYVIMRC'    , 'reload-vimrc']                    ,
       \ }
 
 let g:lmap.f.e = { 
                   \'name' : '+vimrc',
-                  \'d' : ['e ~/.vim/vimrc', '.vimrc'],
-                  \'v' : ['e $MYVIMRC', '$MYVIMRC'],
-                  \'r' : ['so $MYVIMRC', 'sync $MYVIMRC'],
-                  \'R' : ['so $MYVIMRC', 'sync $MYVIMRC'],
+                  \'d' : [':e ~/.vim/vimrc', '.vimrc'],
+                  \'v' : [':e $MYVIMRC', '$MYVIMRC'],
+                  \'r' : [':so $MYVIMRC', 'sync $MYVIMRC'],
+                  \'R' : [':so $MYVIMRC', 'sync $MYVIMRC'],
                   \}
 let g:lmap.l = {
       \ 'name' : '+lsp'                                            ,
