@@ -14,7 +14,9 @@ Plug 'tpope/vim-repeat'
 
 " Autocomplete
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'lifepillar/vim-mucomplete'
+" For Denite features
+" Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'lifepillar/vim-mucomplete'
 
 " Snipets
 Plug 'SirVer/ultisnips'
@@ -62,11 +64,27 @@ Plug 'moll/vim-node'
 Plug 'jparise/vim-graphql'
 Plug 'AndrewRadev/tagalong.vim'
 
+" Typescript
+Plug 'leafgarland/typescript-vim'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Rust
+Plug 'rust-lang/rust.vim'
+
+" Swift
+Plug 'toyamarinyon/vim-swift'
+
 " Emmet
 Plug 'mattn/emmet-vim'
 
 " Syntax checking
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
+
+" Customized vim status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -113,7 +131,19 @@ au FocusGained * :checktime
 "au CursorHold * checktime
 
 " autocomplete
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" To get correct comment highlighting in jsonc (json with comments)
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
 
 " deoplete tab-complete
 " set completeopt=menuone,longest,preview,noinsert
@@ -131,11 +161,11 @@ au FocusGained * :checktime
 "
 " mucomplete
 " Some configuration is in 'after/plugin/mucomplete.vim'
-set completeopt=menuone,noinsert
-let g:mucomplete#enable_auto_at_startup = 1
-"
-let g:mucomplete#chains = {}
-let g:mucomplete#chains.default  = ['path', 'omni', 'ulti', 'keyn', 'dict', 'uspl']
+" set completeopt=menuone,noinsert
+" let g:mucomplete#enable_auto_at_startup = 1
+" "
+" let g:mucomplete#chains = {}
+" let g:mucomplete#chains.default  = ['path', 'omni', 'ulti', 'keyn', 'dict', 'uspl']
 
 
 " Snipets
@@ -411,6 +441,11 @@ nnoremap <silent> <leader>f/ :History/<CR>
 let g:nv_search_paths = ['~/Dropbox/Notes', 'readme.md', 'docs.md' , './notes.md']
 
 " =========================================================
+" Rust
+" =========================================================
+let g:rustfmt_autosave = 1
+
+" =========================================================
 " Emmet
 " =========================================================
 """ default key is <C-y>
@@ -425,19 +460,18 @@ let g:user_emmet_settings = {
 " =========================================================
 " Ale
 " =========================================================
-let g:ale_sign_error = '●' " Less aggressive than the default '>>'
-let g:ale_sign_warning = '.'
-set signcolumn=yes
-" let g:ale_sign_column_always=1 " always show sign column
-" let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+" let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+" let g:ale_sign_warning = '.'
+" " let g:ale_sign_column_always=1 " always show sign column
+" " let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+" "
+" let g:ale_fixers = {}
+" let g:ale_fixers['graphql'] = ['prettier']
+" let g:ale_fixers['javascript'] = ['prettier']
+" let g:ale_fixers['json'] = ['prettier']
+" let g:ale_fixers['markdown'] = ['prettier']
 "
-let g:ale_fixers = {}
-let g:ale_fixers['graphql'] = ['prettier']
-let g:ale_fixers['javascript'] = ['prettier']
-let g:ale_fixers['json'] = ['prettier']
-let g:ale_fixers['markdown'] = ['prettier']
-
-let g:ale_fix_on_save = 1
+" let g:ale_fix_on_save = 1
 
 " =========================================================
 " Session
@@ -520,3 +554,92 @@ nnoremap Y y$
 " Search down into subfolders
 " Provides tab-completion for all file related tasks
 set path+=**
+
+""" airline
+" Configure error/warning section to use coc.nvim
+let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+
+
+
+
+""""""""""""""
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+" Use <c-space> to trigger completion.
+" inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+" nmap <f2> <Plug>(coc-rename)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>ca  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>ce  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>cc  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>co  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>cs  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>cj  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>ck  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>cp  :<C-u>CocListResume<CR>
+
