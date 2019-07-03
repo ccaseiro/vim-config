@@ -15,9 +15,13 @@ Plug 'tpope/vim-fugitive'
 
 " Autocomplete
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" For Denite features
-" Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+" Denite - Fuzzy finding, buffer management
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+
 " Plug 'lifepillar/vim-mucomplete'
+
+" Print function signatures in echo area
+Plug 'Shougo/echodoc.vim'
 
 " Snipets
 Plug 'SirVer/ultisnips'
@@ -39,6 +43,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'jiangmiao/auto-pairs'
 
 " FZF
+Plug 'airblade/vim-rooter'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
@@ -57,6 +62,7 @@ Plug 'scrooloose/nerdtree'
 
 " Colorscheme
 Plug 'haishanh/night-owl.vim'
+Plug 'chriskempson/base16-vim'
 
 " Syntax Highlighting - Javascript
 Plug 'pangloss/vim-javascript'
@@ -66,8 +72,8 @@ Plug 'jparise/vim-graphql'
 Plug 'AndrewRadev/tagalong.vim'
 
 " Typescript
-Plug 'leafgarland/typescript-vim'
-" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -87,6 +93,9 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Git
+Plug 'airblade/vim-gitgutter'
+
 call plug#end()
 
 
@@ -100,7 +109,34 @@ endif
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-colorscheme night-owl
+let base16colorspace=256  " Access colors present in 256 colorspace
+
+" Syntax: call Base16hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
+function! s:base16_customize() abort
+   call Base16hi("htmlBold",    g:base16_gui0A, "", g:base16_cterm08, "", "bold", "") 
+   call Base16hi("markdownBold",    g:base16_gui0A, "", g:base16_cterm08, "", "bold", "") 
+   call Base16hi("markdownHeadingDelimiter",    g:base16_gui0A, "", g:base16_cterm08, "", "bold", "") 
+   call Base16hi("markdownH1",    g:base16_gui0A, "", g:base16_cterm08, "", "bold", "") 
+   call Base16hi("markdownH2",    g:base16_gui0A, "", g:base16_cterm08, "", "bold", "") 
+   call Base16hi("htmlItalic",  g:base16_gui0E, "", g:base16_cterm0A, "", "italic", "")
+   call Base16hi("markdownItalic",  g:base16_gui0E, "", g:base16_cterm0A, "", "italic", "")
+   call Base16hi("htmlUnderline",  g:base16_gui0E, "", g:base16_cterm0A, "", "underline", "")
+   call Base16hi("Italic",        "", "", "", "", "italic", "")
+   call Base16hi("Comment",      g:base16_gui03, "", g:base16_cterm03, "", "italic", "")
+endfunction
+
+augroup on_change_colorschema
+  autocmd!
+  autocmd ColorScheme * call s:base16_customize()
+augroup END
+
+
+" colorscheme night-owl
+colorscheme base16-gruvbox-dark-hard
+" colorscheme base16-default-dark
+" colorscheme base16-atelier-dune
+"
+"
 
 " =========================================================
 " General config
@@ -126,10 +162,12 @@ set guifont=Dank\ Mono:h12,Fira\ Code:h12
 " Saving marks and jumps
 set viminfo='100,f1
 
-" auto reload
+" will make Vim automatically read the file again if it detects the file has 
+" been changed outside of Vim
 set autoread
-au FocusGained * :checktime
-"au CursorHold * checktime
+" au FocusGained * :checktime
+" "au CursorHold * checktime
+autocmd FocusGained,CursorHold ?* if getcmdwintype() == '' | checktime | endif
 
 " autocomplete
 let g:deoplete#enable_at_startup = 1
@@ -183,6 +221,26 @@ set mouse=a
 " Window sizing
 set winheight=20
 set winminheight=0
+
+set colorcolumn=80 " and give me a colored column
+
+" Search results centered please
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+" Very magic by default
+nnoremap ? ?\v
+nnoremap / /\v
+cnoremap %s/ %sm/
+
+" =========================================================
+" Permanent Undo
+" =========================================================
+set undodir=~/.vim/undodir
+set undofile
 
 " =========================================================
 " Copy to global clipboard
@@ -315,28 +373,30 @@ let g:lmap.b = {
       \ '?' : ['Buffers'   , 'fzf-buffer']      ,
       \ }
 
-let g:lmap.e = {
-      \ 'name' : '+errors'                              ,
-      \ 'n' : ['<Plug>(ale_next)'     , 'next-error']     ,
-      \ 'p' : ['<Plug>(ale_previous)' , 'previous-error'] ,
-      \ }
+" let g:lmap.e = {
+"       \ 'name' : '+errors'                              ,
+"       \ 'n' : ['<Plug>(ale_next)'     , 'next-error']     ,
+"       \ 'p' : ['<Plug>(ale_previous)' , 'previous-error'] ,
+"       \ }
+"
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR><Paste>
 
 let g:lmap.f = {
       \ 'name' : '+find/files/fold' ,
-      \ '0' : ['set foldlevel=0'    , '0-fold-level']                    ,
-      \ '1' : ['set foldlevel=1'    , '1-fold-level']                    ,
-      \ '2' : ['set foldlevel=2'    , '2-fold-level']                    ,
-      \ '3' : ['set foldlevel=3'    , '3-fold-level']                    ,
-      \ '4' : ['set foldlevel=4'    , '4-fold-level']                    ,
-      \ '5' : ['set foldlevel=5'    , '5-fold-level']                    ,
-      \ '6' : ['set foldlevel=6'    , '6-fold-level']                    ,
-      \ '7' : ['set foldlevel=7'    , '7-fold-level']                    ,
-      \ '8' : ['set foldlevel=8'    , '8-fold-level']                    ,
-      \ '9' : ['set foldlevel=9'    , '9-fold-level']                    ,
+      \ '0' : [':set foldlevel=0'    , '0-fold-level']                    ,
+      \ '1' : [':set foldlevel=1'    , '1-fold-level']                    ,
+      \ '2' : [':set foldlevel=2'    , '2-fold-level']                    ,
+      \ '3' : [':set foldlevel=3'    , '3-fold-level']                    ,
+      \ '4' : [':set foldlevel=4'    , '4-fold-level']                    ,
+      \ '5' : [':set foldlevel=5'    , '5-fold-level']                    ,
+      \ '6' : [':set foldlevel=6'    , '6-fold-level']                    ,
+      \ '7' : [':set foldlevel=7'    , '7-fold-level']                    ,
+      \ '8' : [':set foldlevel=8'    , '8-fold-level']                    ,
+      \ '9' : [':set foldlevel=9'    , '9-fold-level']                    ,
       \ 'b' : ['BLines'             , 'fzf-find-current-buffer']         ,
       \ 'd' : ['NERDTreeFind'       , 'find-current-buffer-in-NERDTree'] ,
-      \ '~' : ['Files ~'            , 'files-in-home-direcotry']         ,
-      \ 's' : ['save'               , 'save-file']                       ,
+      \ '~' : [':Files ~'           , 'files-in-home-direcotry']         ,
+      \ 's' : ['write'               , 'save-file']                       ,
       \ 't' : ['NERDTreeToggle'     , 'toggle-NERDTree']                 ,
       \ 'f' : ['Files'              , 'files-in-current-direcotry']      ,
       \ 'R' : [':source $MYVIMRC'    , 'reload-vimrc']                    ,
@@ -350,20 +410,17 @@ let g:lmap.f.e = {
                   \'R' : [':so $MYVIMRC', 'sync $MYVIMRC'],
                   \}
 let g:lmap.l = {
-      \ 'name' : '+lsp'                                            ,
-      \ 'a' : ['LanguageClient#textDocument_codeAction()'     , 'code-action']      ,
-      \ 'c' : ['LanguageClient_contextMenu()'                 , 'context-menu']      ,
-      \ 'f' : ['LanguageClient#textDocument_formatting()'     , 'formatting']       ,
-      \ 'h' : ['LanguageClient#textDocument_hover()'          , 'hover']            ,
-      \ 'r' : ['LanguageClient#textDocument_references()'     , 'references']       ,
-      \ 'R' : ['LanguageClient#textDocument_rename()'         , 'rename']           ,
-      \ 's' : ['LanguageClient#textDocument_documentSymbol()' , 'document-symbol']  ,
-      \ 'S' : ['LanguageClient#workspace_symbol()'            , 'workspace-symbol'] ,
+      \ 'name' : '+lsp',
+      \ 'f' : ['spacevim#lang#util#Format()'          , 'formatting']       ,
+      \ 'r' : ['spacevim#lang#util#FindReferences()'  , 'references']       ,
+      \ 'R' : ['spacevim#lang#util#Rename()'          , 'rename']           ,
+      \ 's' : ['spacevim#lang#util#DocumentSymbol()'  , 'document-symbol']  ,
+      \ 'S' : ['spacevim#lang#util#WorkspaceSymbol()' , 'workspace-symbol'] ,
       \ 'g' : {
         \ 'name': '+goto',
-        \ 'd' : ['LanguageClient#textDocument_definition()'     , 'definition']       ,
-        \ 't' : ['LanguageClient#textDocument_typeDefinition()' , 'type-definition']  ,
-        \ 'i' : ['LanguageClient#textDocument_implementation()'  , 'implementation']   ,
+        \ 'd' : ['spacevim#lang#util#Definition()'     , 'definition']      ,
+        \ 't' : ['spacevim#lang#util#TypeDefinition()' , 'type-definition'] ,
+        \ 'i' : ['spacevim#lang#util#Implementation()' , 'implementation']  ,
         \ },
       \ }
 
@@ -381,9 +438,51 @@ let g:lmap.t = {
                 \'v' : ['SessionView', 'Session View'],
                 \}
 
+" let g:which_key_map['w'] = {
+let g:lmap['w'] = {
+      \ 'name' : '+windows' ,
+      \ 'w' : ['<C-W>w'     , 'other-window']          ,
+      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
+      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
+      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
+      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
+      \ 'h' : ['<C-W>h'     , 'window-left']           ,
+      \ 'j' : ['<C-W>j'     , 'window-below']          ,
+      \ 'l' : ['<C-W>l'     , 'window-right']          ,
+      \ 'k' : ['<C-W>k'     , 'window-up']             ,
+      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
+      \ 'J' : [':resize +5' , 'expand-window-below']   ,
+      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
+      \ 'K' : [':resize -5' , 'expand-window-up']      ,
+      \ '=' : ['<C-W>='     , 'balance-window']        ,
+      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
+      \ 'v' : ['<C-W>v'     , 'split-window-right']    ,
+      \ '?' : ['Windows'    , 'fzf-window']            ,
+      \ }
+
+nnoremap <leader>1 :1wincmd w<CR>
+nnoremap <leader>2 :2wincmd w<CR>
+nnoremap <leader>3 :3wincmd w<CR>
+nnoremap <leader>4 :4wincmd w<CR>
+nnoremap <leader>5 :5wincmd w<CR>
+nnoremap <leader>6 :6wincmd w<CR>
+let g:lmap.1 = 'which_key_ignore'
+let g:lmap.2 = 'which_key_ignore'
+let g:lmap.3 = 'which_key_ignore'
+let g:lmap.4 = 'which_key_ignore'
+let g:lmap.5 = 'which_key_ignore'
+let g:lmap.6 = 'which_key_ignore'
+
 call which_key#register('<Space>', "g:lmap")
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+
+
+let g:lmap.d = {
+      \ 'name' : '+denite' ,
+      \ 'b' : 'buffers'        ,
+      \ }
+
 
 " Hide statusline
 " autocmd! FileType which_key
@@ -395,9 +494,50 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 " FZF
 " =========================================================
 
+" Reverse the layout to make the FZF list top-down
+let $FZF_DEFAULT_OPTS='--layout=reverse'
+
+" Using the custom window creation function
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+" Function to create the custom floating window
+function! FloatingFZF()
+  " creates a scratch, unlisted, new, empty, unnamed buffer
+  " to be used in the floating window
+  let buf = nvim_create_buf(v:false, v:true)
+
+  " 90% of the height
+  let height = float2nr(&lines * 0.9)
+  " 60% of the height
+  let width = float2nr(&columns * 0.6)
+  " horizontal position (centralized)
+  let horizontal = float2nr((&columns - width) / 2)
+  " vertical position (one line down of the top)
+  let vertical = 1
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  " open the new window, floating, and enter to it
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+
 " localleader = f
 
-"nnoremap <C-p> :<C-u>FZF<CR>
+" <leader><leader> toggles between buffers
+nnoremap <leader><leader> <c-^>
+" nnoremap <C-p> :<C-u>FZF<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>; :Buffers<CR>
+" <leader>, shows/hides hidden characters
+nnoremap <leader>, :set invlist<cr>
+
+
 " nnoremap <silent> <Leader>ff  :Files<CR>
 " nnoremap <silent> <Leader>bb  :Buffers<CR>
 nnoremap <silent> <leader>fr  :History<CR>
@@ -416,6 +556,9 @@ nnoremap <silent> <Leader>pg        :Tags<CR>
 " nnoremap <silent> <Leader>/         :Lines<CR>
 " nnoremap <silent> <Leader>/         :Ag<CR>
 nnoremap <silent> <Leader>sp        :Ag<CR>
+nnoremap <silent> <Leader>ss        :Ag<CR>
+
+nnoremap <silent> <Leader>r         :Rg<CR>
 
 " nnoremap <silent> <Leader>*         :Ag <C-R><C-W><CR>
 nnoremap <silent> <Leader>sP        :Ag <C-R><C-W><CR>
@@ -564,7 +707,9 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 
 
 
-""""""""""""""
+" ===============================
+" Coc
+" ===============================
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
@@ -576,14 +721,15 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-let g:coc_snippet_next = '<tab>'
+" let g:coc_snippet_next = '<tab>'
+" let g:coc_snippet_prev = '<s-tab>'
 
 " Use <c-space> to trigger completion.
 " inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> [w <Plug>(coc-diagnostic-prev)
+nmap <silent> ]w <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
@@ -593,6 +739,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+" nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -603,11 +750,12 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+nnoremap <silent> gh :call CocActionAsync('highlight')<CR>
 
 " Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-" nmap <f2> <Plug>(coc-rename)
+" nmap <leader>rn <Plug>(coc-rename)
+nmap <f2> <Plug>(coc-rename)
 
 augroup mygroup
   autocmd!
@@ -643,4 +791,67 @@ nnoremap <silent> <space>cj  :<C-u>CocNext<CR>
 nnoremap <silent> <space>ck  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>cp  :<C-u>CocListResume<CR>
+
+
+
+""" denite
+call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '!node_modules'])
+
+" Ripgrep command on grep source
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts',
+		\ ['-i', '--vimgrep', '--no-heading'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+" Use ripgrep in place of "grep"
+" call denite#custom#var('grep', 'command', ['rg'])
+
+" === Denite shorcuts === "
+"   ;         - Browser currently open buffers
+"   <leader>t - Browse list of files in current directory
+"   <leader>g - Search current directory for occurences of given term and
+"   close window if no results
+"   <leader>j - Search current directory for occurences of word under cursor
+nmap <leader>db :Denite buffer -split=floating -winrow=1<CR>
+nmap <leader>dt :Denite file/rec -split=floating -winrow=1<CR>
+" nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
+nnoremap <leader>g :<C-u>Denite grep<CR>
+nnoremap <leader>j :<C-u>DeniteCursorWord grep<CR>
+
+" Define mappings
+autocmd FileType denite call s:denite_my_settings()
+function! s:denite_my_settings() abort
+  nnoremap <silent><buffer><expr> <CR>
+  \ denite#do_map('do_action')
+  nnoremap <silent><buffer><expr> d
+  \ denite#do_map('do_action', 'delete')
+  nnoremap <silent><buffer><expr> p
+  \ denite#do_map('do_action', 'preview')
+  nnoremap <silent><buffer><expr> q
+  \ denite#do_map('quit')
+  nnoremap <silent><buffer><expr> i
+  \ denite#do_map('open_filter_buffer')
+  nnoremap <silent><buffer><expr> <Space>
+  \ denite#do_map('toggle_select').'j'
+endfunction
+
+"
+" === Open ===
+"
+nnoremap <silent> <leader>oq  :copen<CR>
+nnoremap <silent> <leader>ol  :lopen<CR>
+let g:lmap.o = {
+      \ 'name' : '+open',
+      \ 'q' : 'open-quickfix'    ,
+      \ 'l' : 'open-locationlist',
+      \ }
+
+"
+" === GitGutter ===
+"
+nmap ]g <Plug>GitGutterNextHunk
+nmap [g <Plug>GitGutterPrevHunk
 
