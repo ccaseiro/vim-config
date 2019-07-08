@@ -908,4 +908,20 @@ let g:ale_linters = { 'cs': ['OmniSharp'] }
 " Update symantic highlighting on BufEnter and InsertLeave
 let g:OmniSharp_highlight_types = 2
 
+" =============================================================================
+" hacks
+" =============================================================================
+
+" convert rows of numbers or text (as if pasted from excel column) to a tuple
+"
+function! ToTupleFunction() range
+  silent execute a:firstline . "," . a:lastline . "s/^/'/"
+  silent execute a:firstline . "," . a:lastline . "s/$/',/"
+  silent execute a:firstline . "," . a:lastline . "join"
+  silent execute "normal! I("
+  silent execute "normal! $xa)"
+  silent execute "normal! \"*yy"
+endfunction
+
+command! -range ToTuple <line1>,<line2> call ToTupleFunction()
 
