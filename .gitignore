@@ -3,5 +3,6 @@
 /sessions/*.vim
 /sessions/*.vim.lock
 /sessions/.gitignore
+/autoload/plug.vim.old
 /undodir/
 /.scratch
