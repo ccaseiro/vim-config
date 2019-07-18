@@ -241,6 +241,25 @@ set smartcase
 " cnoremap %s/ %sm/
 
 " =========================================================
+" copy current path
+" =========================================================
+
+" copy current file name (relative/absolute) to system clipboard
+if has("mac") || has("gui_macvim") || has("gui_mac")
+  " relative path  (src/foo.txt)
+  nnoremap <leader>yf :let @*=expand("%")<CR>
+
+  " absolute path  (/something/src/foo.txt)
+  nnoremap <leader>yF :let @*=expand("%:p")<CR>
+
+  " filename       (foo.txt)
+  nnoremap <leader>yt :let @*=expand("%:t")<CR>
+
+  " directory name (/something/src)
+  nnoremap <leader>yh :let @*=expand("%:p:h")<CR>
+endif
+
+" =========================================================
 " Permanent Undo
 " =========================================================
 set undodir=~/.vim/undodir
@@ -377,6 +396,14 @@ let g:lmap.b = {
       \ '?' : ['Buffers'   , 'fzf-buffer']      ,
       \ }
 
+let g:lmap.y = {
+      \ 'name' : '+yank',
+      \ 'f' : 'relative path',
+      \ 'F' : 'absolute path',
+      \ 't' : 'filename',
+      \ 'h' : 'directory name',
+      \ }
+
 " let g:lmap.e = {
 "       \ 'name' : '+errors'                              ,
 "       \ 'n' : ['<Plug>(ale_next)'     , 'next-error']     ,
@@ -464,6 +491,8 @@ let g:lmap['w'] = {
       \ '?' : ['Windows'    , 'fzf-window']            ,
       \ }
 
+
+
 nnoremap <leader>1 :1wincmd w<CR>
 nnoremap <leader>2 :2wincmd w<CR>
 nnoremap <leader>3 :3wincmd w<CR>
@@ -492,7 +521,6 @@ let g:lmap.d = {
 " autocmd! FileType which_key
 " autocmd  FileType which_key set laststatus=0 noshowmode noruler
 "   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
 
 " =========================================================
 " FZF
