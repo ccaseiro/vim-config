@@ -4,3 +4,4 @@
 /sessions/*.vim.lock
 /sessions/.gitignore
 /undodir/
+/.scratch
