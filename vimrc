@@ -724,9 +724,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " <C-i> (have it send F6 instead for <C-i>).
 nnoremap <F6> <C-i>
 
-" Remapping
-nnoremap Y y$
-
 " Search down into subfolders
 " Provides tab-completion for all file related tasks
 set path+=**
