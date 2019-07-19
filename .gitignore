@@ -6,3 +6,4 @@
 /autoload/plug.vim.old
 /undodir/
 /.scratch
+node_modules/
