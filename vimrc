@@ -97,6 +97,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 
 Plug 'OmniSharp/omnisharp-vim'
+
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 
