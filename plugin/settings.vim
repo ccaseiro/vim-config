@@ -1,5 +1,7 @@
 scriptencoding utf-8
 
+set cursorline                        " highlight current line
+
 if has('folding')
   if has('windows')
     set fillchars=vert:┃              " BOX DRAWINGS HEAVY VERTICAL (U+2503, UTF-8: E2 94 83)
