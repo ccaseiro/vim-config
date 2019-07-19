@@ -874,7 +874,7 @@ endfunction
 "
 nnoremap <silent> <leader>eq  :copen<CR>
 nnoremap <silent> <leader>el  :lopen<CR>
-let g:lmap.o = {
+let g:lmap.e = {
       \ 'name' : '+open',
       \ 'q' : 'open-quickfix'    ,
       \ 'l' : 'open-locationlist',
