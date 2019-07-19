@@ -410,7 +410,7 @@ let g:lmap.y = {
 "       \ 'p' : ['<Plug>(ale_previous)' , 'previous-error'] ,
 "       \ }
 "
-nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR><Paste>
+nnoremap <leader>ee :e <C-R>=expand("%:p:h") . "/" <CR><Paste>
 
 let g:lmap.f = {
       \ 'name' : '+find/files/fold' ,
@@ -801,7 +801,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 
 " Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+nmap <leader>cf  <Plug>(coc-fix-current)
 
 " Using CocList
 " Show all diagnostics
@@ -870,8 +870,8 @@ endfunction
 "
 " === Open ===
 "
-nnoremap <silent> <leader>oq  :copen<CR>
-nnoremap <silent> <leader>ol  :lopen<CR>
+nnoremap <silent> <leader>eq  :copen<CR>
+nnoremap <silent> <leader>el  :lopen<CR>
 let g:lmap.o = {
       \ 'name' : '+open',
       \ 'q' : 'open-quickfix'    ,
