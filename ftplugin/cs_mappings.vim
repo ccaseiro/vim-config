@@ -5,13 +5,18 @@
 nnoremap <buffer> gd :OmniSharpGotoDefinition<CR>
 nnoremap <buffer> <Leader>li :OmniSharpFindImplementations<CR>
 nnoremap <buffer> <Leader>ls :OmniSharpFindSymbol<CR>
-nnoremap <buffer> <Leader>lu :OmniSharpFindUsages<CR>
+
+" nnoremap <buffer> <Leader>lu :OmniSharpFindUsages<CR>
+nnoremap <buffer> gu :OmniSharpFindUsages<CR>
 
 " Finds members in the current buffer
 nnoremap <buffer> <Leader>lm :OmniSharpFindMembers<CR>
 
 nnoremap <buffer> <Leader>lx :OmniSharpFixUsings<CR>
-nnoremap <buffer> <Leader>lt :OmniSharpTypeLookup<CR>
+
+" nnoremap <buffer> <Leader>lt :OmniSharpTypeLookup<CR>
+nnoremap <buffer> gh :OmniSharpTypeLookup<CR>
+
 nnoremap <buffer> <Leader>ld :OmniSharpDocumentation<CR>
 nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
 inoremap <buffer> <C-\> <C-o>:OmniSharpSignatureHelp<CR>
