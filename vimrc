@@ -753,6 +753,10 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 " ===============================
 " Coc
 " ===============================
+"
+
+let g:coc_global_extensions=[ 'coc-omnisharp' ]
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
