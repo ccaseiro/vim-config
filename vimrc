@@ -757,7 +757,7 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 " ===============================
 "
 
-let g:coc_global_extensions=[ 'coc-omnisharp' ]
+let g:coc_global_extensions=[  'coc-css', 'coc-eslint', 'coc-json', 'coc-prettier', 'coc-rls', 'coc-tsserver', 'coc-omnisharp', 'coc-ultisnips' ]
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
