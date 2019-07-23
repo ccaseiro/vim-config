@@ -100,6 +100,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'OmniSharp/omnisharp-vim'
 
 Plug 'Yggdroot/indentLine'
+
+Plug 'reasonml-editor/vim-reason-plus'
 call plug#end()
 
 
