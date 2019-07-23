@@ -102,6 +102,8 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'Yggdroot/indentLine'
 
 Plug 'reasonml-editor/vim-reason-plus'
+
+Plug 'mbbill/undotree'
 call plug#end()
 
 
