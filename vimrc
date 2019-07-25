@@ -490,6 +490,7 @@ let g:lmap['w'] = {
       \ 'j' : ['<C-W>j'     , 'window-below']          ,
       \ 'l' : ['<C-W>l'     , 'window-right']          ,
       \ 'k' : ['<C-W>k'     , 'window-up']             ,
+      \ 'p' : [':pclose'     , 'close preview']             ,
       \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
       \ 'J' : [':resize +5' , 'expand-window-below']   ,
       \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
@@ -903,7 +904,7 @@ let g:lmap.e = {
       \ }
 
 "
-" === GitGutter ===
+" === Git / GitGutter ===
 "
 nmap ]c <Plug>GitGutterNextHunk
 nmap [c <Plug>GitGutterPrevHunk
