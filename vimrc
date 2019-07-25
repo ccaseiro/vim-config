@@ -434,6 +434,7 @@ let g:lmap.f = {
       \ 'b' : ['BLines'             , 'fzf-find-current-buffer']         ,
       \ 'd' : ['NERDTreeFind'       , 'find-current-buffer-in-NERDTree'] ,
       \ '~' : [':Files ~'           , 'files-in-home-direcotry']         ,
+      \ '.' : [':Files ..'          , 'files-in-parent']         ,
       \ 's' : ['write'               , 'save-file']                       ,
       \ 't' : ['NERDTreeToggle'     , 'toggle-NERDTree']                 ,
       \ 'f' : ['Files'              , 'files-in-current-direcotry']      ,
@@ -744,7 +745,7 @@ nnoremap <F6> <C-i>
 
 " Search down into subfolders
 " Provides tab-completion for all file related tasks
-set path+=**
+" set path+=**
 
 """ airline
 " Configure error/warning section to use coc.nvim
