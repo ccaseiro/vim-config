@@ -917,6 +917,7 @@ omap ac <Plug>GitGutterTextObjectOuterPending
 xmap ic <Plug>GitGutterTextObjectInnerVisual
 xmap ac <Plug>GitGutterTextObjectOuterVisual
 
+nmap <leader>gc :Gcommit<CR>
 "
 " === EchoDoc ===
 "
