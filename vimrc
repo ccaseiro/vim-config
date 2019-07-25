@@ -869,8 +869,8 @@ call denite#custom#var('grep', 'final_opts', [])
 nmap <leader>db :Denite buffer -split=floating -winrow=1<CR>
 nmap <leader>dt :Denite file/rec -split=floating -winrow=1<CR>
 " nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
-nnoremap <leader>g :<C-u>Denite grep<CR>
-nnoremap <leader>j :<C-u>DeniteCursorWord grep<CR>
+nnoremap <leader>dg :<C-u>Denite grep<CR>
+nnoremap <leader>dj :<C-u>DeniteCursorWord grep<CR>
 
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()
@@ -903,8 +903,18 @@ let g:lmap.e = {
 "
 " === GitGutter ===
 "
-nmap ]g <Plug>GitGutterNextHunk
-nmap [g <Plug>GitGutterPrevHunk
+nmap ]c <Plug>GitGutterNextHunk
+nmap [c <Plug>GitGutterPrevHunk
+
+
+nmap <leader>gp <Plug>GitGutterPreviewHunk
+nmap <leader>gs <Plug>GitGutterStageHunk
+nmap <leader>gu <Plug>GitGutterUndoHunk
+
+omap ic <Plug>GitGutterTextObjectInnerPending
+omap ac <Plug>GitGutterTextObjectOuterPending
+xmap ic <Plug>GitGutterTextObjectInnerVisual
+xmap ac <Plug>GitGutterTextObjectOuterVisual
 
 "
 " === EchoDoc ===
