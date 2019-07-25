@@ -13,6 +13,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-projectionist'
 
 " Autocomplete
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -1020,3 +1021,16 @@ command! -range ToTuple <line1>,<line2> call ToTupleFunction()
 "   endif
 " endfor
 " " ## end of OPAM user-setup addition for vim / base ## keep this line
+
+" ============================================================================
+" Projectionlist
+" ============================================================================
+"
+let g:projectionist_heuristics = {
+      \   "*.ml": {
+      \     "*.ml": {"alternate": "{}.mli", "type": "ml"},
+      \     "*.mli": {"alternate": "{}.ml", "type": "mli"}
+      \   }
+      \ }
+
+nnoremap <leader>fa :A<CR>
