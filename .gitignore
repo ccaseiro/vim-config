@@ -9,3 +9,4 @@
 node_modules/
 /coc/extensions/db.json
 /coc/mru
+/coc/history.json
