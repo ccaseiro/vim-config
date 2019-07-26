@@ -600,6 +600,8 @@ nnoremap <silent> <Leader>fc        :Colors<CR>
 nnoremap <silent> <Leader>fC        :Commands<CR>
 nnoremap <silent> <Leader>pg        :Tags<CR>
 
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
 " nnoremap <silent> <Leader>/         :Lines<CR>
 " nnoremap <silent> <Leader>/         :Ag<CR>
 nnoremap <silent> <Leader>sp        :Ag<CR>
