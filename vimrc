@@ -433,7 +433,6 @@ let g:lmap.f = {
       \ '8' : [':set foldlevel=8'    , '8-fold-level']                    ,
       \ '9' : [':set foldlevel=9'    , '9-fold-level']                    ,
       \ 'b' : ['BLines'             , 'fzf-find-current-buffer']         ,
-      \ 'd' : ['NERDTreeFind'       , 'find-current-buffer-in-NERDTree'] ,
       \ '~' : [':Files ~'           , 'files-in-home-direcotry']         ,
       \ '.' : [':Files ..'          , 'files-in-parent']         ,
       \ 's' : ['write'               , 'save-file']                       ,
@@ -441,6 +440,8 @@ let g:lmap.f = {
       \ 'f' : ['Files'              , 'files-in-current-direcotry']      ,
       \ 'R' : [':source $MYVIMRC'    , 'reload-vimrc']                    ,
       \ }
+      " \ 'd' : ['NERDTreeFind'       , 'find-current-buffer-in-NERDTree'] ,
+nnoremap <leader>fd :HFiles<Space>
 
 let g:lmap.f.e = { 
                   \'name' : '+vimrc',
@@ -538,6 +539,10 @@ let g:lmap.d = {
 
 " Reverse the layout to make the FZF list top-down
 let $FZF_DEFAULT_OPTS='--layout=reverse'
+
+" Include hidden files
+command! -bang -nargs=? -complete=dir HFiles
+  \ call fzf#vim#files(<q-args>, {'source': 'ag --hidden --ignore .git -g ""'}, <bang>0)
 
 " Using the custom window creation function
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
