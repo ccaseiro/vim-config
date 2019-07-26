@@ -1042,3 +1042,4 @@ let g:projectionist_heuristics = {
       \ }
 
 nnoremap <leader>fa :A<CR>
+nnoremap ga :A<CR>
