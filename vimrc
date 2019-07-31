@@ -437,7 +437,7 @@ let g:lmap.f = {
       \ '7' : [':set foldlevel=7'    , '7-fold-level']                    ,
       \ '8' : [':set foldlevel=8'    , '8-fold-level']                    ,
       \ '9' : [':set foldlevel=9'    , '9-fold-level']                    ,
-      \ 'b' : ['BLines'             , 'fzf-find-current-buffer']         ,
+      \ 'b' : ['NERDTreeFind'       , 'find-current-buffer-in-NERDTree'] ,
       \ '~' : [':Files ~'           , 'files-in-home-direcotry']         ,
       \ '.' : [':Files ..'          , 'files-in-parent']         ,
       \ 's' : ['write'               , 'save-file']                       ,
@@ -445,7 +445,6 @@ let g:lmap.f = {
       \ 'f' : ['Files'              , 'files-in-current-direcotry']      ,
       \ 'R' : [':source $MYVIMRC'    , 'reload-vimrc']                    ,
       \ }
-      " \ 'd' : ['NERDTreeFind'       , 'find-current-buffer-in-NERDTree'] ,
 nnoremap <leader>fd :HFiles<Space>
 
 let g:lmap.f.e = { 
@@ -1068,3 +1067,9 @@ nnoremap <F5> :Dispatch<cr>
   autocmd!
   autocmd FileType ocaml let b:dispatch = 'dune runtest'
  augroup END
+
+" ============================================================================
+" autocmd
+" ============================================================================
+
+let g:rooter_patterns = ['.merlin', '.git/']
