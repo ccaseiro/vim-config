@@ -110,6 +110,8 @@ Plug 'mbbill/undotree'
 
 Plug 'janko/vim-test'
 
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
+
 call plug#end()
 
 
