@@ -111,6 +111,10 @@ Plug 'mbbill/undotree'
 Plug 'janko/vim-test'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
+" The tabular plugin must come before vim-markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
 
 call plug#end()
 
@@ -1085,3 +1089,16 @@ nnoremap <F5> :Dispatch<cr>
 " ============================================================================
 
 let g:rooter_patterns = ['.merlin', '.git/']
+
+" ============================================================================
+" autocmd
+" ============================================================================
+if exists(":Tableize")
+  nmap <Leader>t= :Tableize /=<CR>
+  vmap <Leader>t= :Tableize /=<CR>
+  nmap <Leader>t: :Tableize /:\zs<CR>
+  vmap <Leader>t: :Tableize /:\zs<CR>
+  nmap <Leader>t| :Tableize /|<CR>
+  vmap <Leader>t| :Tableize /|<CR>
+endif
+
