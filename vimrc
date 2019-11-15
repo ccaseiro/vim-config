@@ -832,7 +832,7 @@ endfunction
 
 " Highlight symbol under cursor on CursorHold
 " autocmd CursorHold * silent call CocActionAsync('highlight')
-nnoremap <silent> gh :call CocActionAsync('highlight')<CR>
+nnoremap <silent> g* :call CocActionAsync('highlight')<CR>
 
 " Remap for rename current word
 " nmap <leader>rn <Plug>(coc-rename)
