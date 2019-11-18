@@ -240,7 +240,7 @@ let g:UltiSnipsListSnippets="<F9>"
 set mouse=a
 
 " Window sizing
-set winheight=20
+" set winheight=20
 set winminheight=0
 
 set colorcolumn=80 " and give me a colored column
