@@ -234,7 +234,7 @@ set updatetime=300
 let g:UltiSnipsExpandTrigger="<F5>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsListSnippets="<c-l>"
+let g:UltiSnipsListSnippets="<F9>"
 
 " Mouse
 set mouse=a
@@ -1101,4 +1101,16 @@ if exists(":Tableize")
   nmap <Leader>t| :Tableize /|<CR>
   vmap <Leader>t| :Tableize /|<CR>
 endif
+
+
+
+" ==== My favorite way of avoiding the escape key - feel free to delete all this
+" == c-l escapes and saves, avoid the pinky stretch
+" vnoremap <C-l> <Esc><Cr>
+inoremap <c-l> <Esc><c-l>li
+" noremap <c-l> <Esc>
+"while selecting (for use in snippets c-l cancels out)
+" smap <C-l> <Esc>
+" While commanding
+" cmap <C-l> <C-c>
 
