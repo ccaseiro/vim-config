@@ -554,6 +554,13 @@ let $FZF_DEFAULT_OPTS='--layout=reverse'
 command! -bang -nargs=? -complete=dir HFiles
   \ call fzf#vim#files(<q-args>, {'source': 'ag --hidden --ignore .git -g ""'}, <bang>0)
 
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, 
+      \ fzf#vim#with_preview('down:70%', '?'),
+      \ <bang>0)
+
+
 " Using the custom window creation function
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
