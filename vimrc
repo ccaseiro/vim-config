@@ -91,7 +91,7 @@ Plug 'toyamarinyon/vim-swift'
 Plug 'mattn/emmet-vim'
 
 " Syntax checking
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'
