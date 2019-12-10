@@ -840,7 +840,7 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-" autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent call CocActionAsync('highlight')
 nnoremap <silent> g* :call CocActionAsync('highlight')<CR>
 
 " Remap for rename current word
