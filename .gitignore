@@ -7,6 +7,7 @@
 /undodir/
 /.scratch
 node_modules/
+/coc/extensions/
 /coc/extensions/db.json
 /coc/mru
 /coc/history.json

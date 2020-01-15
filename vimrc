@@ -116,6 +116,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+Plug 'qpkorr/vim-bufkill'
+
 Plug 'dag/vim-fish'
 
 call plug#end()
@@ -413,9 +415,10 @@ let g:lmap.b = {
       \ 'l' : ['blast'     , 'last-buffer']     ,
       \ 'n' : ['bnext'     , 'next-buffer']     ,
       \ 'p' : ['bprevious' , 'previous-buffer'] ,
-      \ 'b' : ['Buffers'   , 'fzf-buffer']      ,
       \ '?' : ['Buffers'   , 'fzf-buffer']      ,
       \ }
+
+nnoremap <leader>bb :Buffers<CR>
 
 let g:lmap.y = {
       \ 'name' : '+yank',
@@ -451,6 +454,7 @@ let g:lmap.f = {
       \ 's' : ['write'               , 'save-file']                       ,
       \ 't' : ['NERDTreeToggle'     , 'toggle-NERDTree']                 ,
       \ 'f' : ['Files'              , 'files-in-current-direcotry']      ,
+      \ 'g' : ['GFiles'             , 'files-in-current-direcotry']      ,
       \ 'R' : [':source $MYVIMRC'    , 'reload-vimrc']                    ,
       \ }
 nnoremap <leader>fd :HFiles<Space>
@@ -558,6 +562,12 @@ command! -bang -nargs=? -complete=dir HFiles
 
 " Likewise, Files command with preview window
 command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, 
+      \ fzf#vim#with_preview('down:70%', '?'),
+      \ <bang>0)
+
+" Likewise, Files command with preview window
+command! -bang -nargs=? -complete=dir GFiles
   \ call fzf#vim#files(<q-args>, 
       \ fzf#vim#with_preview('down:70%', '?'),
       \ <bang>0)
@@ -945,18 +955,18 @@ let g:lmap.e = {
 "
 " === Git / GitGutter ===
 "
-nmap ]c <Plug>GitGutterNextHunk
-nmap [c <Plug>GitGutterPrevHunk
+" nmap ]c <Plug>(GitGutterNextHunk)
+" nmap [c <Plug>(GitGutterPrevHunk)
 
 
-nmap <leader>gp <Plug>GitGutterPreviewHunk
-nmap <leader>gs <Plug>GitGutterStageHunk
-nmap <leader>gu <Plug>GitGutterUndoHunk
+nmap <leader>gp <Plug>(GitGutterPreviewHunk)
+nmap <leader>gs <Plug>(GitGutterStageHunk)
+nmap <leader>gu <Plug>(GitGutterUndoHunk)
 
-omap ic <Plug>GitGutterTextObjectInnerPending
-omap ac <Plug>GitGutterTextObjectOuterPending
-xmap ic <Plug>GitGutterTextObjectInnerVisual
-xmap ac <Plug>GitGutterTextObjectOuterVisual
+omap ic <Plug>(GitGutterTextObjectInnerPending)
+omap ac <Plug>(GitGutterTextObjectOuterPending)
+xmap ic <Plug>(GitGutterTextObjectInnerVisual)
+xmap ac <Plug>(GitGutterTextObjectOuterVisual)
 
 nmap <leader>gc :Gcommit<CR>
 "
@@ -1125,4 +1135,10 @@ inoremap <c-l> <Esc><c-l>li
 " smap <C-l> <Esc>
 " While commanding
 " cmap <C-l> <C-c>
+
+" ============================================================================
+" JSON
+" ============================================================================
+" Disable quote concealing in JSON files
+let g:vim_json_conceal=0
 
