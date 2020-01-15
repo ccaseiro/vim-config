@@ -116,6 +116,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & npm install'  }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+Plug 'dag/vim-fish'
 
 call plug#end()
 
@@ -790,6 +791,7 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 let g:coc_global_extensions=[
       \ 'coc-css',
       \ 'coc-eslint',
+      \ 'coc-fish',
       \ 'coc-json',
       \ 'coc-omnisharp',
       \ 'coc-prettier',
