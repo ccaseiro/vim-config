@@ -449,6 +449,7 @@ let g:lmap.f = {
       \ '8' : [':set foldlevel=8'    , '8-fold-level']                    ,
       \ '9' : [':set foldlevel=9'    , '9-fold-level']                    ,
       \ 'b' : ['NERDTreeFind'       , 'find-current-buffer-in-NERDTree'] ,
+      \ 'c' : [':silent !open -a /Applications/Google\ Chrome.app %', "Chrome"] ,
       \ '~' : [':Files ~'           , 'files-in-home-direcotry']         ,
       \ '.' : [':Files ..'          , 'files-in-parent']         ,
       \ 's' : ['write'               , 'save-file']                       ,
@@ -625,7 +626,7 @@ nnoremap <silent> <Leader>fl  :BLines<CR>
 
 " nnoremap <silent> <Leader><Leader> :Files<CR>
 " nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
-nnoremap <silent> <Leader>fc        :Colors<CR>
+" nnoremap <silent> <Leader>fc        :Colors<CR>
 nnoremap <silent> <Leader>fC        :Commands<CR>
 nnoremap <silent> <Leader>pg        :Tags<CR>
 
