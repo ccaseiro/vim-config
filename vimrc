@@ -120,6 +120,8 @@ Plug 'qpkorr/vim-bufkill'
 
 Plug 'dag/vim-fish'
 
+Plug 'vimwiki/vimwiki'
+
 call plug#end()
 
 
@@ -672,7 +674,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " -   `c-t`: Open in new tab
 " -   `c-y`: Yank the selected filenames
 " -   `<Enter>`: Open highlighted search result in current buffer
-let g:nv_search_paths = ['~/Dropbox/Notes', 'readme.md', 'docs.md' , './notes.md']
+let g:nv_search_paths = ['~/wiki', '~/Dropbox/Notes', 'readme.md', 'docs.md' , './notes.md']
 
 " =========================================================
 " Rust
@@ -802,6 +804,7 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 let g:coc_global_extensions=[
       \ 'coc-css',
       \ 'coc-eslint',
+      \ 'coc-fsharp',
       \ 'coc-fish',
       \ 'coc-json',
       \ 'coc-omnisharp',
@@ -827,7 +830,7 @@ endfunction
 " let g:coc_snippet_prev = '<s-tab>'
 
 " Use <c-space> to trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-p> coc#refresh()
 
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [w <Plug>(coc-diagnostic-prev)
@@ -961,8 +964,10 @@ let g:lmap.e = {
 
 
 nmap <leader>gp <Plug>(GitGutterPreviewHunk)
-nmap <leader>gs <Plug>(GitGutterStageHunk)
+" nmap <leader>gs <Plug>(GitGutterStageHunk)
+nmap <leader>gg <Plug>(GitGutterStageHunk)
 nmap <leader>gu <Plug>(GitGutterUndoHunk)
+nmap <leader>gf :GitGutterFold<CR>
 
 omap ic <Plug>(GitGutterTextObjectInnerPending)
 omap ac <Plug>(GitGutterTextObjectOuterPending)
@@ -1138,8 +1143,35 @@ inoremap <c-l> <Esc><c-l>li
 " cmap <C-l> <C-c>
 
 " ============================================================================
+" Conceal
+" ============================================================================
+let g:indentLine_concealcursor = 'nc'
+
+let s:enabled = 1
+function! ToggleConcealCursor()
+    if s:enabled
+        set concealcursor&
+        let s:enabled = 0
+    else
+        set concealcursor=nc
+        let s:enabled = 1
+    endif
+endfunction
+
+nnoremap <silent> <Leader>cc :call ToggleConcealCursor()<cr>
+
+" nnoremap <Leader>cc :set conceallevel=0<cr>
+
+" ============================================================================
 " JSON
 " ============================================================================
 " Disable quote concealing in JSON files
 let g:vim_json_conceal=0
 
+
+" ============================================================================
+" Wiki
+" ============================================================================
+
+" vimwiki/vimwiki
+let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
