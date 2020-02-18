@@ -122,6 +122,9 @@ Plug 'dag/vim-fish'
 
 Plug 'vimwiki/vimwiki'
 
+Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
+
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 call plug#end()
 
 
@@ -801,10 +804,10 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 " ===============================
 "
 
+      " \ 'coc-fsharp',
 let g:coc_global_extensions=[
       \ 'coc-css',
       \ 'coc-eslint',
-      \ 'coc-fsharp',
       \ 'coc-fish',
       \ 'coc-json',
       \ 'coc-omnisharp',
@@ -812,6 +815,7 @@ let g:coc_global_extensions=[
       \ 'coc-python',
       \ 'coc-rls',
       \ 'coc-tsserver',
+      \ 'coc-snippets',
       \ 'coc-ultisnips'
       \ ]
 
@@ -898,6 +902,7 @@ nnoremap <silent> <space>cj  :<C-u>CocNext<CR>
 nnoremap <silent> <space>ck  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>cp  :<C-u>CocListResume<CR>
+nnoremap <silent> gs :<C-u>CocListResume<CR>
 
 
 
@@ -982,6 +987,7 @@ nmap <leader>gc :Gcommit<CR>
 " Or, you could use neovim's floating text feature.
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'floating'
+" let g:echodoc#type = 'signature'
 " To use a custom highlight for the float window,
 " change Pmenu to your highlight group
 " highlight link EchoDocFloat Pmenu
@@ -1175,3 +1181,51 @@ let g:vim_json_conceal=0
 
 " vimwiki/vimwiki
 let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" ============================================================================
+" FSharp
+" ============================================================================
+" you might find it convenient to make them appear if the cursor does not move 
+" for several seconds
+" you can set the delay time to show the tooltip by set updatetime=<ms>. 
+" The default delay is 4 seconds
+" if has('nvim') && exists('*nvim_open_win')
+"   augroup FSharpShowTooltip
+"     autocmd!
+"     autocmd CursorHold *.fs,*.fsi,*.fsx call fsharp#showTooltip()
+"   augroup END
+" endif
+"
+
+function SetLSPShortcuts()
+  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <F3> :call fsharp#loadWorkspaceAuto()<CR>
+
+  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+  nnoremap gd :call LanguageClient#textDocument_definition()<CR>
+
+  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+  nnoremap <F2> :call LanguageClient#textDocument_rename()<CR>
+
+  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+
+  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+  nnoremap gr :call LanguageClient#textDocument_references()<CR>
+
+  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+
+  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+  nnoremap K :call LanguageClient#textDocument_hover()<CR>
+
+  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+  nnoremap gs :call LanguageClient_textDocument_documentSymbol()<CR>
+
+  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+endfunction()
+
+augroup LSP
+  autocmd!
+  autocmd FileType fsharp call SetLSPShortcuts()
+augroup END

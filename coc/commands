@@ -1,3 +1,4 @@
+fsharp.evaluateLine
 prettier.formatFile
 workspace.showOutput
 rls.update
