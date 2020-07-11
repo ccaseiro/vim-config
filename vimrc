@@ -118,11 +118,17 @@ Plug 'plasticboy/vim-markdown'
 
 Plug 'qpkorr/vim-bufkill'
 
+" Vim support for editing fish scripts
 Plug 'dag/vim-fish'
 
 Plug 'vimwiki/vimwiki'
 
 Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
+" Plug 'fsharp/vim-fsharp', {
+"       \ 'for': 'fsharp',
+"       \ 'do':  'make fsautocomplete',
+"       \}
+
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 call plug#end()
@@ -472,10 +478,11 @@ let g:lmap.f.e = {
                   \'r' : [':so $MYVIMRC', 'sync $MYVIMRC'],
                   \'R' : [':so $MYVIMRC', 'sync $MYVIMRC'],
                   \}
+
+      " \ 'x' : ['spacevim#lang#util#FindReferences()'  , 'references']       ,
 let g:lmap.l = {
       \ 'name' : '+lsp',
       \ 'f' : ['spacevim#lang#util#Format()'          , 'formatting']       ,
-      \ 'r' : ['spacevim#lang#util#FindReferences()'  , 'references']       ,
       \ 'R' : ['spacevim#lang#util#Rename()'          , 'rename']           ,
       \ 's' : ['spacevim#lang#util#DocumentSymbol()'  , 'document-symbol']  ,
       \ 'S' : ['spacevim#lang#util#WorkspaceSymbol()' , 'workspace-symbol'] ,
@@ -1198,7 +1205,6 @@ let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 "
 
 function SetLSPShortcuts()
-  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
   nnoremap <F3> :call fsharp#loadWorkspaceAuto()<CR>
 
   nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
@@ -1208,12 +1214,14 @@ function SetLSPShortcuts()
   nnoremap <F2> :call LanguageClient#textDocument_rename()<CR>
 
   nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+
   nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
 
   nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
   nnoremap gr :call LanguageClient#textDocument_references()<CR>
 
   nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+
   nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
 
   nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
@@ -1223,9 +1231,23 @@ function SetLSPShortcuts()
   nnoremap gs :call LanguageClient_textDocument_documentSymbol()<CR>
 
   nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+
+  nnoremap <leader>ll :call LanguageClient#textDocument_codeAction()<CR>
 endfunction()
 
 augroup LSP
   autocmd!
   autocmd FileType fsharp call SetLSPShortcuts()
 augroup END
+
+" if has('nvim') && exists('*nvim_open_win')
+"   augroup FSharpShowTooltip
+"     autocmd!
+"     autocmd CursorHold *.fs,*.fsi,*.fsx call fsharp#showTooltip()
+"   augroup END
+" endif
+
+" ================
+" Some mappings
+" ================
+inoremap <c-u> <esc>gUiWA
