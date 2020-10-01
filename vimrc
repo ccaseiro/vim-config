@@ -347,7 +347,7 @@ inoremap <c-g> <c-p>
 " Command line (Need to map these once more for inc-search to work).
 cnoremap <c-a> <Home>
 cnoremap <c-e> <End>
-cnoremap <c-f> <Right>
+" cnoremap <c-f> <Right>
 cnoremap <c-b> <Left>
 cnoremap <c-d> <Delete>
 
@@ -1251,3 +1251,8 @@ augroup END
 " Some mappings
 " ================
 inoremap <c-u> <esc>gUiWA
+
+let g:loaded_python_provider = 0
+" let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python3_host_prog = '/Users/ccaseiro/Developer/scrapy/env/bin/python3'
+

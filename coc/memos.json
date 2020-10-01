@@ -231,6 +231,75 @@
     "INTERPRETERS_CACHE_v3_CurrentPathService": [
       {
         "architecture": 3,
+        "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.5-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.5-final"
+        },
+        "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+        "fileHash": "99ea42839e173791607dd17c5c8349b57a2cf4952a2abdbdc37ca6433381386f98e78ac8b9208d0ef505ecda214543f776cf175124e9e433fff38a81b202a534",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "2.7.16-final",
+          "major": 2,
+          "minor": 7,
+          "patch": 16,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "2.7.16-final"
+        },
+        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
+        "fileHash": "3c906960a45980d09950a0ae0d6ca6e087f4dd33dde8273c5c3a492f966e6a8410eddb4506511808d8b0f93abf29b7437becbec19033969261f6b12ea8c5c13f",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.5-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.5-final"
+        },
+        "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+        "fileHash": "1a195fc754bc4be487ad414cc2626550d82c4b024f87c6750c75f27550e652c32fcf801a861362ee1757338dcf6d1345b2304135978b05a8345738101566493a",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
         "path": "/usr/local/opt/python@3.8/bin/python3.8",
         "version": {
           "options": {
@@ -250,75 +319,6 @@
         },
         "sysPrefix": "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8",
         "fileHash": "336b398c3ff80f47b0146b5b5af8138ce7f53f0fb88a624e180ada81cf838a781b0792e7f02928166256067293f4509db4066b9d85ddff0d27c214892ae77d49",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "2.7.16-final",
-          "major": 2,
-          "minor": 7,
-          "patch": 16,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "2.7.16-final"
-        },
-        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
-        "fileHash": "3c906960a45980d09950a0ae0d6ca6e087f4dd33dde8273c5c3a492f966e6a8410eddb4506511808d8b0f93abf29b7437becbec19033969261f6b12ea8c5c13f",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "2.7.16-final",
-          "major": 2,
-          "minor": 7,
-          "patch": 16,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "2.7.16-final"
-        },
-        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
-        "fileHash": "3c906960a45980d09950a0ae0d6ca6e087f4dd33dde8273c5c3a492f966e6a8410eddb4506511808d8b0f93abf29b7437becbec19033969261f6b12ea8c5c13f",
-        "type": "Unknown"
-      },
-      {
-        "architecture": 3,
-        "path": "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python",
-        "version": {
-          "options": {
-            "loose": false,
-            "includePrerelease": false
-          },
-          "loose": false,
-          "raw": "2.7.16-final",
-          "major": 2,
-          "minor": 7,
-          "patch": 16,
-          "prerelease": [
-            "final"
-          ],
-          "build": [],
-          "version": "2.7.16-final"
-        },
-        "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
-        "fileHash": "3c906960a45980d09950a0ae0d6ca6e087f4dd33dde8273c5c3a492f966e6a8410eddb4506511808d8b0f93abf29b7437becbec19033969261f6b12ea8c5c13f",
         "type": "Unknown"
       }
     ],
@@ -386,6 +386,52 @@
       "expiry": 1601649966332
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
+      {
+        "architecture": 3,
+        "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.5-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.5-final"
+        },
+        "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+        "fileHash": "1a195fc754bc4be487ad414cc2626550d82c4b024f87c6750c75f27550e652c32fcf801a861362ee1757338dcf6d1345b2304135978b05a8345738101566493a",
+        "type": "Unknown"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.5-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.5-final"
+        },
+        "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+        "fileHash": "99ea42839e173791607dd17c5c8349b57a2cf4952a2abdbdc37ca6433381386f98e78ac8b9208d0ef505ecda214543f776cf175124e9e433fff38a81b202a534",
+        "type": "Unknown"
+      },
       {
         "architecture": 3,
         "path": "/usr/local/bin/python3",
@@ -1034,20 +1080,20 @@
             "includePrerelease": false
           },
           "loose": false,
-          "raw": "3.7.8-final",
+          "raw": "3.8.5-final",
           "major": 3,
-          "minor": 7,
-          "patch": 8,
+          "minor": 8,
+          "patch": 5,
           "prerelease": [
             "final"
           ],
           "build": [],
-          "version": "3.7.8-final"
+          "version": "3.8.5-final"
         },
         "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
-        "fileHash": "6e048eeeef5f1c4e06ff7e33e114d86d866a51b56ff29f140ca323f69443da4a806151e8bc6698de5eb19bd9c01b112078fba73fcf2eb3e5222bef18967f1147"
+        "fileHash": "99ea42839e173791607dd17c5c8349b57a2cf4952a2abdbdc37ca6433381386f98e78ac8b9208d0ef505ecda214543f776cf175124e9e433fff38a81b202a534"
       },
-      "expiry": 1601166591343
+      "expiry": 1601651376010
     },
     "/Users/ccaseiro/Developer/scrapy/env/bin/python.v3": {
       "data": {
@@ -1059,20 +1105,20 @@
             "includePrerelease": false
           },
           "loose": false,
-          "raw": "3.7.8-final",
+          "raw": "3.8.5-final",
           "major": 3,
-          "minor": 7,
-          "patch": 8,
+          "minor": 8,
+          "patch": 5,
           "prerelease": [
             "final"
           ],
           "build": [],
-          "version": "3.7.8-final"
+          "version": "3.8.5-final"
         },
         "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
-        "fileHash": "8dfc01c78b1b7a6e8e72b8b81bcbf19df42f177355115be65b8fb51d4429ce960f12279785d43af0ba605cec312a358667cc8a76e6122b180968f657f3bd4005"
+        "fileHash": "1a195fc754bc4be487ad414cc2626550d82c4b024f87c6750c75f27550e652c32fcf801a861362ee1757338dcf6d1345b2304135978b05a8345738101566493a"
       },
-      "expiry": 1601166591344
+      "expiry": 1601651376011
     },
     "/Users/ccaseiro/Developer/scrapy/env/bin/python3.7.v3": {
       "data": {
@@ -1101,14 +1147,14 @@
     },
     "/Users/ccaseiro/Developer/scrapy/env/bin/python.interpreter.displayName.v7": {
       "data": {
-        "displayName": "Python 3.7.8 64-bit ('env': venv)",
-        "hash": "8dfc01c78b1b7a6e8e72b8b81bcbf19df42f177355115be65b8fb51d4429ce960f12279785d43af0ba605cec312a358667cc8a76e6122b180968f657f3bd4005-c9f8528319faed025d46b87d1daf2cab"
+        "displayName": "Python 3.8.5 64-bit ('env': venv)",
+        "hash": "1a195fc754bc4be487ad414cc2626550d82c4b024f87c6750c75f27550e652c32fcf801a861362ee1757338dcf6d1345b2304135978b05a8345738101566493a-9dab14d0f727da00373acb22ba65cf63"
       },
-      "expiry": 1601166591450
+      "expiry": 1601651376092
     },
     "/Users/ccaseiro/Developer/scrapy/env/bin/python.interpreter.Details.v7": {
       "data": {
-        "fileHash": "8dfc01c78b1b7a6e8e72b8b81bcbf19df42f177355115be65b8fb51d4429ce960f12279785d43af0ba605cec312a358667cc8a76e6122b180968f657f3bd4005",
+        "fileHash": "1a195fc754bc4be487ad414cc2626550d82c4b024f87c6750c75f27550e652c32fcf801a861362ee1757338dcf6d1345b2304135978b05a8345738101566493a",
         "info": {
           "architecture": 3,
           "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python",
@@ -1118,24 +1164,24 @@
               "includePrerelease": false
             },
             "loose": false,
-            "raw": "3.7.8-final",
+            "raw": "3.8.5-final",
             "major": 3,
-            "minor": 7,
-            "patch": 8,
+            "minor": 8,
+            "patch": 5,
             "prerelease": [
               "final"
             ],
             "build": [],
-            "version": "3.7.8-final"
+            "version": "3.8.5-final"
           },
           "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
-          "fileHash": "8dfc01c78b1b7a6e8e72b8b81bcbf19df42f177355115be65b8fb51d4429ce960f12279785d43af0ba605cec312a358667cc8a76e6122b180968f657f3bd4005",
+          "fileHash": "1a195fc754bc4be487ad414cc2626550d82c4b024f87c6750c75f27550e652c32fcf801a861362ee1757338dcf6d1345b2304135978b05a8345738101566493a",
           "envName": "env",
           "type": "Venv",
-          "displayName": "Python 3.7.8 64-bit ('env': venv)"
+          "displayName": "Python 3.8.5 64-bit ('env': venv)"
         }
       },
-      "expiry": 1601166591484
+      "expiry": 1601651376114
     },
     "/Users/ccaseiro/Developer/scrapy/env/bin/python3.7.interpreter.Details.v7": {
       "data": {
@@ -1258,8 +1304,7 @@
       },
       "sysPrefix": "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8",
       "fileHash": "336b398c3ff80f47b0146b5b5af8138ce7f53f0fb88a624e180ada81cf838a781b0792e7f02928166256067293f4509db4066b9d85ddff0d27c214892ae77d49",
-      "type": "Unknown",
-      "cachedEntry": true
+      "type": "Unknown"
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
@@ -1283,7 +1328,6 @@
       "sysPrefix": "/usr/local/Cellar/python@3.8/3.8.5/Frameworks/Python.framework/Versions/3.8",
       "fileHash": "336b398c3ff80f47b0146b5b5af8138ce7f53f0fb88a624e180ada81cf838a781b0792e7f02928166256067293f4509db4066b9d85ddff0d27c214892ae77d49",
       "type": "Unknown",
-      "cachedEntry": true,
       "displayName": "Python 3.8.5 64-bit"
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
@@ -1334,6 +1378,53 @@
       "fileHash": "336b398c3ff80f47b0146b5b5af8138ce7f53f0fb88a624e180ada81cf838a781b0792e7f02928166256067293f4509db4066b9d85ddff0d27c214892ae77d49",
       "type": "Unknown",
       "displayName": "Python 3.8.5 64-bit"
+    },
+    "InterpreterAutoSeletionRule-workspaceEnvs": {
+      "architecture": 3,
+      "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.5-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 5,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.5-final"
+      },
+      "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+      "fileHash": "99ea42839e173791607dd17c5c8349b57a2cf4952a2abdbdc37ca6433381386f98e78ac8b9208d0ef505ecda214543f776cf175124e9e433fff38a81b202a534",
+      "envName": "env",
+      "type": "Venv"
+    },
+    "InterpreterAutoSeletionRule-environment": {
+      "architecture": 3,
+      "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.5-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 5,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.5-final"
+      },
+      "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+      "fileHash": "99ea42839e173791607dd17c5c8349b57a2cf4952a2abdbdc37ca6433381386f98e78ac8b9208d0ef505ecda214543f776cf175124e9e433fff38a81b202a534",
+      "type": "VirtualEnv"
     }
   },
   "coc-python|/Users/ccaseiro/src/scraper": {
@@ -1380,10 +1471,131 @@
   },
   "coc-python|/Users/ccaseiro/Developer/scrapy": {
     "INTERPRETERS_CACHE_v3_PipEnvService:54ff55a2ed4aadaeb0a6d37673002f2a": [],
-    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:54ff55a2ed4aadaeb0a6d37673002f2a": [],
-    "SelectedPythonPath": "/Users/ccaseiro/Developer/scrapy/env/bin/python3.7",
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:54ff55a2ed4aadaeb0a6d37673002f2a": [
+      {
+        "architecture": 3,
+        "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.5-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.5-final"
+        },
+        "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+        "fileHash": "1a195fc754bc4be487ad414cc2626550d82c4b024f87c6750c75f27550e652c32fcf801a861362ee1757338dcf6d1345b2304135978b05a8345738101566493a",
+        "envName": "env",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.5-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.5-final"
+        },
+        "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+        "fileHash": "99ea42839e173791607dd17c5c8349b57a2cf4952a2abdbdc37ca6433381386f98e78ac8b9208d0ef505ecda214543f776cf175124e9e433fff38a81b202a534",
+        "envName": "env",
+        "type": "Venv"
+      }
+    ],
+    "SelectedPythonPath": "/usr/local/bin/python3",
     "INTERPRETERS_CACHE_v3_PipEnvService": [],
-    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [
+      {
+        "architecture": 3,
+        "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.5-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.5-final"
+        },
+        "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+        "fileHash": "1a195fc754bc4be487ad414cc2626550d82c4b024f87c6750c75f27550e652c32fcf801a861362ee1757338dcf6d1345b2304135978b05a8345738101566493a",
+        "envName": "env",
+        "type": "Venv"
+      },
+      {
+        "architecture": 3,
+        "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python3",
+        "version": {
+          "options": {
+            "loose": false,
+            "includePrerelease": false
+          },
+          "loose": false,
+          "raw": "3.8.5-final",
+          "major": 3,
+          "minor": 8,
+          "patch": 5,
+          "prerelease": [
+            "final"
+          ],
+          "build": [],
+          "version": "3.8.5-final"
+        },
+        "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+        "fileHash": "99ea42839e173791607dd17c5c8349b57a2cf4952a2abdbdc37ca6433381386f98e78ac8b9208d0ef505ecda214543f776cf175124e9e433fff38a81b202a534",
+        "envName": "env",
+        "type": "Venv"
+      }
+    ],
+    "autoSelectedWorkspacePythonInterpreter-/Users/ccaseiro/Developer/scrapy": {
+      "architecture": 3,
+      "path": "/Users/ccaseiro/Developer/scrapy/env/bin/python3",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.8.5-final",
+        "major": 3,
+        "minor": 8,
+        "patch": 5,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.8.5-final"
+      },
+      "sysPrefix": "/Users/ccaseiro/Developer/scrapy/env",
+      "fileHash": "99ea42839e173791607dd17c5c8349b57a2cf4952a2abdbdc37ca6433381386f98e78ac8b9208d0ef505ecda214543f776cf175124e9e433fff38a81b202a534",
+      "type": "VirtualEnv"
+    }
   },
   "coc-python|/Users/ccaseiro": {
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": [],

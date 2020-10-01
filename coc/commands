@@ -1,3 +1,4 @@
+python.setLinter
 fsharp.evaluateLine
 prettier.formatFile
 workspace.showOutput
