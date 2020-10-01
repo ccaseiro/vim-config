@@ -13,3 +13,4 @@ node_modules/
 /coc/history.json
 /coc/memos.json
 /coc/extensions/package.json
+/coc/list-commands-history.json
