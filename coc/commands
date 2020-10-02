@@ -1,4 +1,8 @@
+python.viewOutput
+eslint.executeAutofix
 python.setLinter
+python.execInTerminal
+python.startREPL
 fsharp.evaluateLine
 prettier.formatFile
 workspace.showOutput

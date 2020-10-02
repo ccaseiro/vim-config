@@ -23,8 +23,6 @@ Plug 'radenling/vim-dispatch-neovim'
 " Denite - Fuzzy finding, buffer management
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 
-" Plug 'lifepillar/vim-mucomplete'
-
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
 
@@ -47,8 +45,10 @@ Plug 'tomtom/tcomment_vim'
 " Auto close bracket / parenthises
 Plug 'jiangmiao/auto-pairs'
 
+" Auto change pwd
+" Plug 'airblade/vim-rooter'
+
 " FZF
-Plug 'airblade/vim-rooter'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
@@ -80,7 +80,10 @@ Plug 'AndrewRadev/tagalong.vim'
 " Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Coc
+" Plug 'neoclide/coc.nvim', {'branch': 'master'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -131,6 +134,7 @@ Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
 
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+
 call plug#end()
 
 
@@ -315,8 +319,7 @@ let g:clipboard = {
       \   'cache_enabled': 1,
       \ }
 
-set clipboard+=unnamedplus,unnamed
-" set clipboard+=unnamedplus
+" set clipboard+=unnamedplus,unnamed
 
 " =========================================================
 " CtrlSF config
@@ -337,12 +340,15 @@ inoremap <c-space>sft <Esc>:CtrlSFToggle<CR>
 " map! <c-e> <c-o>$
 noremap! <c-a> <Home>
 noremap! <c-e> <End>
-noremap! <c-f> <Right>
+" noremap! <c-f> <Right>
 noremap! <c-b> <Left>
 noremap! <c-d> <Delete>
 " noremap! <c-n> <Down>
 noremap! <c-p> <Up>
+nnoremap <c-f> <Right>
+
 inoremap <c-g> <c-p>
+inoremap <c-f> <Right>
 
 " Command line (Need to map these once more for inc-search to work).
 cnoremap <c-a> <Home>
@@ -820,6 +826,7 @@ let g:coc_global_extensions=[
       \ 'coc-omnisharp',
       \ 'coc-prettier',
       \ 'coc-python',
+      \ 'coc-pyright',
       \ 'coc-rls',
       \ 'coc-tsserver',
       \ 'coc-snippets',
@@ -1254,5 +1261,24 @@ inoremap <c-u> <esc>gUiWA
 
 let g:loaded_python_provider = 0
 " let g:python3_host_prog = '/usr/local/bin/python3'
-" let g:python3_host_prog = '/Users/ccaseiro/Developer/scrapy/env/bin/python3'
+let g:python3_host_prog = '/Users/ccaseiro/Developer/scrapy/env/bin/python3'
+"
 
+" ====== Clean configuration
+set noswapfile
+
+let $RTP=split(&runtimepath, ',')[0]
+let $RC="$HOME/.vim/vimrc"
+
+set path=.,**
+
+
+"python with virtualenv support
+" py << EOF
+" import os
+" import sys
+" if 'VIRTUAL_ENV' in os.environ:
+"   project_base_dir = os.environ['VIRTUAL_ENV']
+"   activate_this = os.path.join(project_base_dir, 'bin/activate.fish')
+"   execfile(activate_this, dict(__file__=activate_this))
+" EOF

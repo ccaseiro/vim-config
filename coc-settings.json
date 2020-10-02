@@ -2,18 +2,37 @@
   "suggest.noselect": false,
   // "suggest.echodocSupport": true,
   // "suggest.maxCompleteItemCount": 20,
-  "coc.preferences.formatOnSaveFiletypes": ["graphql", "javascript", "typescript", "typescriptreact", "json", "javascriptreact", "ocaml", "rust", "fish"],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "graphql",
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "ocaml",
+    "python",
+    "rust",
+    "fish"
+  ],
+  "eslint.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact"
+  ],
   "diagnostic.errorSign": "●",
   "diagnostic.warningSign": "•",
   "diagnostic.infoSign": "•",
   "languageserver": {
-     "ocaml": {
-       "command": "ocaml-language-server",
-       "args": ["--stdio"],
-       "filetypes": ["ocaml", "reason"]
-     }
-  }
-
+    "ocaml": {
+      "command": "ocaml-language-server",
+      "args": ["--stdio"],
+      "filetypes": ["ocaml", "reason"]
+    }
+  },
+  "python.jediEnabled": false,
+  "python.autoComplete.extraPaths": [
+    "env/lib/python3.8/site-packages",
+    "revc_scraper"
+  ]
 }
-
