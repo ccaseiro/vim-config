@@ -1,5 +1,6 @@
 " Plugins
 " =========================================================
+
 call plug#begin()
 
 " Tim Pope plugins
@@ -82,8 +83,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 " Coc
-" Plug 'neoclide/coc.nvim', {'branch': 'master'}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -135,6 +136,15 @@ Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
+
+Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
+
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/telescope.nvim'
+
+Plug 'justinmk/vim-sneak'  " Jump to any location specified by two characters.
 call plug#end()
 
 
@@ -369,7 +379,8 @@ let g:multi_cursor_exit_from_insert_mode = 0
 " =========================================================
 " Tab
 " =========================================================
-set listchars=tab:▸\ ,eol:¬
+            " eol:¬
+set listchars=tab:▸\ ,eol:↲,tab:»·,trail:·,nbsp:␣,conceal:┊
 let &tabstop=exists('g:tabSize') ? g:tabSize : 2
 let &softtabstop=exists('g:tabSize') ? g:tabSize : 2
 let &shiftwidth=exists('g:tabSize') ? g:tabSize : 2
@@ -627,7 +638,7 @@ endfunction
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
 " nnoremap <C-p> :<C-u>FZF<CR>
-nnoremap <C-p> :Files<CR>
+" nnoremap <C-p> :Files<CR>
 nnoremap <leader>; :Buffers<CR>
 " <leader>, shows/hides hidden characters
 nnoremap <leader>, :set invlist<cr>
@@ -635,7 +646,7 @@ nnoremap <leader>, :set invlist<cr>
 
 " nnoremap <silent> <Leader>ff  :Files<CR>
 " nnoremap <silent> <Leader>bb  :Buffers<CR>
-nnoremap <silent> <leader>fr  :History<CR>
+nnoremap <silent> <leader>h   :History<CR>
 nnoremap <silent> <Leader>/   :BLines<CR>
 nnoremap <silent> <Leader>fl  :BLines<CR>
 
@@ -823,6 +834,7 @@ let g:coc_global_extensions=[
       \ 'coc-eslint',
       \ 'coc-fish',
       \ 'coc-json',
+      \ 'coc-lua',
       \ 'coc-omnisharp',
       \ 'coc-prettier',
       \ 'coc-python',
@@ -1282,3 +1294,22 @@ set path=.,**
 "   activate_this = os.path.join(project_base_dir, 'bin/activate.fish')
 "   execfile(activate_this, dict(__file__=activate_this))
 " EOF
+
+command! Scratch lua require'tools'.makeScratch()
+
+lua require'init'
+
+" Set kj to be escape in insert mode
+inoremap kj <esc>
+
+" For long, wrapped lines
+nnoremap k gk
+" For long, wrapped lines
+nnoremap j gj
+
+" For moving quickly up and down,
+" Goes to the first line above/below that isn't whitespace
+" Thanks to: http://vi.stackexchange.com/a/213
+nnoremap gj :let _=&lazyredraw<CR>:set lazyredraw<CR>/\%<C-R>=virtcol(".")<CR>v\S<CR>:nohl<CR>:let &lazyredraw=_<CR>
+nnoremap gk :let _=&lazyredraw<CR>:set lazyredraw<CR>?\%<C-R>=virtcol(".")<CR>v\S<CR>:nohl<CR>:let &lazyredraw=_<CR>
+
