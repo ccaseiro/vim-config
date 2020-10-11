@@ -519,6 +519,10 @@ let g:lmap.n =  {
                 \'n' : ['NV', 'notes'],
                 \'t' : ['NERDTreeToggle', 'NERDTree'],
                 \}
+
+" Disable all session locking - I know what I'm doing :-).
+let g:session_lock_enabled = 0
+
 let g:lmap.t = {
                 \'name' : 'Tab',
                 \'t' : ['tablast | tab new', 'tab new'],
