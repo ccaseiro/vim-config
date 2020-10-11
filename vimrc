@@ -193,7 +193,10 @@ colorscheme base16-gruvbox-dark-hard
 " =========================================================
 " General config
 " =========================================================
+" noremap \ ,
 let mapleader=' '
+" In case i start using localleader as ',' I need to manually change the sneak
+" configuration with: 'map \ <Plug>Sneak_'
 let maplocalleader='\'
 
 " Required for operations modifying multiple buffers like rename.
