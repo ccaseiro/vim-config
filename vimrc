@@ -1347,5 +1347,3 @@ endif
 
 nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
 command LCD lcd %:p:h 
-
-nnoremap :gs :Gstatus<cr>
