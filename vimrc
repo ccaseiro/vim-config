@@ -492,7 +492,7 @@ let g:lmap.f = {
       \ 'g' : ['GFiles'             , 'files-in-current-direcotry']      ,
       \ 'R' : [':source $MYVIMRC'    , 'reload-vimrc']                    ,
       \ }
-nnoremap <leader>fd :HFiles<Space>
+" nnoremap <leader>fd :HFiles<Space>
 
 let g:lmap.f.e = { 
                   \'name' : '+vimrc',
