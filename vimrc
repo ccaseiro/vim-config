@@ -48,8 +48,8 @@ Plug 'tomtom/tcomment_vim'
 " Auto close bracket / parenthises
 Plug 'jiangmiao/auto-pairs'
 
-" Auto change pwd
-" Plug 'airblade/vim-rooter'
+
+Plug 'airblade/vim-rooter'    " Auto change pwd
 
 " FZF
 Plug '/usr/local/opt/fzf'
@@ -1161,7 +1161,7 @@ nnoremap <F5> :Dispatch<cr>
 " autocmd
 " ============================================================================
 
-let g:rooter_patterns = ['.merlin', '.git/']
+" let g:rooter_patterns = ['.merlin', '.git/']
 
 " ============================================================================
 " autocmd
