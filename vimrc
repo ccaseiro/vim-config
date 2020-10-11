@@ -71,6 +71,7 @@ Plug 'scrooloose/nerdtree'
 " Colorscheme
 Plug 'haishanh/night-owl.vim'
 Plug 'chriskempson/base16-vim'
+Plug 'srcery-colors/srcery-vim'
 
 " Syntax Highlighting - Javascript
 Plug 'pangloss/vim-javascript'
@@ -177,18 +178,20 @@ function! s:base16_customize() abort
    call Base16hi("Comment",      g:base16_gui03, "", g:base16_cterm03, "", "italic", "")
 endfunction
 
-augroup on_change_colorschema
-  autocmd!
-  autocmd ColorScheme * call s:base16_customize()
-augroup END
+" augroup on_change_colorschema
+"   autocmd!
+"   autocmd ColorScheme * call s:base16_customize()
+" augroup END
 
+
+let g:srcery_italic = 1
 
 " colorscheme night-owl
-colorscheme base16-gruvbox-dark-hard
 " colorscheme base16-default-dark
 " colorscheme base16-atelier-dune
-"
-"
+" colorscheme base16-gruvbox-dark-hard
+colorscheme srcery
+
 
 " =========================================================
 " General config
