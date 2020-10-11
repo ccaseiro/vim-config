@@ -85,8 +85,13 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 " Coc
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+if exists("coc")
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+else
+  Plug 'neovim/nvim-lsp'
+  Plug 'neovim/nvim-lspconfig'
+endif
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -137,10 +142,6 @@ Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
 
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-
-
-Plug 'neovim/nvim-lsp'
-Plug 'neovim/nvim-lspconfig'
 
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
@@ -819,8 +820,10 @@ nnoremap <F6> <C-i>
 
 """ airline
 " Configure error/warning section to use coc.nvim
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+if exists("coc")
+  let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+  let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+endif
 
 
 
@@ -829,109 +832,110 @@ let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_
 " Coc
 " ===============================
 "
+if exists("coc")
 
-      " \ 'coc-fsharp',
-let g:coc_global_extensions=[
-      \ 'coc-css',
-      \ 'coc-eslint',
-      \ 'coc-fish',
-      \ 'coc-json',
-      \ 'coc-lua',
-      \ 'coc-omnisharp',
-      \ 'coc-prettier',
-      \ 'coc-python',
-      \ 'coc-pyright',
-      \ 'coc-rls',
-      \ 'coc-tsserver',
-      \ 'coc-snippets',
-      \ 'coc-ultisnips'
-      \ ]
+        " \ 'coc-fsharp',
+  let g:coc_global_extensions=[
+        \ 'coc-css',
+        \ 'coc-eslint',
+        \ 'coc-fish',
+        \ 'coc-json',
+        \ 'coc-lua',
+        \ 'coc-omnisharp',
+        \ 'coc-prettier',
+        \ 'coc-python',
+        \ 'coc-pyright',
+        \ 'coc-rls',
+        \ 'coc-tsserver',
+        \ 'coc-snippets',
+        \ 'coc-ultisnips'
+        \ ]
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+  inoremap <silent><expr> <TAB>
+        \ pumvisible() ? coc#_select_confirm() :
+        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+  endfunction
 
-" let g:coc_snippet_next = '<tab>'
-" let g:coc_snippet_prev = '<s-tab>'
+  " let g:coc_snippet_next = '<tab>'
+  " let g:coc_snippet_prev = '<s-tab>'
 
-" Use <c-space> to trigger completion.
-" inoremap <silent><expr> <c-p> coc#refresh()
+  " Use <c-space> to trigger completion.
+  " inoremap <silent><expr> <c-p> coc#refresh()
 
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [w <Plug>(coc-diagnostic-prev)
-nmap <silent> ]w <Plug>(coc-diagnostic-next)
-" nmap <silent> [g <Plug>(coc-diagnostic-prev-error)
-" nmap <silent> ]g <Plug>(coc-diagnostic-next-error)
+  " Use `[c` and `]c` to navigate diagnostics
+  nmap <silent> [w <Plug>(coc-diagnostic-prev)
+  nmap <silent> ]w <Plug>(coc-diagnostic-next)
+  " nmap <silent> [g <Plug>(coc-diagnostic-prev-error)
+  " nmap <silent> ]g <Plug>(coc-diagnostic-next-error)
 
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gh <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+  " Remap keys for gotos
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gh <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-" nnoremap <silent> gh :call <SID>show_documentation()<CR>
+  " Use K to show documentation in preview window
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  " nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
 
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-nnoremap <silent> g* :call CocActionAsync('highlight')<CR>
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  nnoremap <silent> g* :call CocActionAsync('highlight')<CR>
 
-" Remap for rename current word
-" nmap <leader>rn <Plug>(coc-rename)
-nmap <f2> <Plug>(coc-rename)
+  " Remap for rename current word
+  " nmap <leader>rn <Plug>(coc-rename)
+  nmap <f2> <Plug>(coc-rename)
 
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+  augroup mygroup
+    autocmd!
+    " Setup formatexpr specified filetype(s).
+    autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+    " Update signature help on jump placeholder
+    autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  augroup end
 
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
+  " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+  xmap <leader>a  <Plug>(coc-codeaction-selected)
+  nmap <leader>a  <Plug>(coc-codeaction-selected)
+  " Remap for do codeAction of current line
+  nmap <leader>ac  <Plug>(coc-codeaction)
 
-" Fix autofix problem of current line
-nmap <leader>cf  <Plug>(coc-fix-current)
+  " Fix autofix problem of current line
+  nmap <leader>cf  <Plug>(coc-fix-current)
 
-" Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>ca  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>ce  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>cc  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>co  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>cs  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>cj  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>ck  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>cp  :<C-u>CocListResume<CR>
-nnoremap <silent> gs :<C-u>CocListResume<CR>
-
+  " Using CocList
+  " Show all diagnostics
+  nnoremap <silent> <space>ca  :<C-u>CocList diagnostics<cr>
+  " Manage extensions
+  nnoremap <silent> <space>ce  :<C-u>CocList extensions<cr>
+  " Show commands
+  nnoremap <silent> <space>cc  :<C-u>CocList commands<cr>
+  " Find symbol of current document
+  nnoremap <silent> <space>co  :<C-u>CocList outline<cr>
+  " Search workspace symbols
+  nnoremap <silent> <space>cs  :<C-u>CocList -I symbols<cr>
+  " Do default action for next item.
+  nnoremap <silent> <space>cj  :<C-u>CocNext<CR>
+  " Do default action for previous item.
+  nnoremap <silent> <space>ck  :<C-u>CocPrev<CR>
+  " Resume latest coc list
+  nnoremap <silent> <space>cp  :<C-u>CocListResume<CR>
+  nnoremap <silent> gs :<C-u>CocListResume<CR>
+endif
 
 
 """ denite
@@ -1315,3 +1319,24 @@ nnoremap j gj
 nnoremap gj :let _=&lazyredraw<CR>:set lazyredraw<CR>/\%<C-R>=virtcol(".")<CR>v\S<CR>:nohl<CR>:let &lazyredraw=_<CR>
 nnoremap gk :let _=&lazyredraw<CR>:set lazyredraw<CR>?\%<C-R>=virtcol(".")<CR>v\S<CR>:nohl<CR>:let &lazyredraw=_<CR>
 
+if !exists("coc")
+  lua require'nvim_lsp'.pyls_ms.setup{root_dir = require'nvim_lsp'.util.root_pattern('.git');}
+
+  " nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+  nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+  nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+  nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+  nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+  nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+  nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+  nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+  nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+  nnoremap <silent> <leader>ca    <cmd>lua vim.lsp.buf.code_action()<CR>
+  nnoremap <silent> <leader>cr    <cmd>lua vim.lsp.buf.rename()<CR>
+endif
+
+" Change the working directory for everybody
+" nnoremap <leader>cd :windo lcd 
+
+nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
+command LCD lcd %:p:h 
