@@ -37,6 +37,8 @@ Plug 'machakann/vim-highlightedyank'
 " An ack/ag/pt/rg powered code search and view tool
 Plug 'dyng/ctrlsf.vim'
 
+Plug 'guns/vim-sexp' | Plug 'tpope/vim-sexp-mappings-for-regular-people'
+
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
 
