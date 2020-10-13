@@ -26,7 +26,7 @@ local custom_attach = function(client)
   --   mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
   -- end
 
-  mapper('i', '<c-s>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+  mapper('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
   mapper('n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 
   mapper('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
