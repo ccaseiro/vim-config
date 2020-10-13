@@ -274,9 +274,6 @@ let g:UltiSnipsExpandTrigger="<F5>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<F9>"
 
-" Mouse
-set mouse=a
-
 " Window sizing
 " set winheight=20
 set winminheight=0
