@@ -1028,9 +1028,10 @@ let g:lmap.e = {
 " nmap ]c <Plug>(GitGutterNextHunk)
 " nmap [c <Plug>(GitGutterPrevHunk)
 
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gd :Gvdiffsplit<CR>
 
 nmap <leader>gp <Plug>(GitGutterPreviewHunk)
-" nmap <leader>gs <Plug>(GitGutterStageHunk)
 nmap <leader>gg <Plug>(GitGutterStageHunk)
 nmap <leader>gu <Plug>(GitGutterUndoHunk)
 nmap <leader>gf :GitGutterFold<CR>
