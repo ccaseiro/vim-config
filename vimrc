@@ -16,6 +16,8 @@ call plug#begin()
 call s:local_plug('playground.vim')
 " }}}
 
+Plug 'mhinz/vim-startify'
+
 " Tim Pope plugins
 "  - Sensible (configuration)
 "  - Unimpaired (like [<Space> and ]<Space>)
