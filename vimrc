@@ -105,7 +105,6 @@ if exists("coc")
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 else
-  Plug 'neovim/nvim-lsp'
   Plug 'neovim/nvim-lspconfig'
 endif
 
@@ -1344,22 +1343,6 @@ nnoremap j gj
 " Thanks to: http://vi.stackexchange.com/a/213
 nnoremap gj :let _=&lazyredraw<CR>:set lazyredraw<CR>/\%<C-R>=virtcol(".")<CR>v\S<CR>:nohl<CR>:let &lazyredraw=_<CR>
 nnoremap gk :let _=&lazyredraw<CR>:set lazyredraw<CR>?\%<C-R>=virtcol(".")<CR>v\S<CR>:nohl<CR>:let &lazyredraw=_<CR>
-
-if !exists("coc")
-  lua require'nvim_lsp'.pyls_ms.setup{root_dir = require'nvim_lsp'.util.root_pattern('.git');}
-
-  " nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-  nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-  nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-  nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-  nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-  nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-  nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-  nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-  nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
-  nnoremap <silent> <leader>ca    <cmd>lua vim.lsp.buf.code_action()<CR>
-  nnoremap <silent> <leader>cr    <cmd>lua vim.lsp.buf.rename()<CR>
-endif
 
 " Change the working directory for everybody
 " nnoremap <leader>cd :windo lcd 
