@@ -680,7 +680,6 @@ nnoremap <leader>, :set invlist<cr>
 " nnoremap <silent> <Leader>bb  :Buffers<CR>
 nnoremap <silent> <leader>h   :History<CR>
 nnoremap <silent> <Leader>/   :BLines<CR>
-nnoremap <silent> <Leader>fl  :BLines<CR>
 
 " [Tags] Command to generate tags file
 " let g:fzf_tags_command = 'ctags -R'
@@ -1328,20 +1327,6 @@ set path=.,**
 command! Scratch lua require'tools'.makeScratch()
 
 lua require'init'
-
-" Set kj to be escape in insert mode
-inoremap kj <esc>
-
-" For long, wrapped lines
-nnoremap k gk
-" For long, wrapped lines
-nnoremap j gj
-
-" For moving quickly up and down,
-" Goes to the first line above/below that isn't whitespace
-" Thanks to: http://vi.stackexchange.com/a/213
-nnoremap gj :let _=&lazyredraw<CR>:set lazyredraw<CR>/\%<C-R>=virtcol(".")<CR>v\S<CR>:nohl<CR>:let &lazyredraw=_<CR>
-nnoremap gk :let _=&lazyredraw<CR>:set lazyredraw<CR>?\%<C-R>=virtcol(".")<CR>v\S<CR>:nohl<CR>:let &lazyredraw=_<CR>
 
 " Change the working directory for everybody
 " nnoremap <leader>cd :windo lcd 
