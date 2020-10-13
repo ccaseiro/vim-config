@@ -162,7 +162,8 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
 
-Plug 'justinmk/vim-sneak'  " Jump to any location specified by two characters.
+Plug 'justinmk/vim-sneak'   " Jump to any location specified by two characters.
+Plug 'tjdevries/train.nvim' " Train yourself with vim motions
 call plug#end()
 
 
