@@ -10,7 +10,7 @@ end
 local mapper = function(mode, key, result)
   vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
 end
- 
+
 local custom_attach = function(client)
   mapper('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>')
   mapper('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>')
@@ -32,6 +32,11 @@ local custom_attach = function(client)
 end
 
 nvim_lsp.vimls.setup({
+  on_attach = custom_attach,
+})
+
+
+nvim_lsp.sumneko_lua.setup({
   on_attach = custom_attach,
 })
 
