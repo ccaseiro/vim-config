@@ -44,3 +44,18 @@ nnoremap <space>fr <cmd>lua RELOAD('plenary'); RELOAD('telescope'); require('tel
 nnoremap <space>fw <cmd>lua RELOAD('plenary'); RELOAD('telescope'); require('telescope.builtin').lsp_workspace_symbols { ignore_filename = true }<CR>
 
 nnoremap <c-p> :lua require'telescope.builtin'.find_files{}<CR>
+
+" Find all the files in vim config
+nnoremap <Leader>fv <cmd>lua require'telescope.builtin'.find_files{ cwd = "~/.vim"}<CR>
+
+" -- Convert currently quickfixlist to telescope
+nnoremap <Leader>fq <cmd>lua require'telescope.builtin'.quickfix()<CR>
+
+" -- Convert currently loclist to telescope
+nnoremap <Leader>fl <cmd>lua require'telescope.builtin'.loclist()<CR>
+
+" require'telescope.builtin'.treesitter{
+"   -- Optional
+"   -- bufnr = Buffer number
+" }
+
