@@ -12,6 +12,7 @@ local mapper = function(mode, key, result)
 end
 
 local custom_attach = function(client)
+  -- TODO: check other features with `:h vim.lsp.buf.<TAB>`
   mapper('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>')
   mapper('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>')
   mapper('n', 'gD', '<cmd>lua vim.lsp.buf.implementation()<CR>')
@@ -30,16 +31,8 @@ local custom_attach = function(client)
 
   mapper('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
   mapper('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
+
 end
-
-nvim_lsp.vimls.setup({
-  on_attach = custom_attach,
-})
-
-
-nvim_lsp.sumneko_lua.setup({
-  on_attach = custom_attach,
-})
 
 
 nvim_lsp.pyls_ms.setup({
@@ -47,3 +40,8 @@ nvim_lsp.pyls_ms.setup({
   on_attach = custom_attach
 })
 
+nvim_lsp.rust_analyzer.setup({ on_attach = custom_attach })
+
+nvim_lsp.sumneko_lua.setup({ on_attach = custom_attach })
+
+nvim_lsp.vimls.setup({ on_attach = custom_attach })
