@@ -230,6 +230,9 @@ set ttimeoutlen=0
 " highlight all search matches
 set hlsearch
 
+set splitright " Always splits with new window at right
+set splitbelow " Always splits with new window below
+
 " font
 set guifont=Dank\ Mono:h12,Fira\ Code:h12
 
