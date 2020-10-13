@@ -1029,6 +1029,7 @@ let g:lmap.e = {
 
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gd :Gvdiffsplit<CR>
+nmap <leader>gb :Gblame<CR>
 
 nmap <leader>gp <Plug>(GitGutterPreviewHunk)
 nmap <leader>gg <Plug>(GitGutterStageHunk)
