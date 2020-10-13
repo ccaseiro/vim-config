@@ -1,7 +1,20 @@
 " Plugins
 " =========================================================
 
+function! s:local_plug(package_name) abort " {{{
+  if isdirectory(expand("~/Developer/nvim/plugins/" . a:package_name))
+    execute "Plug '~/Developer/nvim/plugins/".a:package_name."'"
+  else
+    execute "Plug 'ccaseiro/".a:package_name."'"
+  endif
+endfunction
+" }}}
+
 call plug#begin()
+
+" Local Plugins " {{{
+call s:local_plug('playground.vim')
+" }}}
 
 " Tim Pope plugins
 "  - Sensible (configuration)
