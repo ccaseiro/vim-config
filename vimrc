@@ -50,6 +50,8 @@ Plug 'norcalli/snippets.nvim'
 " highlight yanked text
 Plug 'machakann/vim-highlightedyank'
 
+Plug 'norcalli/nvim-colorizer.lua' "color highlighter
+
 " An ack/ag/pt/rg powered code search and view tool
 Plug 'dyng/ctrlsf.vim'
 
@@ -164,6 +166,8 @@ Plug 'nvim-lua/telescope.nvim'
 
 Plug 'justinmk/vim-sneak'   " Jump to any location specified by two characters.
 Plug 'tjdevries/train.nvim' " Train yourself with vim motions
+Plug 'tjdevries/colorbuddy.vim' | Plug 'tjdevries/gruvbuddy.nvim'
+
 call plug#end()
 
 
@@ -171,9 +175,9 @@ call plug#end()
 " colorscheme config
 " =========================================================
 " enable 24bit true color (If you have vim >=8.0 or Neovim >= 0.1.5)
-if (has("termguicolors"))
-  set termguicolors
-endif
+" if (has("termguicolors"))
+"   set termguicolors
+" endif
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
@@ -205,7 +209,7 @@ let g:srcery_italic = 1
 " colorscheme base16-default-dark
 " colorscheme base16-atelier-dune
 " colorscheme base16-gruvbox-dark-hard
-colorscheme srcery
+" colorscheme srcery
 
 
 " =========================================================
