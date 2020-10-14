@@ -23,10 +23,10 @@ local custom_attach = function(client)
   mapper('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
   mapper('n', '<space>cr', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
-  mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-  -- if vim.api.nvim_buf_get_option(0, 'filetype') ~= 'lua' then
-  --   mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-  -- end
+  -- mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+  if vim.api.nvim_buf_get_option(0, 'filetype') ~= 'vim' then
+    mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+  end
 
   mapper('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
   mapper('n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
