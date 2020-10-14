@@ -45,6 +45,7 @@ Plug 'Shougo/echodoc.vim'
 " Snipets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'norcalli/snippets.nvim'
 
 " highlight yanked text
 Plug 'machakann/vim-highlightedyank'
@@ -156,8 +157,7 @@ Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
 "       \}
 
 
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-
+Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
@@ -381,7 +381,7 @@ noremap! <c-e> <End>
 noremap! <c-b> <Left>
 noremap! <c-d> <Delete>
 " noremap! <c-n> <Down>
-noremap! <c-p> <Up>
+" noremap! <c-p> <Up>
 nnoremap <c-f> <Right>
 
 inoremap <c-g> <c-p>
@@ -1253,36 +1253,36 @@ let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 " endif
 "
 
-function SetLSPShortcuts()
-  nnoremap <F3> :call fsharp#loadWorkspaceAuto()<CR>
-
-  nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
-  nnoremap gd :call LanguageClient#textDocument_definition()<CR>
-
-  nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
-  nnoremap <F2> :call LanguageClient#textDocument_rename()<CR>
-
-  nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
-
-  nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
-
-  nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
-  nnoremap gr :call LanguageClient#textDocument_references()<CR>
-
-  nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
-
-  nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
-
-  nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
-  nnoremap K :call LanguageClient#textDocument_hover()<CR>
-
-  nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
-  nnoremap gs :call LanguageClient_textDocument_documentSymbol()<CR>
-
-  nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
-
-  nnoremap <leader>ll :call LanguageClient#textDocument_codeAction()<CR>
-endfunction()
+" function SetLSPShortcuts()
+"   nnoremap <F3> :call fsharp#loadWorkspaceAuto()<CR>
+"
+"   nnoremap <leader>ld :call LanguageClient#textDocument_definition()<CR>
+"   nnoremap gd :call LanguageClient#textDocument_definition()<CR>
+"
+"   nnoremap <leader>lr :call LanguageClient#textDocument_rename()<CR>
+"   nnoremap <F2> :call LanguageClient#textDocument_rename()<CR>
+"
+"   nnoremap <leader>lf :call LanguageClient#textDocument_formatting()<CR>
+"
+"   nnoremap <leader>lt :call LanguageClient#textDocument_typeDefinition()<CR>
+"
+"   nnoremap <leader>lx :call LanguageClient#textDocument_references()<CR>
+"   nnoremap gr :call LanguageClient#textDocument_references()<CR>
+"
+"   nnoremap <leader>la :call LanguageClient_workspace_applyEdit()<CR>
+"
+"   nnoremap <leader>lc :call LanguageClient#textDocument_completion()<CR>
+"
+"   nnoremap <leader>lh :call LanguageClient#textDocument_hover()<CR>
+"   nnoremap K :call LanguageClient#textDocument_hover()<CR>
+"
+"   nnoremap <leader>ls :call LanguageClient_textDocument_documentSymbol()<CR>
+"   nnoremap gs :call LanguageClient_textDocument_documentSymbol()<CR>
+"
+"   nnoremap <leader>lm :call LanguageClient_contextMenu()<CR>
+"
+"   nnoremap <leader>ll :call LanguageClient#textDocument_codeAction()<CR>
+" endfunction()
 
 augroup LSP
   autocmd!
