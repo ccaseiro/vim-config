@@ -265,6 +265,8 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
+            " eol:¬
+set listchars=tab:▸\ ,eol:↲,tab:»·,trail:·,nbsp:␣,conceal:┊
 " deoplete tab-complete
 " set completeopt=menuone,longest,preview,noinsert
 " set completeopt=menuone,noinsert
@@ -412,8 +414,6 @@ let g:multi_cursor_exit_from_insert_mode = 0
 " =========================================================
 " Tab
 " =========================================================
-            " eol:¬
-set listchars=tab:▸\ ,eol:↲,tab:»·,trail:·,nbsp:␣,conceal:┊
 let &tabstop=exists('g:tabSize') ? g:tabSize : 2
 let &softtabstop=exists('g:tabSize') ? g:tabSize : 2
 let &shiftwidth=exists('g:tabSize') ? g:tabSize : 2
