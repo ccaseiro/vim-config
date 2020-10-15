@@ -1,6 +1,9 @@
 " Set kj to be escape in insert mode
 inoremap kj <esc>
 
+" Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
+nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
+
 " " For long, wrapped lines
 " nnoremap k gk
 " " For long, wrapped lines
