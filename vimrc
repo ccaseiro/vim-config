@@ -494,7 +494,6 @@ let g:lmap.y = {
 "       \ }
 "
 nnoremap <leader>ee :e <C-R>=expand("%:p:h") . "/" <CR><Paste>
-nnoremap <leader>x :source %<CR>
 
 let g:lmap.f = {
       \ 'name' : '+find/files/fold' ,

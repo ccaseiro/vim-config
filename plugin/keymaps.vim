@@ -4,6 +4,23 @@ inoremap kj <esc>
 " Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
 nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
 
+" Execute this file
+function! s:save_and_exec() abort
+  if &filetype == 'vim'
+    :silent! write
+    :source %
+  elseif &filetype == 'lua'
+    :silent! write
+    :luafile %
+  endif
+
+  return
+endfunction
+nnoremap <leader>x :call <SID>save_and_exec()<CR>
+
+
+
+
 " " For long, wrapped lines
 " nnoremap k gk
 " " For long, wrapped lines
