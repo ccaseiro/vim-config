@@ -347,20 +347,22 @@ set undofile
 " =========================================================
 " Copy to global clipboard
 " =========================================================
-let g:clipboard = {
-      \   'name': 'myClipboard',
-      \   'copy': {
-      \      '+': 'pbcopy',
-      \      '*': 'pbcopy',
-      \   },
-      \   'paste': {
-      \      '+': '+',
-      \      '*': '*',
-      \   },
-      \   'cache_enabled': 1,
-      \ }
+" let g:clipboard = {
+"       \   'name': 'myClipboard',
+"       \   'copy': {
+"       \      '+': 'pbcopy',
+"       \      '*': 'pbcopy',
+"       \   },
+"       \   'paste': {
+"       \      '+': '+',
+"       \      '*': '*',
+"       \   },
+"       \   'cache_enabled': 1,
+"       \ }
 
-" set clipboard+=unnamedplus,unnamed
+" Clipboard
+" Always have the clipboard be the same as my regular clipboard
+set clipboard+=unnamedplus
 
 " =========================================================
 " CtrlSF config
