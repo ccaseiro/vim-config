@@ -197,10 +197,10 @@ function! s:base16_customize() abort
    call Base16hi("Comment",      g:base16_gui03, "", g:base16_cterm03, "", "italic", "")
 endfunction
 
-" augroup on_change_colorschema
-"   autocmd!
-"   autocmd ColorScheme * call s:base16_customize()
-" augroup END
+augroup on_change_colorschema
+  autocmd!
+  autocmd ColorScheme * call s:base16_customize()
+augroup END
 
 
 let g:srcery_italic = 1
@@ -208,7 +208,7 @@ let g:srcery_italic = 1
 " colorscheme night-owl
 " colorscheme base16-default-dark
 " colorscheme base16-atelier-dune
-" colorscheme base16-gruvbox-dark-hard
+colorscheme base16-gruvbox-dark-hard
 " colorscheme srcery
 
 
@@ -238,7 +238,7 @@ set splitright " Always splits with new window at right
 set splitbelow " Always splits with new window below
 
 " font
-set guifont=Dank\ Mono:h12,Fira\ Code:h12
+" set guifont=Dank\ Mono:h11,Fira\ Code:h12
 
 " Saving marks and jumps
 set viminfo='100,f1
