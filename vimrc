@@ -419,6 +419,8 @@ let g:multi_cursor_exit_from_insert_mode = 0
 " =========================================================
 " Tab
 " =========================================================
+
+let g:tabSize = 4
 let &tabstop=exists('g:tabSize') ? g:tabSize : 2
 let &softtabstop=exists('g:tabSize') ? g:tabSize : 2
 let &shiftwidth=exists('g:tabSize') ? g:tabSize : 2
