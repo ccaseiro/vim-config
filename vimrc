@@ -48,7 +48,7 @@ Plug 'honza/vim-snippets'
 Plug 'norcalli/snippets.nvim'
 
 " highlight yanked text
-Plug 'machakann/vim-highlightedyank'
+" Plug 'machakann/vim-highlightedyank'
 
 Plug 'norcalli/nvim-colorizer.lua' "color highlighter
 
