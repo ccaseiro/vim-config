@@ -531,6 +531,7 @@ let g:lmap.f = {
 let g:lmap.f.e = { 
                   \'name' : '+vimrc',
                   \'d' : [':e ~/.vim/vimrc', '.vimrc'],
+                  \'e' : [':Startify', 'Startify'],
                   \'v' : [':e $MYVIMRC', '$MYVIMRC'],
                   \'r' : [':so $MYVIMRC', 'sync $MYVIMRC'],
                   \'R' : [':so $MYVIMRC', 'sync $MYVIMRC'],
