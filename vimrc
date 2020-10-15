@@ -268,6 +268,10 @@ set updatetime=300
             " eol:¬
 set listchars=tab:▸\ ,eol:↲,tab:»·,trail:·,nbsp:␣,conceal:┊
 set list
+set inccommand=split
+
+
+
 " deoplete tab-complete
 " set completeopt=menuone,longest,preview,noinsert
 " set completeopt=menuone,noinsert
