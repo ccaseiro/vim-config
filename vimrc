@@ -67,7 +67,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'jiangmiao/auto-pairs'
 
 
-Plug 'airblade/vim-rooter'    " Auto change pwd
+" Plug 'airblade/vim-rooter'    " Auto change pwd
 
 " FZF
 Plug '/usr/local/opt/fzf'
