@@ -270,7 +270,8 @@ set listchars=tab:▸\ ,eol:↲,tab:»·,trail:·,nbsp:␣,conceal:┊,extends:�
 set list
 set inccommand=split
 
-
+" Sneak plugin
+let g:sneak#label = 1
 
 " deoplete tab-complete
 " set completeopt=menuone,longest,preview,noinsert
