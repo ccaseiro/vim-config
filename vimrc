@@ -266,7 +266,7 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 set updatetime=300
 
             " eol:¬
-set listchars=tab:▸\ ,eol:↲,tab:»·,trail:·,nbsp:␣,conceal:┊
+set listchars=tab:▸\ ,eol:↲,tab:»·,trail:·,nbsp:␣,conceal:┊,extends:☛,precedes:☚
 set list
 set inccommand=split
 
