@@ -14,6 +14,7 @@ call plug#begin()
 
 " Local Plugins " {{{
 call s:local_plug('playground.vim')
+call s:local_plug('nightbuddy.nvim')
 " }}}
 
 Plug 'mhinz/vim-startify'
@@ -88,8 +89,8 @@ Plug 'scrooloose/nerdtree'
 
 " Colorscheme
 Plug 'haishanh/night-owl.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'srcery-colors/srcery-vim'
+" Plug 'chriskempson/base16-vim'
+" Plug 'srcery-colors/srcery-vim'
 
 " Syntax Highlighting - Javascript
 Plug 'pangloss/vim-javascript'
@@ -169,48 +170,6 @@ Plug 'tjdevries/train.nvim' " Train yourself with vim motions
 Plug 'tjdevries/colorbuddy.vim' | Plug 'tjdevries/gruvbuddy.nvim'
 
 call plug#end()
-
-
-" =========================================================
-" colorscheme config
-" =========================================================
-" enable 24bit true color (If you have vim >=8.0 or Neovim >= 0.1.5)
-" if (has("termguicolors"))
-"   set termguicolors
-" endif
-
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-let base16colorspace=256  " Access colors present in 256 colorspace
-
-" Syntax: call Base16hi(group, guifg, guibg, ctermfg, ctermbg, attr, guisp)
-function! s:base16_customize() abort
-   call Base16hi("htmlBold",    g:base16_gui0A, "", g:base16_cterm08, "", "bold", "") 
-   call Base16hi("markdownBold",    g:base16_gui0A, "", g:base16_cterm08, "", "bold", "") 
-   call Base16hi("markdownHeadingDelimiter",    g:base16_gui0A, "", g:base16_cterm08, "", "bold", "") 
-   call Base16hi("markdownH1",    g:base16_gui0A, "", g:base16_cterm08, "", "bold", "") 
-   call Base16hi("markdownH2",    g:base16_gui0A, "", g:base16_cterm08, "", "bold", "") 
-   call Base16hi("htmlItalic",  g:base16_gui0E, "", g:base16_cterm0A, "", "italic", "")
-   call Base16hi("markdownItalic",  g:base16_gui0E, "", g:base16_cterm0A, "", "italic", "")
-   call Base16hi("htmlUnderline",  g:base16_gui0E, "", g:base16_cterm0A, "", "underline", "")
-   call Base16hi("Italic",        "", "", "", "", "italic", "")
-   call Base16hi("Comment",      g:base16_gui03, "", g:base16_cterm03, "", "italic", "")
-endfunction
-
-augroup on_change_colorschema
-  autocmd!
-  autocmd ColorScheme * call s:base16_customize()
-augroup END
-
-
-let g:srcery_italic = 1
-
-" colorscheme night-owl
-" colorscheme base16-default-dark
-" colorscheme base16-atelier-dune
-colorscheme base16-gruvbox-dark-hard
-" colorscheme srcery
-
 
 " =========================================================
 " General config
