@@ -648,6 +648,10 @@ command! -bang -nargs=? -complete=dir GFiles
       \ fzf#vim#with_preview('down:70%', '?'),
       \ <bang>0)
 
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 
 " Using the custom window creation function
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
@@ -661,7 +665,7 @@ function! FloatingFZF()
   " 90% of the height
   let height = float2nr(&lines * 0.9)
   " 60% of the height
-  let width = float2nr(&columns * 0.6)
+  let width = float2nr(&columns * 0.9)
   " horizontal position (centralized)
   let horizontal = float2nr((&columns - width) / 2)
   " vertical position (one line down of the top)
