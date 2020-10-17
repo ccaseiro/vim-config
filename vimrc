@@ -1135,7 +1135,9 @@ let g:projectionist_heuristics = {
       \ }
 
 nnoremap <leader>fa :A<CR>
-nnoremap ga :A<CR>
+" ga is vim builtin to 'Print the ascii value of the character under the
+" cursor in decimal'
+" nnoremap ga :A<CR>
 
 " ============================================================================
 " vim-test
