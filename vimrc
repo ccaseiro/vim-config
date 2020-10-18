@@ -229,6 +229,8 @@ set listchars=tab:▸\ ,eol:↲,tab:»·,trail:·,nbsp:␣,conceal:┊,extends:�
 set list
 set inccommand=split
 
+set foldmethod=marker
+
 " Sneak plugin
 let g:sneak#label = 1
 
