@@ -227,8 +227,6 @@ set updatetime=300
 set list
 set inccommand=split
 
-set foldmethod=marker
-
 " Sneak plugin
 let g:sneak#label = 1
 
