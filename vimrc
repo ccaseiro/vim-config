@@ -13,7 +13,6 @@ endfunction
 call plug#begin()
 
 " Local Plugins " {{{
-call s:local_plug('playground.vim')
 call s:local_plug('nightbuddy.nvim')
 " }}}
 
@@ -168,6 +167,7 @@ Plug 'nvim-lua/telescope.nvim'
 Plug 'justinmk/vim-sneak'   " Jump to any location specified by two characters.
 Plug 'tjdevries/train.nvim' " Train yourself with vim motions
 Plug 'tjdevries/colorbuddy.vim' | Plug 'tjdevries/gruvbuddy.nvim'
+Plug 'tjdevries/cyclist.vim'
 
 call plug#end()
 
@@ -224,8 +224,6 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
-            " eol:¬
-set listchars=tab:▸\ ,eol:↲,tab:»·,trail:·,nbsp:␣,conceal:┊,extends:☛,precedes:☚
 set list
 set inccommand=split
 
