@@ -165,6 +165,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
 
 Plug 'justinmk/vim-sneak'   " Jump to any location specified by two characters.
+Plug 'justinmk/vim-gtfo'    " Opens the file manager or terminal at the directory of the current file in Vim
 Plug 'tjdevries/train.nvim' " Train yourself with vim motions
 Plug 'tjdevries/colorbuddy.vim' | Plug 'tjdevries/gruvbuddy.nvim'
 Plug 'tjdevries/cyclist.vim'
