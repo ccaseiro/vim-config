@@ -131,7 +131,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Git
 Plug 'airblade/vim-gitgutter'
 
-" Plug 'OmniSharp/omnisharp-vim'
+Plug 'OmniSharp/omnisharp-vim'
 
 Plug 'Yggdroot/indentLine'
 
