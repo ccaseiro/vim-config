@@ -90,6 +90,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'haishanh/night-owl.vim'
 " Plug 'chriskempson/base16-vim'
 " Plug 'srcery-colors/srcery-vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Syntax Highlighting - Javascript
 Plug 'pangloss/vim-javascript'
