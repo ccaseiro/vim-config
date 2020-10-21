@@ -1311,13 +1311,16 @@ nnoremap <leader>cd :lcd %:p:h<CR>:pwd<CR>
 command LCD lcd %:p:h 
 
 " Show syntax highlighting groups for word under cursor
-nmap <F2> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
     if !exists("*synstack")
         return
     endif
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+nmap <F2> :call <SID>SynStack()<CR>
+nmap <F3> :OmniSharpHighlightEcho<CR>
+
+
 " = Vim Tmux Navigator =======================================  {{{
 let g:tmux_navigator_no_mappings = 1
 
