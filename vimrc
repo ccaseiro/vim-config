@@ -131,7 +131,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Git
 Plug 'airblade/vim-gitgutter'
 
-Plug 'OmniSharp/omnisharp-vim'
+" Plug 'OmniSharp/omnisharp-vim'
 
 Plug 'Yggdroot/indentLine'
 
@@ -1034,41 +1034,37 @@ let g:echodoc#type = 'floating'
 "
 " === OmniSharp ===
 "
-
-
-filetype indent plugin on
-
-" Use the stdio OmniSharp-roslyn server
-let g:OmniSharp_server_stdio = 1
-
-" Set the type lookup function to use the preview window instead of echoing it
-" let g:OmniSharp_typeLookupInPreview = 1
-
-" Timeout in seconds to wait for a response from the server
-let g:OmniSharp_timeout = 5
-
-
-" Don't autoselect first omnicomplete option, show options even if there is only
-" one (so the preview documentation is accessible). Remove 'preview' if you
-" don't want to see any documentation whatsoever.
-set completeopt=longest,menuone,preview
-
-" Fetch full documentation during omnicomplete requests.
-" By default, only Type/Method signatures are fetched. Full documentation can
-" still be fetched when you need it with the :OmniSharpDocumentation command.
-let g:omnicomplete_fetch_full_documentation = 1
-
-" Set desired preview window height for viewing documentation.
-" You might also want to look at the echodoc plugin.
-" set previewheight=5
-
-
-" Tell ALE to use OmniSharp for linting C# files, and no other linters.
-let g:ale_linters = { 'cs': ['OmniSharp'] }
-
-" Update symantic highlighting on BufEnter and InsertLeave
-let g:OmniSharp_highlight_types = 2
-
+" " Use the stdio OmniSharp-roslyn server
+" let g:OmniSharp_server_stdio = 1
+"
+" " Set the type lookup function to use the preview window instead of echoing it
+" " let g:OmniSharp_typeLookupInPreview = 1
+"
+" " Timeout in seconds to wait for a response from the server
+" let g:OmniSharp_timeout = 5
+"
+"
+" " Don't autoselect first omnicomplete option, show options even if there is only
+" " one (so the preview documentation is accessible). Remove 'preview' if you
+" " don't want to see any documentation whatsoever.
+" set completeopt=longest,menuone,preview
+"
+" " Fetch full documentation during omnicomplete requests.
+" " By default, only Type/Method signatures are fetched. Full documentation can
+" " still be fetched when you need it with the :OmniSharpDocumentation command.
+" let g:omnicomplete_fetch_full_documentation = 1
+"
+" " Set desired preview window height for viewing documentation.
+" " You might also want to look at the echodoc plugin.
+" " set previewheight=5
+"
+"
+" " Tell ALE to use OmniSharp for linting C# files, and no other linters.
+" let g:ale_linters = { 'cs': ['OmniSharp'] }
+"
+" " Update symantic highlighting on BufEnter and InsertLeave
+" let g:OmniSharp_highlight_types = 2
+"
 " =============================================================================
 " hacks
 " =============================================================================

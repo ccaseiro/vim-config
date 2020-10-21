@@ -15,7 +15,7 @@ end
 
 local custom_attach = function(client)
   -- TODO: check other features with `:h vim.lsp.buf.<TAB>`
-  mapper('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+  -- mapper('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>')
   mapper('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>')
   mapper('n', 'gD', '<cmd>lua vim.lsp.buf.implementation()<CR>')
   mapper('n', '1gD', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
@@ -47,3 +47,10 @@ nvim_lsp.rust_analyzer.setup({ on_attach = custom_attach })
 nvim_lsp.sumneko_lua.setup({ on_attach = custom_attach })
 
 nvim_lsp.vimls.setup({ on_attach = custom_attach })
+
+nvim_lsp.omnisharp.setup({
+  on_attach = custom_attach
+  -- filetypes = {"cs"},
+  -- cmd = { "/Users/ccaseiro/.cache/nvim/nvim_lsp/omnisharp/run", "--languageserver", "--hostPID", "2801", "-s", "/Users/ccaseiro/Developer/UnityPlayground/UnityPlayground.sln" }
+})
+
