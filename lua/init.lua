@@ -1,56 +1,32 @@
-local nvim_lsp = require('nvim_lsp')
+-- https://stackoverflow.com/questions/15429236/how-to-check-if-a-module-exists-in-lua
+function isModuleAvailable(name)
+  if package.loaded[name] then
+    return true
+  else
+    for _, searcher in ipairs(package.searchers or package.loaders) do
+      local loader = searcher(name)
+      if type(loader) == 'function' then
+        package.preload[name] = loader
+        return true
+      end
+    end
+    return false
+  end
+end
 
-RELOAD = require('plenary.reload').reload_module
 
-R = function(name)
-  RELOAD(name)
-  return require(name)
+if vim.fn.exists("coc") == 0 then
+  require("cc.nvim_lsp")
+end
+
+if isModuleAvailable('plenary.reload') then
+  RELOAD = require('plenary.reload').reload_module
+
+  R = function(name)
+    RELOAD(name)
+    return require(name)
+  end
 end
 
 require('cc.completion')
-
-local mapper = function(mode, key, result)
-  vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
-end
-
-local custom_attach = function(client)
-  -- TODO: check other features with `:h vim.lsp.buf.<TAB>`
-  -- mapper('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-  mapper('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  mapper('n', 'gD', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-  mapper('n', '1gD', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-  mapper('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-  mapper('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-  mapper('n', '<space>cr', '<cmd>lua vim.lsp.buf.rename()<CR>')
-
-  -- mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-  if vim.api.nvim_buf_get_option(0, 'filetype') ~= 'vim' then
-    mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-  end
-
-  mapper('i', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-  mapper('n', '<c-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-
-  mapper('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
-  mapper('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
-
-end
-
-
-nvim_lsp.pyls_ms.setup({
-  root_dir = require'nvim_lsp'.util.root_pattern('.git'),
-  on_attach = custom_attach
-})
-
-nvim_lsp.rust_analyzer.setup({ on_attach = custom_attach })
-
-nvim_lsp.sumneko_lua.setup({ on_attach = custom_attach })
-
-nvim_lsp.vimls.setup({ on_attach = custom_attach })
-
-nvim_lsp.omnisharp.setup({
-  on_attach = custom_attach
-  -- filetypes = {"cs"},
-  -- cmd = { "/Users/ccaseiro/.cache/nvim/nvim_lsp/omnisharp/run", "--languageserver", "--hostPID", "2801", "-s", "/Users/ccaseiro/Developer/UnityPlayground/UnityPlayground.sln" }
-})
 

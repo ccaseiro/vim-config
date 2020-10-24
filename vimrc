@@ -37,7 +37,7 @@ Plug 'radenling/vim-dispatch-neovim'
 " Autocomplete
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Denite - Fuzzy finding, buffer management
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
@@ -122,7 +122,7 @@ Plug 'toyamarinyon/vim-swift'
 Plug 'mattn/emmet-vim'
 
 " Syntax checking
-" Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'
@@ -160,10 +160,11 @@ Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
 "       \}
 
 
-Plug 'nvim-lua/completion-nvim'
-Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
+Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/diagnostic-nvim'
 
 Plug 'justinmk/vim-sneak'   " Jump to any location specified by two characters.
 Plug 'justinmk/vim-gtfo'    " Opens the file manager or terminal at the directory of the current file in Vim
@@ -180,7 +181,7 @@ call plug#end()
 let mapleader=' '
 " In case i start using localleader as ',' I need to manually change the sneak
 " configuration with: 'map \ <Plug>Sneak_'
-let maplocalleader='\'
+let maplocalleader=' l'
 
 " Required for operations modifying multiple buffers like rename.
 set hidden
@@ -259,6 +260,7 @@ let g:sneak#label = 1
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " Change to F5 to use Tab with mucomplete
 let g:UltiSnipsExpandTrigger="<F5>"
+" let g:UltiSnipsExpandTrigger="<tab>"
 " let g:UltiSnipsJumpForwardTrigger="<c-j>"
 " let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<F9>"
@@ -498,19 +500,19 @@ let g:lmap.f.e = {
                   \}
 
       " \ 'x' : ['spacevim#lang#util#FindReferences()'  , 'references']       ,
-let g:lmap.l = {
-      \ 'name' : '+lsp',
-      \ 'f' : ['spacevim#lang#util#Format()'          , 'formatting']       ,
-      \ 'R' : ['spacevim#lang#util#Rename()'          , 'rename']           ,
-      \ 's' : ['spacevim#lang#util#DocumentSymbol()'  , 'document-symbol']  ,
-      \ 'S' : ['spacevim#lang#util#WorkspaceSymbol()' , 'workspace-symbol'] ,
-      \ 'g' : {
-        \ 'name': '+goto',
-        \ 'd' : ['spacevim#lang#util#Definition()'     , 'definition']      ,
-        \ 't' : ['spacevim#lang#util#TypeDefinition()' , 'type-definition'] ,
-        \ 'i' : ['spacevim#lang#util#Implementation()' , 'implementation']  ,
-        \ },
-      \ }
+      " \ 'f' : ['spacevim#lang#util#Format()'          , 'formatting']       ,
+" let g:lmap.l = {
+"       \ 'name' : '+lsp',
+"       \ 'R' : ['spacevim#lang#util#Rename()'          , 'rename']           ,
+"       \ 's' : ['spacevim#lang#util#DocumentSymbol()'  , 'document-symbol']  ,
+"       \ 'S' : ['spacevim#lang#util#WorkspaceSymbol()' , 'workspace-symbol'] ,
+"       \ 'g' : {
+"         \ 'name': '+goto',
+"         \ 'd' : ['spacevim#lang#util#Definition()'     , 'definition']      ,
+"         \ 't' : ['spacevim#lang#util#TypeDefinition()' , 'type-definition'] ,
+"         \ 'i' : ['spacevim#lang#util#Implementation()' , 'implementation']  ,
+"         \ },
+"       \ }
 
 let g:lmap.n =  {
                 \'name' : '+files',
@@ -728,9 +730,7 @@ let g:user_emmet_settings = {
   \}
 
 
-" =========================================================
-" Ale
-" =========================================================
+" = Ale =================================================== {{{
 " let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 " let g:ale_sign_warning = '.'
 " " let g:ale_sign_column_always=1 " always show sign column
@@ -744,9 +744,20 @@ let g:user_emmet_settings = {
 "
 " let g:ale_fix_on_save = 1
 
-" =========================================================
-" Session
-" =========================================================
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '•'
+let g:ale_sign_info = '·'
+let g:ale_sign_style_error = '·'
+let g:ale_sign_style_warning = '·'
+
+let g:ale_linters = { 'cs': ['OmniSharp'] }
+
+nmap <silent> [w <Plug>(ale_previous_wrap)
+nmap <silent> ]w <Plug>(ale_next_wrap)
+
+" ========================================================= }}}
+
+" = Session ===============================================
 
 let g:session_command_aliases = 1
 let g:session_autosave = 'no'
@@ -840,13 +851,13 @@ endif
 if exists("coc")
 
         " \ 'coc-fsharp',
+        " \ 'coc-omnisharp',
   let g:coc_global_extensions=[
         \ 'coc-css',
         \ 'coc-eslint',
         \ 'coc-fish',
         \ 'coc-json',
         \ 'coc-lua',
-        \ 'coc-omnisharp',
         \ 'coc-prettier',
         \ 'coc-python',
         \ 'coc-pyright',
@@ -874,8 +885,8 @@ if exists("coc")
   " inoremap <silent><expr> <c-p> coc#refresh()
 
   " Use `[c` and `]c` to navigate diagnostics
-  nmap <silent> [w <Plug>(coc-diagnostic-prev)
-  nmap <silent> ]w <Plug>(coc-diagnostic-next)
+  " nmap <silent> [w <Plug>(coc-diagnostic-prev)
+  " nmap <silent> ]w <Plug>(coc-diagnostic-next)
   " nmap <silent> [g <Plug>(coc-diagnostic-prev-error)
   " nmap <silent> ]g <Plug>(coc-diagnostic-next-error)
 
@@ -943,51 +954,6 @@ if exists("coc")
 endif
 
 
-""" denite
-call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git', '!node_modules'])
-
-" Ripgrep command on grep source
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts',
-		\ ['-i', '--vimgrep', '--no-heading'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-" Use ripgrep in place of "grep"
-" call denite#custom#var('grep', 'command', ['rg'])
-
-" === Denite shorcuts === "
-"   ;         - Browser currently open buffers
-"   <leader>t - Browse list of files in current directory
-"   <leader>g - Search current directory for occurences of given term and
-"   close window if no results
-"   <leader>j - Search current directory for occurences of word under cursor
-nmap <leader>db :Denite buffer -split=floating -winrow=1<CR>
-nmap <leader>dt :Denite file/rec -split=floating -winrow=1<CR>
-" nnoremap <leader>g :<C-u>Denite grep:. -no-empty<CR>
-nnoremap <leader>dg :<C-u>Denite grep<CR>
-nnoremap <leader>dj :<C-u>DeniteCursorWord grep<CR>
-
-" Define mappings
-autocmd FileType denite call s:denite_my_settings()
-function! s:denite_my_settings() abort
-  nnoremap <silent><buffer><expr> <CR>
-  \ denite#do_map('do_action')
-  nnoremap <silent><buffer><expr> d
-  \ denite#do_map('do_action', 'delete')
-  nnoremap <silent><buffer><expr> p
-  \ denite#do_map('do_action', 'preview')
-  nnoremap <silent><buffer><expr> q
-  \ denite#do_map('quit')
-  nnoremap <silent><buffer><expr> i
-  \ denite#do_map('open_filter_buffer')
-  nnoremap <silent><buffer><expr> <Space>
-  \ denite#do_map('toggle_select').'j'
-endfunction
-
-"
 " === Open ===
 "
 nnoremap <silent> <leader>eq  :copen<CR>
@@ -1065,6 +1031,12 @@ let g:echodoc#type = 'floating'
 " " Update symantic highlighting on BufEnter and InsertLeave
 " let g:OmniSharp_highlight_types = 2
 "
+let g:OmniSharp_diagnostic_exclude_paths = [
+      \ 'AssemblyAttributes.cs',
+      \ ]
+
+let g:OmniSharp_want_snippet = 1
+
 " =============================================================================
 " hacks
 " =============================================================================
