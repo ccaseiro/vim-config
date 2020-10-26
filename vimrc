@@ -18,6 +18,8 @@ call s:local_plug('nightbuddy.nvim')
 
 Plug 'mhinz/vim-startify'
 
+Plug 'michaeljsmith/vim-indent-object'	" new text object, based on indentation levels
+
 " Tim Pope plugins
 "  - Sensible (configuration)
 "  - Unimpaired (like [<Space> and ]<Space>)
