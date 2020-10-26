@@ -38,6 +38,8 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-dispatch'
 Plug 'radenling/vim-dispatch-neovim'
 
+Plug 'wellle/targets.vim'				" adds various text objects to give you more targets to operate on
+
 " Autocomplete
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Denite - Fuzzy finding, buffer management
