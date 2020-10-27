@@ -9,11 +9,11 @@ local custom_attach = function(client)
   -- TODO: check other features with `:h vim.lsp.buf.<TAB>`
   -- mapper('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>')
   mapper('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>')
-  mapper('n', 'gD', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-  mapper('n', '1gD', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+  mapper('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
   mapper('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+  mapper('n', '1gD', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
   mapper('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
-  mapper('n', '<space>cr', '<cmd>lua vim.lsp.buf.rename()<CR>')
+  mapper('n', 'crr', '<cmd>lua vim.lsp.buf.rename()<CR>')
 
   -- mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
   if vim.api.nvim_buf_get_option(0, 'filetype') ~= 'vim' then
