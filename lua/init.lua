@@ -15,7 +15,7 @@ function isModuleAvailable(name)
 end
 
 
-if vim.fn.exists("coc") == 0 then
+if vim.fn.exists("nolsp") == 0 then
   require("cc.nvim_lsp")
 end
 

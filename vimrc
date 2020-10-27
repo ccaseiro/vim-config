@@ -111,10 +111,10 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 " Coc
-if exists("coc")
+if !exists("nococ")
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  " Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-else
+endif
+if !exists("nolsp")
   Plug 'neovim/nvim-lspconfig'
 endif
 
@@ -842,7 +842,7 @@ nnoremap <F6> <C-i>
 
 """ airline
 " Configure error/warning section to use coc.nvim
-if exists("coc")
+if !exists("nococ")
   let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
   let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 endif
@@ -854,16 +854,16 @@ endif
 " Coc
 " ===============================
 "
-if exists("coc")
+if !exists("nococ")
 
         " \ 'coc-fsharp',
         " \ 'coc-omnisharp',
+        " \ 'coc-lua',
   let g:coc_global_extensions=[
         \ 'coc-css',
         \ 'coc-eslint',
         \ 'coc-fish',
         \ 'coc-json',
-        \ 'coc-lua',
         \ 'coc-prettier',
         \ 'coc-python',
         \ 'coc-pyright',
