@@ -7,11 +7,13 @@ call cyclist#add_listchar_option_set("default", {
         \ 'tab': '▷-',
         \ 'space': ' ',
         \ 'trail': '·',
-        \ 'extends': '…',
-        \ 'precedes': '…',
+        \ 'extends': '☛',
+        \ 'precedes': '☚',
         \ 'conceal': '┊',
         \ 'nbsp': '☠'
         \ })
+        " \ 'extends': '…',
+        " \ 'precedes': '…',
 
 call cyclist#add_listchar_option_set("none", {
         \ 'eol': '',
@@ -30,7 +32,7 @@ call cyclist#add_listchar_option_set("limited", {
         \ 'space': '␣',
         \ 'trail': '-',
         \ 'extends': '☛',
-        \ 'precedes': '☚',    
+        \ 'precedes': '☚',
         \ 'conceal': '┊',
         \ 'nbsp': '☠',
         \ })
