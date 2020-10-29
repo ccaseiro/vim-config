@@ -1,3 +1,10 @@
+setlocal textwidth=80
+setlocal colorcolumn=+1
+setlocal nowrap
+" setlocal formatoptions-=o
+
+
+
 nnoremap <silent> <buffer> K :OmniSharpDocumentation<CR>
 
 nnoremap <silent> <buffer> gk :OmniSharpTypeLookup<CR>
@@ -37,7 +44,7 @@ nnoremap <silent> <buffer> <LocalLeader>fs :OmniSharpFindSymbol<CR>
 nnoremap <silent> <buffer> <LocalLeader>fu :OmniSharpFixUsings<CR>
 nmap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
 imap <silent> <buffer> <C-\> <Plug>(omnisharp_signature_help)
-nnoremap <silent> <buffer> <LocalLeader>cc :OmniSharpGlobalCodeCheck<CR>
+nnoremap <silent> <buffer> <Leader>lcc :<c-u>ccl<CR>:OmniSharpGlobalCodeCheck<CR>
 
 nmap <silent> <buffer> <Leader>. <Plug>(omnisharp_code_action_repeat)
 nmap <silent> <buffer> <Leader>l. <Plug>(omnisharp_code_action_repeat)
@@ -50,7 +57,8 @@ nmap <silent> <buffer> <Leader>lst <Plug>(omnisharp_start_server)
 nmap <silent> <buffer> <Leader>lsp <Plug>(omnisharp_stop_server)
 
 
-autocmd BufWritePre <buffer> call OmniSharp#CodeFormat()
+" autocmd BufWritePre <buffer> call OmniSharp#CodeFormat()
+autocmd BufWritePre <buffer> call OmniSharp#actions#format#Format()
 
 " Rename without dialog - with cursor on the symbol to rename: `:Rename newname`
 command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
