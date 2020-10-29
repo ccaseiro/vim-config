@@ -236,9 +236,6 @@ set updatetime=300
 set list
 set inccommand=split
 
-" Sneak plugin
-let g:sneak#label = 1
-
 " deoplete tab-complete
 " set completeopt=menuone,longest,preview,noinsert
 " set completeopt=menuone,noinsert
@@ -266,10 +263,12 @@ let g:sneak#label = 1
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " Change to F5 to use Tab with mucomplete
 let g:UltiSnipsExpandTrigger="<F5>"
-" let g:UltiSnipsExpandTrigger="<tab>"
-" let g:UltiSnipsJumpForwardTrigger="<c-j>"
-" let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsListSnippets="<F9>"
+let g:UltiSnipsListSnippets="<F6>"
+
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<F7>"
+let g:UltiSnipsJumpBackwardTrigger="<F8>"
 
 " Mouse
 set mouse=a
@@ -903,16 +902,16 @@ if !exists("nococ")
   nmap <silent> gr <Plug>(coc-references)
 
   " Use K to show documentation in preview window
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  " nnoremap <silent> K :call <SID>show_documentation()<CR>
   " nnoremap <silent> gh :call <SID>show_documentation()<CR>
 
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-    else
-      call CocAction('doHover')
-    endif
-  endfunction
+  " function! s:show_documentation()
+  "   if (index(['vim','help'], &filetype) >= 0)
+  "     execute 'h '.expand('<cword>')
+  "   else
+  "     call CocAction('doHover')
+  "   endif
+  " endfunction
 
   " Highlight symbol under cursor on CursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -1299,7 +1298,7 @@ nmap <F2> :call <SID>SynStack()<CR>
 nmap <F3> :OmniSharpHighlightEcho<CR>
 
 
-" = Vim Tmux Navigator =======================================  {{{
+" = Vim Tmux Navigator ==================================================== {{{
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <M-h> :TmuxNavigateLeft<cr>
@@ -1307,4 +1306,13 @@ nnoremap <silent> <M-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <M-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <M-l> :TmuxNavigateRight<cr>
 nnoremap <silent> <M-\> :TmuxNavigatePrevious<cr>
+" }}}
+" = vim-sneak ============================================================= {{{
+" let g:sneak#s_next = 1
+let g:sneak#label = 1
+
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 " }}}
