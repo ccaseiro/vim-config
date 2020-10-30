@@ -1,3 +1,5 @@
+let s:using_coc = 1
+
 " Plugins
 " =========================================================
 
@@ -111,12 +113,14 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 
 " Coc
-if !exists("nococ")
+if s:using_coc
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
+
 if !exists("nolsp")
   Plug 'neovim/nvim-lspconfig'
 endif
+Plug 'nvim-treesitter/nvim-treesitter'
 
 " Rust
 Plug 'rust-lang/rust.vim'
@@ -168,7 +172,7 @@ Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
-Plug 'nvim-lua/completion-nvim'
+" Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 
@@ -262,13 +266,14 @@ set inccommand=split
 " Snipets
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 " Change to F5 to use Tab with mucomplete
-let g:UltiSnipsExpandTrigger="<F5>"
+" let g:UltiSnipsExpandTrigger="<F5>"
+let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsListSnippets="<F6>"
 
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<F7>"
-let g:UltiSnipsJumpBackwardTrigger="<F8>"
+" let g:UltiSnipsJumpForwardTrigger="<F7>"
+" let g:UltiSnipsJumpBackwardTrigger="<F8>"
 
 " Mouse
 set mouse=a
@@ -841,7 +846,7 @@ nnoremap <F6> <C-i>
 
 """ airline
 " Configure error/warning section to use coc.nvim
-if !exists("nococ")
+if s:using_coc
   let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
   let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 endif
@@ -853,7 +858,7 @@ endif
 " Coc
 " ===============================
 "
-if !exists("nococ")
+if s:using_coc
 
         " \ 'coc-fsharp',
         " \ 'coc-omnisharp',
@@ -871,20 +876,6 @@ if !exists("nococ")
         \ 'coc-snippets',
         \ 'coc-ultisnips'
         \ ]
-
-  inoremap <silent><expr> <TAB>
-        \ pumvisible() ? coc#_select_confirm() :
-        \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
-
-  function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-  endfunction
-
-  " let g:coc_snippet_next = '<tab>'
-  " let g:coc_snippet_prev = '<s-tab>'
 
   " Use <c-space> to trigger completion.
   " inoremap <silent><expr> <c-p> coc#refresh()
