@@ -14,3 +14,5 @@ node_modules/
 /coc/memos.json
 /coc/extensions/package.json
 /coc/list-commands-history.json
+coc/snippets-mru
+coc/list-lists-history.json
