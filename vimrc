@@ -863,6 +863,7 @@ if s:using_coc
         " \ 'coc-fsharp',
         " \ 'coc-omnisharp',
         " \ 'coc-lua',
+        " \ 'coc-snippets',
   let g:coc_global_extensions=[
         \ 'coc-css',
         \ 'coc-eslint',
@@ -873,7 +874,6 @@ if s:using_coc
         \ 'coc-pyright',
         \ 'coc-rls',
         \ 'coc-tsserver',
-        \ 'coc-snippets',
         \ 'coc-ultisnips'
         \ ]
 
