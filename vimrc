@@ -206,6 +206,8 @@ set ttimeoutlen=0
 " highlight all search matches
 set hlsearch
 
+set scrolloff=10                      " Make it so there are always ten lines below my cursor
+
 set splitright " Always splits with new window at right
 set splitbelow " Always splits with new window below
 
