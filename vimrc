@@ -72,7 +72,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tcomment_vim'
 
 " Auto close bracket / parenthises
-Plug 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 
 
 " Plug 'airblade/vim-rooter'    " Auto change pwd
