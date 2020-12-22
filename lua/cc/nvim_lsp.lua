@@ -8,6 +8,7 @@ end
 local custom_attach = function(client)
   -- TODO: check other features with `:h vim.lsp.buf.<TAB>`
   -- mapper('n', 'gd', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+  mapper('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
   mapper('n', '<c-]>', '<cmd>lua vim.lsp.buf.definition()<CR>')
   mapper('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
   mapper('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')

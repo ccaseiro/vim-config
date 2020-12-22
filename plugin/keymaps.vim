@@ -2,7 +2,7 @@
 inoremap kj <esc>
 
 " Clears hlsearch after doing a search, otherwise just does normal <CR> stuff
-nnoremap <expr> <CR> {-> v:hlsearch ? ":nohl\<CR>" : "\<CR>"}()
+nnoremap <expr> <C-l> {-> v:hlsearch ? ":nohl\|ccl\<CR>" : ":ccl\<CR>"}()
 
 " Execute this file
 function! s:save_and_exec() abort
