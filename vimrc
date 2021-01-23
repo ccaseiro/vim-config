@@ -184,6 +184,7 @@ Plug 'tjdevries/train.nvim' " Train yourself with vim motions
 Plug 'tjdevries/colorbuddy.vim' | Plug 'tjdevries/gruvbuddy.nvim'
 Plug 'tjdevries/cyclist.vim'
 
+Plug 'bfredl/nvim-miniyank'
 call plug#end()
 
 " =========================================================
@@ -346,6 +347,8 @@ set undofile
 " Clipboard
 " Always have the clipboard be the same as my regular clipboard
 set clipboard+=unnamedplus
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoPut)
 
 " =========================================================
 " CtrlSF config
