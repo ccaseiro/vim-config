@@ -46,5 +46,13 @@ nvim_lsp.vimls.setup({ on_attach = custom_attach })
 -- nvim_lsp.omnisharp.setup({ on_attach = require'diagnostic'.on_attach })
 -- nvim_lsp.omnisharp.setup({ on_attach = custom_attach })
 
+nvim_lsp.dockerls.setup({
+    cmd = { "docker-langserver", "--stdio" },
+    filetypes = { "Dockerfile", "dockerfile" },
+    -- root_dir = root_pattern("Dockerfile"),
+  root_dir = require'nvim_lsp'.util.root_pattern('Dockerfile'),
+  on_attach = custom_attach
+})
+
 vim.g.diagnostic_enable_virtual_text = 1;
 
