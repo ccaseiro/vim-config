@@ -1,3 +1,0 @@
-[submodule "sessions"]
-	path = sessions
-	url = git@github.com:ccaseiro/vim-sessions
