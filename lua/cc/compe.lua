@@ -72,9 +72,10 @@ vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 
---vim.api.nvim_set_keymap('i', '<C-Space>', [[compe#complete()]], { expr = true })
---vim.api.nvim_set_keymap('i', '<CR>', [[compe#confirm('<CR>')]], { expr = true })
---vim.api.nvim_set_keymap('i', '<C-e>', [[compe#close('<C-e>')]], { expr = true })
---vim.api.nvim_set_keymap('i', '<C-f>', [[compe#scroll({ 'delta': +4 })]], { expr = true, silent = true })
---vim.api.nvim_set_keymap('i', '<C-d>', [[compe#scroll({ 'delta': -4 })]], { expr = true, silent = true })
-
+vim.cmd [[
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+]]
