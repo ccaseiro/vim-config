@@ -1,4 +1,4 @@
-let s:using_coc = 1
+let s:using_coc = 0
 
 " Plugins
 " =========================================================
@@ -46,6 +46,7 @@ Plug 'wellle/targets.vim'				" adds various text objects to give you more target
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Denite - Fuzzy finding, buffer management
 " Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'hrsh7th/nvim-compe'
 
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
@@ -174,7 +175,7 @@ Plug 'ionide/Ionide-vim', { 'do':  'make fsautocomplete' }
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-lua/telescope.nvim'
-" Plug 'nvim-lua/completion-nvim'
+Plug 'nvim-lua/completion-nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/diagnostic-nvim'
 

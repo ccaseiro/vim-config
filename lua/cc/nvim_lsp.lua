@@ -1,5 +1,5 @@
-local nvim_lsp = require('nvim_lsp')
-local diagnostic = require('diagnostic')
+local nvim_lsp = require('lspconfig')
+-- local diagnostic = require('diagnostic')
 
 local mapper = function(mode, key, result)
   vim.api.nvim_buf_set_keymap(0, mode, key, result, {noremap = true, silent = true})
@@ -27,13 +27,17 @@ local custom_attach = function(client)
   mapper('n', 'g0', '<cmd>lua vim.lsp.buf.document_symbol()<CR>')
   mapper('n', 'gW', '<cmd>lua vim.lsp.buf.workspace_symbol()<CR>')
 
-  diagnostic.on_attach();
+  -- Use LSP as the handler for omnifunc.
+  --    See `:help omnifunc` and `:help ins-completion` for more information.
+  vim.api.nvim_buf_set_option(0, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- diagnostic.on_attach();
 
 end
 
 
 nvim_lsp.pyls_ms.setup({
-  root_dir = require'nvim_lsp'.util.root_pattern('.git'),
+  root_dir = nvim_lsp.util.root_pattern('.git'),
   on_attach = custom_attach
 })
 
@@ -46,13 +50,73 @@ nvim_lsp.vimls.setup({ on_attach = custom_attach })
 -- nvim_lsp.omnisharp.setup({ on_attach = require'diagnostic'.on_attach })
 -- nvim_lsp.omnisharp.setup({ on_attach = custom_attach })
 
+nvim_lsp.yamlls.setup({
+  settings = {
+    yaml = {
+      schemas = {
+        kubernetes = "/*.yaml"
+      }
+    }
+  },
+  on_attach = custom_attach
+})
+
 nvim_lsp.dockerls.setup({
     cmd = { "docker-langserver", "--stdio" },
     filetypes = { "Dockerfile", "dockerfile" },
     -- root_dir = root_pattern("Dockerfile"),
-  root_dir = require'nvim_lsp'.util.root_pattern('Dockerfile'),
+  root_dir = nvim_lsp.util.root_pattern('Dockerfile'),
   on_attach = custom_attach
 })
 
 vim.g.diagnostic_enable_virtual_text = 1;
 
+
+
+--
+-- vim.o.completeopt = "menuone,noselect"
+--
+-- require'compe'.setup {
+--   enabled = true;
+--   autocomplete = true;
+--   debug = false;
+--   min_length = 1;
+--   preselect = 'enable';
+--   throttle_time = 80;
+--   source_timeout = 200;
+--   incomplete_delay = 400;
+--   max_abbr_width = 100;
+--   max_kind_width = 100;
+--   max_menu_width = 100;
+--   documentation = false;
+--
+--   source = {
+--     path = true;
+--     buffer = true;
+--     calc = true;
+--     vsnip = true;
+--     nvim_lsp = true;
+--     nvim_lua = true;
+--     spell = true;
+--     tags = true;
+--     snippets_nvim = true;
+--     treesitter = true;
+--   };
+-- }
+--
+-- local t = function(str)
+--   return vim.api.nvim_replace_termcodes(str, true, true, true)
+-- end
+-- _G.s_tab_complete = function()
+--   if vim.fn.pumvisible() == 1 then
+--     return t "<C-p>"
+--   elseif vim.fn.call("vsnip#jumpable", {-1}) == 1 then
+--     return t "<Plug>(vsnip-jump-prev)"
+--   else
+--     return t "<S-Tab>"
+--   end
+-- end
+--
+-- vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+-- vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+-- vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
