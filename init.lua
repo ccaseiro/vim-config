@@ -1,0 +1,5 @@
+require('plugins')
+require('keymappings')
+require('cc/compe')
+require('cc/lsp')
+require('settings')
