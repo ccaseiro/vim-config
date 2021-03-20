@@ -30,5 +30,8 @@ return require('packer').startup(function()
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-media-files.nvim'
 
+  -- general plugins
+  use 'tpope/vim-commentary'
+
 end)
 
