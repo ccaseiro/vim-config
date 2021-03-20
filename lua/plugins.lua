@@ -25,10 +25,10 @@ return require('packer').startup(function()
   --use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Telescope
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-media-files.nvim'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
+  }
 
   -- general plugins
   use 'tpope/vim-commentary'
