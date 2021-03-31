@@ -32,6 +32,7 @@ return require('packer').startup(function()
 
   -- general plugins
   use 'tpope/vim-commentary'
+  use 'tjdevries/astronauta.nvim'
 
 end)
 
