@@ -17,9 +17,6 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { silent = true })
 vim.api.nvim_set_keymap('v', '<', '<gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 
--- escape
-vim.api.nvim_set_keymap('i', 'nn', '<ESC>', { noremap = true, silent = true })
-
 -- Move selected line / block of text in visual mode
 vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', { noremap = true, silent = true })
