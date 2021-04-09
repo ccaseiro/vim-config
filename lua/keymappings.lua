@@ -21,3 +21,7 @@ vim.api.nvim_set_keymap('v', '>', '>gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', { noremap = true, silent = true })
 
+-- Plugin: nvim-miniyank
+vim.api.nvim_set_keymap('', 'p', '<Plug>(miniyank-autoput)', { noremap = false, silent = true })
+vim.api.nvim_set_keymap('', 'P', '<Plug>(miniyank-autoPut)', { noremap = false, silent = true })
+
