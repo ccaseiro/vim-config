@@ -25,3 +25,9 @@ vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', { noremap = true, sile
 vim.api.nvim_set_keymap('', 'p', '<Plug>(miniyank-autoput)', { noremap = false, silent = true })
 vim.api.nvim_set_keymap('', 'P', '<Plug>(miniyank-autoPut)', { noremap = false, silent = true })
 
+-- TAB switch buffer
+vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprev<CR>', { noremap = true, silent = true })
+
+-- Escape
+vim.api.nvim_set_keymap('i', 'nn', '<ESC>', { noremap = true, silent = true })
