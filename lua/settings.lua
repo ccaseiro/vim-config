@@ -1,3 +1,4 @@
 vim.wo.number = true
-vim.o.hidden=true                              --Required to keep multiple buffers open multiple buffers
-vim.o.clipboard = vim.o.clipboard .. "unnamedplus"
+vim.o.hidden=true               -- required to keep multiple buffers open multiple buffers
+vim.o.clipboard = "unnamedplus"
+-- vim.o.guifont = "Dank\\ Mono:h11,Fira\\ Code:h12"
