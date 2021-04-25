@@ -37,6 +37,7 @@ return require('packer').startup(function()
   use 'tpope/vim-commentary'
   use 'tjdevries/astronauta.nvim'
   use 'bfredl/nvim-miniyank'
+  use 'norcalli/nvim-colorizer.lua'
 
 end)
 
