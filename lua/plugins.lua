@@ -41,6 +41,6 @@ return require('packer').startup(function()
   use 'tjdevries/astronauta.nvim'
   use 'bfredl/nvim-miniyank'
   use 'norcalli/nvim-colorizer.lua'
-
+  use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 end)
 
