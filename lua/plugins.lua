@@ -23,6 +23,9 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
 
   --use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  -- Colorcheme
+  use 'christianchiarulli/nvcode-color-schemes.vim'
+
 
   -- Telescope
   use {
