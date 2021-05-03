@@ -30,4 +30,4 @@ vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', { noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprev<CR>', { noremap = true, silent = true })
 
 -- Escape
-vim.api.nvim_set_keymap('i', 'nn', '<ESC>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', 'nn', '<ESC>', { noremap = true, silent = true })
