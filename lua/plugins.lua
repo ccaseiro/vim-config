@@ -46,6 +46,7 @@ return require('packer').startup(function()
   use 'tpope/vim-commentary'
   use 'tjdevries/astronauta.nvim'
   use 'bfredl/nvim-miniyank'
+	use 'windwp/nvim-autopairs'
   use 'norcalli/nvim-colorizer.lua'
   use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 end)
