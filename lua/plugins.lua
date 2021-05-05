@@ -40,6 +40,8 @@ return require('packer').startup(function()
   use 'vimwiki/vimwiki'
 
   -- general plugins
+  use 'tpope/vim-repeat'
+  use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
   use 'tjdevries/astronauta.nvim'
   use 'bfredl/nvim-miniyank'
