@@ -22,13 +22,14 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-compe'
   use 'hrsh7th/vim-vsnip'
 
-  --use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- Git
 	use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
 
   -- Colorcheme
   use 'christianchiarulli/nvcode-color-schemes.vim'
 
+  -- Treesiter
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- Telescope
   use {
