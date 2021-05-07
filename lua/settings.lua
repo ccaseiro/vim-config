@@ -7,3 +7,4 @@ vim.o.cursorline = true
 vim.o.mouse = "a" 		-- enable mouse
 -- vim.o.guifont = "Dank\\ Mono:h11,Fira\\ Code:h12"
 vim.o.termguicolors = true
+vim.bo.undofile = true
