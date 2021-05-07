@@ -1,4 +1,6 @@
 vim.wo.number = true
+vim.wo.signcolumn = "yes"
+
 vim.o.hidden=true               -- required to keep multiple buffers open multiple buffers
 vim.o.clipboard = "unnamedplus"
 vim.o.cursorline = true
