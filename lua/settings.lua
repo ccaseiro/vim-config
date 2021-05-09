@@ -1,5 +1,6 @@
 vim.wo.number = true
-vim.wo.signcolumn = "yes"
+-- vim.wo.signcolumn = "auto:2-4" -- TODO: not working with telescope. Need to test/report
+vim.wo.signcolumn = "yes:2"
 
 vim.o.hidden=true               -- required to keep multiple buffers open multiple buffers
 vim.o.clipboard = "unnamedplus"
