@@ -19,6 +19,7 @@ return require('packer').startup(function()
   use 'kyazdani42/nvim-tree.lua'
 
   use 'neovim/nvim-lspconfig'
+	use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/nvim-compe'
   use 'hrsh7th/vim-vsnip'
 	use "rafamadriz/friendly-snippets"

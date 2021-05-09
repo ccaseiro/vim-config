@@ -31,3 +31,4 @@ lspconfig.yamlls.setup({
   --on_attach = custom_attach
 })
 
+require('cc/lsp/lspsaga')
