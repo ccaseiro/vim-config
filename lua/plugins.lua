@@ -30,6 +30,10 @@ return require('packer').startup(function()
   -- Colorcheme
   use 'christianchiarulli/nvcode-color-schemes.vim'
 
+	-- Status Line and Bufferline
+  use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
+	use "glepnir/galaxyline.nvim"
+
   -- Treesiter
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
@@ -50,6 +54,5 @@ return require('packer').startup(function()
   use 'bfredl/nvim-miniyank'
 	use 'windwp/nvim-autopairs'
   use 'norcalli/nvim-colorizer.lua'
-  use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
 end)
 
