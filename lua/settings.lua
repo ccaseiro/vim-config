@@ -8,4 +8,5 @@ vim.o.cursorline = true
 vim.o.mouse = "a" 		-- enable mouse
 -- vim.o.guifont = "Dank\\ Mono:h11,Fira\\ Code:h12"
 vim.o.termguicolors = true
-vim.bo.undofile = true
+vim.bo.undofile = true -- if I only use "o", then first buffer gets "noundofile"
+vim.o.undofile = true -- if I only put "bo", then only first buffer gets undo.
