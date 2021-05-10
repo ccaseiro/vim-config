@@ -46,6 +46,9 @@ return require('packer').startup(function()
   -- Note Taking
   use 'vimwiki/vimwiki'
 
+	-- Startup Dashboard
+	use 'mhinz/vim-startify'
+
   -- general plugins
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
