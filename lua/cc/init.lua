@@ -1,4 +1,4 @@
 require'colorizer'.setup()
-require'gitsigns'.setup()
+require'cc.gitsigns'
 require('nvim-autopairs').setup()
 
