@@ -22,4 +22,13 @@ function utils.define_augroups(definitions) -- {{{1
     end
 end
 
+function utils.nnoremap (key, command)
+  vim.api.nvim_set_keymap('n', key, command, { noremap = true, silent = true })
+end
+
+function utils.nmap (key, command)
+  vim.api.nvim_set_keymap('n', key, command, { noremap = false, silent = true })
+end
+
+
 return utils

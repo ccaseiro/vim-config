@@ -1,3 +1,6 @@
+local nmap = require'cc.utils'.nmap
+local nnoremap = require'cc.utils'.nnoremap
+
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
 
@@ -39,4 +42,24 @@ vim.api.nvim_set_keymap('n', '<leader>qo', ':copen<CR>', { noremap = true, silen
 vim.api.nvim_set_keymap('n', '<leader>qc', ':cclose<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>qp', ':cpred<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>qn', ':cnext<CR>', { noremap = true, silent = true })
+
+
+
+-- VimWiki
+nmap('<leader>ow', '<Plug>VimwikiIndex')
+nmap('<leader>ot', '<Plug>VimwikiTabIndex')
+nmap('<leader>os', '<Plug>VimwikiUISelect')
+nmap('<leader>oi', '<Plug>VimwikiDiaryIndex')
+
+nmap('<leader>o<leader>w', '<Plug>VimwikiMakeDiaryNote')
+nmap('<leader>o<leader>t', '<Plug>VimwikiTabMakeDiaryNote')
+nmap('<leader>o<leader>y', '<Plug>VimwikiMakeYesterdayDiaryNote')
+nmap('<leader>o<leader>m', '<Plug>VimwikiMakeTomorrowDiaryNote')
+nmap('<leader>o<leader>e', '<Plug>VimwikiDiaryGenerateLinks')
+
+-- Windows manipulation
+nnoremap('<leader>ws', ':split<CR>')
+nnoremap('<leader>wv', ':vsplit<CR>')
+nnoremap('<leader>wo', ':only<CR>')
+nnoremap('<leader>ww', '<C-W>w')
 

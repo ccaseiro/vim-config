@@ -14,11 +14,17 @@ wk.register({
     },
 		g = { name = "Git"},
 		h = { name = "Help"},
+    o = { name = "Org/Wiki"},
 		s = { name = "Search"},
 		t = { name = "Toggle",
 			h = "highlight"
 	  },
-    w = { name = "Wiki"}
+		w = { name = "Windows",
+      o = 'Focus current window',
+      s = 'Horizontal Split',
+      v = 'Vertical Split',
+      w = 'Cycle'
+    },
   },
 })
 
