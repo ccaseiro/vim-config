@@ -3,6 +3,7 @@ local wk = require("which-key")
 wk.register({
   ["<leader>"] = {
     b = { name = "Buffers" },
+    d = { name = "Diagnostics" },
     f = {
       name = "File",
 			-- f = { 'Find File'},
@@ -15,8 +16,8 @@ wk.register({
 		s = { name = "Search"},
 		t = { name = "Toggle",
 			h = "highlight"
-	},
-		w = { name = "Wiki"}
+	  },
+    w = { name = "Wiki"}
   },
 })
 
