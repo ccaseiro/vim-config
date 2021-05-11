@@ -36,7 +36,8 @@ local custom_attach = function()
 
 	mapper('n', 'gd', 'lua vim.lsp.buf.definition()')
 	mapper('n', 'gD', 'lua vim.lsp.buf.declaration()')
-	mapper('n', 'gr', 'lua vim.lsp.buf.references()')
+	-- mapper('n', 'gr', 'lua vim.lsp.buf.references()')
+	mapper('n', 'gr', 'Telescope lsp_references')
 	mapper('n', 'gi', 'lua vim.lsp.buf.implementation()')
 
 	mapper('n', '[d', mappings.diagnostic_prev)
