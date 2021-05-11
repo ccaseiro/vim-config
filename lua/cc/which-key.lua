@@ -6,9 +6,10 @@ wk.register({
     d = { name = "Diagnostics" },
     f = {
       name = "File",
-			-- f = { 'Find File'},
-      -- f = { "<cmd>Telescope find_files<cr>", "Find File" },
-      -- r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+			o = { 'Show in file tree'},
+      f = { "Open File" },
+      r = { "Open Recent File" },
+      t = 'toggle file tree'
       -- n = { "<cmd>enew<cr>", "New File" },
     },
 		g = { name = "Git"},
