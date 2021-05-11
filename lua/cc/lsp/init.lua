@@ -43,6 +43,13 @@ end
 
 require('cc/lsp/lua').setup(custom_attach)
 
+-- Install server with:
+-- npm install -g typescript typescript-language-server
+require'lspconfig'.tsserver.setup{
+  on_attach = custom_attach,
+}
+
+
 lspconfig.yamlls.setup({
   on_attach = custom_attach,
   settings = {
