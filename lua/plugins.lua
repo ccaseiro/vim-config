@@ -53,6 +53,7 @@ return require('packer').startup(function()
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
+  use 'tpope/vim-unimpaired'
   use 'tjdevries/astronauta.nvim'
   use 'bfredl/nvim-miniyank'
 	use 'windwp/nvim-autopairs'
