@@ -31,3 +31,12 @@ vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprev<CR>', { noremap = true, silent =
 
 -- Escape
 -- vim.api.nvim_set_keymap('i', 'nn', '<ESC>', { noremap = true, silent = true })
+
+-- QuickFix
+vim.api.nvim_set_keymap('n', '<leader>q/', ':Telescope quickfix<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ql', ':copen<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>qo', ':copen<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>qc', ':cclose<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>qp', ':cpred<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>qn', ':cnext<CR>', { noremap = true, silent = true })
+
