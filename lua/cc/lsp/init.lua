@@ -21,7 +21,10 @@ vim.fn.sign_define(
 local use_sagalsp = true
 
 local mappings = {
-	hover = use_sagalsp and 'Lspsaga hover_doc' or 'lua vim.lsp.buf.hover()'
+	hover = use_sagalsp and 'Lspsaga hover_doc' or 'lua vim.lsp.buf.hover()',
+	diagnostic_prev = use_sagalsp and 'Lspsaga diagnostic_jump_prev' or 'lua vim.lsp.diagnostic.goto_prev()',
+	diagnostic_next = use_sagalsp and 'Lspsaga diagnostic_jump_next' or 'lua vim.lsp.diagnostic.goto_next()',
+	diagnostic_line = use_sagalsp and 'Lspsaga show_line_diagnostics' or 'lua vim.lsp.diagnostic.show_line_diagnostics()'
 }
 
 local mapper = function(mode, key, result)
@@ -35,6 +38,12 @@ local custom_attach = function()
 	mapper('n', 'gD', 'lua vim.lsp.buf.declaration()')
 	mapper('n', 'gr', 'lua vim.lsp.buf.references()')
 	mapper('n', 'gi', 'lua vim.lsp.buf.implementation()')
+
+	mapper('n', '[d', mappings.diagnostic_prev)
+	mapper('n', ']d', mappings.diagnostic_next)
+	mapper('n', '<leader>dp', mappings.diagnostic_prev)
+	mapper('n', '<leader>dn', mappings.diagnostic_next)
+	mapper('n', '<leader>dl', mappings.diagnostic_line)
 
 	if filetype ~= 'lua' then
     mapper('n', 'K', mappings.hover)
