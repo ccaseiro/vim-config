@@ -63,3 +63,8 @@ nnoremap('<leader>wv', ':vsplit<CR>')
 nnoremap('<leader>wo', ':only<CR>')
 nnoremap('<leader>ww', '<C-W>w')
 
+-- Toggles
+nnoremap('<leader>tn', ':set number!<cr>')
+nnoremap('<leader>tr', ':set relativenumber!<cr>')
+nnoremap('<leader>tl', ':set list!<cr>')
+
