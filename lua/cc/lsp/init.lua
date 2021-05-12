@@ -51,17 +51,26 @@ local custom_attach = function()
   end
 end
 
-require('cc/lsp/lua').setup(custom_attach)
+
+
+-- override defaults
+lspconfig.util.default_config = vim.tbl_extend(
+  "force",
+  lspconfig.util.default_config,
+  {
+    on_attach = custom_attach
+  }
+)
+
+
+require('cc/lsp/lua')
 
 -- Install server with:
 -- npm install -g typescript typescript-language-server
-require'lspconfig'.tsserver.setup{
-  on_attach = custom_attach,
-}
+lspconfig.tsserver.setup{}
 
 
 lspconfig.yamlls.setup({
-  on_attach = custom_attach,
   settings = {
     yaml = {
       schemas = {
