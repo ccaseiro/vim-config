@@ -31,7 +31,7 @@ local mapper = function(mode, key, result)
   vim.api.nvim_buf_set_keymap(0, mode, key, "<cmd>" .. result .. "<CR>", {noremap = true, silent = true})
 end
 
-local custom_attach = function()
+local custom_attach = function(client)
 	local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
 
 	mapper('n', 'gd', 'lua vim.lsp.buf.definition()')
@@ -49,6 +49,21 @@ local custom_attach = function()
 	if filetype ~= 'lua' then
     mapper('n', 'K', mappings.hover)
   end
+
+  -- Set autocommands conditional on server_capabilities
+  if client.resolved_capabilities.document_highlight then
+    vim.api.nvim_exec([[
+      hi LspReferenceRead cterm=bold ctermbg=red guibg=#464646
+      hi LspReferenceText cterm=bold ctermbg=red guibg=#464646
+      hi LspReferenceWrite cterm=bold ctermbg=red guibg=#464646
+      augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]], false)
+  end
+
 end
 
 
