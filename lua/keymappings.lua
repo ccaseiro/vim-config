@@ -1,5 +1,6 @@
 local nmap = require'cc.utils'.nmap
 local nnoremap = require'cc.utils'.nnoremap
+local wk = require("which-key")
 
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true })
 vim.g.mapleader = ' '
@@ -43,6 +44,9 @@ vim.api.nvim_set_keymap('n', '<leader>qc', ':cclose<CR>', { noremap = true, sile
 vim.api.nvim_set_keymap('n', '<leader>qp', ':cpred<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>qn', ':cnext<CR>', { noremap = true, silent = true })
 
+-- Fils
+wk.register({["<leader>fs"] = {'<cmd>write<cr>', 'Save'}})
+wk.register({["<leader>fw"] = {'<cmd>write<cr>', 'Save'}})
 
 
 -- VimWiki
