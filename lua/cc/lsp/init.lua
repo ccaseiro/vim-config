@@ -1,4 +1,5 @@
 local lspconfig = require('lspconfig')
+local wk = require("which-key")
 
 vim.fn.sign_define(
     "LspDiagnosticsSignError",
@@ -33,6 +34,7 @@ end
 
 local custom_attach = function(client)
 	local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
+  wk.register({ ["<leader>l"] = { name = 'LSP'}})
 
 	mapper('n', 'gd', 'lua vim.lsp.buf.definition()')
 	mapper('n', 'gD', 'lua vim.lsp.buf.declaration()')
@@ -45,6 +47,9 @@ local custom_attach = function(client)
 	mapper('n', '<leader>dp', mappings.diagnostic_prev)
 	mapper('n', '<leader>dn', mappings.diagnostic_next)
 	mapper('n', '<leader>dl', mappings.diagnostic_line)
+
+	-- mapper('n', '<leader>lf', 'lua vim.lsp.buf.formatting()')
+  wk.register({ ["<leader>lf"] = { '<cmd>lua vim.lsp.buf.formatting()<cr>', 'Format'}})
 
 	if filetype ~= 'lua' then
     mapper('n', 'K', mappings.hover)
@@ -77,7 +82,7 @@ lspconfig.util.default_config = vim.tbl_extend(
   }
 )
 
-
+require('cc/lsp/efm')
 require('cc/lsp/lua')
 
 -- Install server with:
