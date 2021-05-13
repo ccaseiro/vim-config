@@ -6,6 +6,8 @@ require'gitsigns'.setup({
 
     ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},
     ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'"},
+    ['n <leader>gj'] = '<cmd>lua require"gitsigns".next_hunk()<CR>',
+    ['n <leader>gk'] = '<cmd>lua require"gitsigns".prev_hunk()<CR>',
 
 		-- CC: changed <leader>h* -> <leader>g*
     ['n <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
