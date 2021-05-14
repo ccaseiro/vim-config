@@ -66,6 +66,10 @@ lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_c
 require('cc/lsp/efm')
 require('cc/lsp/lua')
 
+-- Installation:
+-- npm i -g pyright
+lspconfig.pyright.setup {}
+
 -- Install server with:
 -- npm install -g typescript typescript-language-server
 lspconfig.tsserver.setup {}
