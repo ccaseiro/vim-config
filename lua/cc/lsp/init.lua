@@ -1,6 +1,9 @@
 local lspconfig = require('lspconfig')
 local wk = require("which-key")
 
+wk.register({["<leader>l"] = {name = 'LSP'}})
+wk.register({["<leader>li"] = {'<cmd>LspInfo<cr>', 'LspInfo'}})
+
 vim.fn.sign_define("LspDiagnosticsSignError",
                    {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"})
 vim.fn.sign_define("LspDiagnosticsSignWarning",
@@ -16,7 +19,8 @@ local mappings = {
   hover = use_sagalsp and 'Lspsaga hover_doc' or 'lua vim.lsp.buf.hover()',
   diagnostic_prev = use_sagalsp and 'Lspsaga diagnostic_jump_prev' or 'lua vim.lsp.diagnostic.goto_prev()',
   diagnostic_next = use_sagalsp and 'Lspsaga diagnostic_jump_next' or 'lua vim.lsp.diagnostic.goto_next()',
-  diagnostic_line = use_sagalsp and 'Lspsaga show_line_diagnostics' or 'lua vim.lsp.diagnostic.show_line_diagnostics()'
+  diagnostic_line = use_sagalsp and 'Lspsaga show_line_diagnostics' or 'lua vim.lsp.diagnostic.show_line_diagnostics()',
+  code_action = use_sagalsp and 'Lspsaga code_action' or 'lua vim.lsp.buf.code_action()'
 }
 
 local mapper = function(mode, key, result)
@@ -25,7 +29,6 @@ end
 
 local custom_attach = function(client)
   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
-  wk.register({["<leader>l"] = {name = 'LSP'}})
 
   mapper('n', 'gd', 'lua vim.lsp.buf.definition()')
   mapper('n', 'gD', 'lua vim.lsp.buf.declaration()')
@@ -41,6 +44,8 @@ local custom_attach = function(client)
 
   -- mapper('n', '<leader>lf', 'lua vim.lsp.buf.formatting()')
   wk.register({["<leader>lf"] = {'<cmd>lua vim.lsp.buf.formatting()<cr>', 'Format'}})
+
+  wk.register({["<leader>la"] = {'<cmd>' .. mappings.code_action .. '<cr>', 'Code Action'}})
 
   if filetype ~= 'lua' then mapper('n', 'K', mappings.hover) end
 
