@@ -2,7 +2,9 @@ local wk = require("which-key")
 
 wk.register({
   ["<leader>"] = {
-    b = {name = "Buffers"},
+    b = {name = "Buffers",
+    d = {'<cmd>bd<cr>', 'delete buffer'}
+  },
     d = {name = "Diagnostics"},
     f = {
       name = "File",
