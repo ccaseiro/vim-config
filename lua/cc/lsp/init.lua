@@ -38,6 +38,8 @@ local custom_attach = function(client)
 
   mapper('n', '[d', mappings.diagnostic_prev)
   mapper('n', ']d', mappings.diagnostic_next)
+  mapper('n', '<leader>dk', mappings.diagnostic_prev)
+  mapper('n', '<leader>dj', mappings.diagnostic_next)
   mapper('n', '<leader>dp', mappings.diagnostic_prev)
   mapper('n', '<leader>dn', mappings.diagnostic_next)
   mapper('n', '<leader>dl', mappings.diagnostic_line)
