@@ -1,10 +1,10 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
   execute 'packadd packer.nvim'
 end
 
@@ -12,42 +12,39 @@ local use = require('packer').use
 
 return require('packer').startup(function()
   -- Packer can manage itself as an optional plugin
-  --use {'wbthomason/packer.nvim', opt = true}
+  -- use {'wbthomason/packer.nvim', opt = true}
   use 'wbthomason/packer.nvim'
 
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
   use 'neovim/nvim-lspconfig'
-	use 'glepnir/lspsaga.nvim'
+  use 'glepnir/lspsaga.nvim'
   use 'hrsh7th/nvim-compe'
   use 'hrsh7th/vim-vsnip'
-	use "rafamadriz/friendly-snippets"
+  use "rafamadriz/friendly-snippets"
 
   -- Git
-	use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
+  use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
   -- Colorcheme
   use 'christianchiarulli/nvcode-color-schemes.vim'
 
-	-- Status Line and Bufferline
+  -- Status Line and Bufferline
   use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
-	use "glepnir/galaxyline.nvim"
+  use "glepnir/galaxyline.nvim"
 
   -- Treesiter
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
   -- Telescope
-  use {
-    'nvim-telescope/telescope.nvim',
-    requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
-  }
+  use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
 
   -- Note Taking
   use 'vimwiki/vimwiki'
 
-	-- Startup Dashboard
-	use 'mhinz/vim-startify'
+  -- Startup Dashboard
+  use 'mhinz/vim-startify'
 
   -- general plugins
   use 'tpope/vim-repeat'
@@ -56,10 +53,9 @@ return require('packer').startup(function()
   use 'tpope/vim-unimpaired'
   use 'tjdevries/astronauta.nvim'
   use 'bfredl/nvim-miniyank'
-	use 'windwp/nvim-autopairs'
+  use 'windwp/nvim-autopairs'
   use 'norcalli/nvim-colorizer.lua'
-	use { "folke/which-key.nvim", config = function() require("which-key").setup {} end }
-
+  use {"folke/which-key.nvim", config = function() require("which-key").setup {} end}
   use 'mbbill/undotree'
 end)
 
