@@ -23,6 +23,7 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-compe'
   use 'hrsh7th/vim-vsnip'
   use "rafamadriz/friendly-snippets"
+  use 'kosayoda/nvim-lightbulb'
 
   -- Git
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
