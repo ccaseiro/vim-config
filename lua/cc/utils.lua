@@ -30,5 +30,34 @@ function utils.nmap (key, command)
   vim.api.nvim_set_keymap('n', key, command, { noremap = false, silent = true })
 end
 
+function utils.goto_next()
+    -- vim.lsp.diagnostic.goto_next()
+    vim.cmd('Lspsaga diagnostic_jump_next')
+end
+vim.cmd [[command! CCLspDiagGotoNext lua require 'cc.utils'.goto_next()]]
+
+function utils.goto_prev()
+    -- vim.lsp.diagnostic.goto_prev()
+    vim.cmd('Lspsaga diagnostic_jump_prev')
+end
+vim.cmd [[command! CCLspDiagGotoPrev lua require 'cc.utils'.goto_prev()]]
+
+function utils.show_line_diagnostics()
+    -- vim.lsp.diagnostic.show_line_diagnostics()
+    vim.cmd('Lspsaga show_line_diagnostics')
+end
+vim.cmd [[command! CCLspDiagShowLine lua require 'cc.utils'.show_line_diagnostics()]]
+
+function utils.code_actions()
+    -- vim.lsp.buf.code_action()
+    vim.cmd('Lspsaga code_action')
+end
+vim.cmd [[command! CCLspCodeActions lua require 'cc.utils'.code_actions()]]
+
+function utils.hover_doc()
+    -- vim.lsp.buf.hover()
+    vim.cmd('Lspsaga hover_doc')
+end
+vim.cmd [[command! CCLspHoverDoc lua require 'cc.utils'.hover_doc()]]
 
 return utils
