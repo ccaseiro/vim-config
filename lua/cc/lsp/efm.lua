@@ -4,11 +4,18 @@
 --   luarocks install --server=https://luarocks.org/dev luaformatter
 -- lua-format configuration:
 --   https://github.com/Koihik/LuaFormatter
+local eslintLint = {
+  lintCommand = './node_modules/.bin/eslint -f visualstudio --stdin --stdin-filename ${INPUT}',
+  lintIgnoreExitCode = true,
+  lintStdin = true,
+  lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m"}
+}
+
 require'lspconfig'.efm.setup {
   -- activate debug if/when needed
   -- cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
   init_options = {documentFormatting = true},
-  filetypes = {'lua', 'python'},
+  filetypes = {'lua', 'python', 'javascript'},
   settings = {
     rootMarkers = {".git/"},
     languages = {
@@ -31,6 +38,7 @@ require'lspconfig'.efm.setup {
           lintFormats = {"%f:%l:%c: %m"}
         }, {formatCommand = 'yapf --quiet', formatStdin = true}, {formatCommand = 'isort --quiet -', formatStdin = true}
       },
+      javascript = {eslintLint}
     }
   }
 }
