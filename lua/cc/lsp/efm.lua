@@ -11,6 +11,8 @@ local eslintLint = {
   lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m"}
 }
 
+local prettier = {formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}', formatStdin = true}
+
 require'lspconfig'.efm.setup {
   -- activate debug if/when needed
   -- cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
@@ -38,7 +40,7 @@ require'lspconfig'.efm.setup {
           lintFormats = {"%f:%l:%c: %m"}
         }, {formatCommand = 'yapf --quiet', formatStdin = true}, {formatCommand = 'isort --quiet -', formatStdin = true}
       },
-      javascript = {eslintLint}
+      javascript = {eslintLint, prettier}
     }
   }
 }
