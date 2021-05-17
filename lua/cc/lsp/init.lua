@@ -79,7 +79,12 @@ lspconfig.pyright.setup {}
 
 -- Install server with:
 -- npm install -g typescript typescript-language-server
-lspconfig.tsserver.setup {}
+lspconfig.tsserver.setup {
+  on_attach = function(client)
+    custom_attach(client)
+    client.resolved_capabilities.document_formatting = false;
+  end
+}
 
 lspconfig.yamlls.setup({settings = {yaml = {schemas = {kubernetes = "/*.yaml"}}}})
 
