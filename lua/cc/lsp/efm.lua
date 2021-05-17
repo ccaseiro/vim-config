@@ -5,6 +5,8 @@
 -- lua-format configuration:
 --   https://github.com/Koihik/LuaFormatter
 require'lspconfig'.efm.setup {
+  -- activate debug if/when needed
+  -- cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
   init_options = {documentFormatting = true},
   filetypes = {'lua', 'python'},
   settings = {
