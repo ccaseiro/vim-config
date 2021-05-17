@@ -26,17 +26,9 @@ require'lspconfig'.efm.setup {
           -- This way we keep PEP8 defaut (length=79)
           lintCommand = "flake8 --stdin-display-name ${INPUT} -",
           lintStdin = true,
-          lintFormats = {"%f:%l:%c: %m"},
-        },
-        {
-          formatCommand = 'yapf --quiet',
-          formatStdin = true
-        },
-        {
-          formatCommand = 'isort --quiet -',
-          formatStdin = true
-        },
-      }
+          lintFormats = {"%f:%l:%c: %m"}
+        }, {formatCommand = 'yapf --quiet', formatStdin = true}, {formatCommand = 'isort --quiet -', formatStdin = true}
+      },
     }
   }
 }
