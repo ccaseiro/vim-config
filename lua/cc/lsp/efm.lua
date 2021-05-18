@@ -13,11 +13,17 @@ local eslintLint = {
 
 local prettier = {formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}', formatStdin = true}
 
+local sh_shellcheck = {
+  lintCommand = 'shellcheck -f gcc -x',
+  lintSource = 'shellcheck',
+  lintFormats = {'%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m'}
+}
+
 require'lspconfig'.efm.setup {
   -- activate debug if/when needed
   -- cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
   init_options = {documentFormatting = true},
-  filetypes = {'lua', 'python', 'javascript'},
+  filetypes = {'lua', 'python', 'javascript', 'sh'},
   settings = {
     rootMarkers = {".git/"},
     languages = {
@@ -40,7 +46,8 @@ require'lspconfig'.efm.setup {
           lintFormats = {"%f:%l:%c: %m"}
         }, {formatCommand = 'yapf --quiet', formatStdin = true}, {formatCommand = 'isort --quiet -', formatStdin = true}
       },
-      javascript = {eslintLint, prettier}
+      javascript = {eslintLint, prettier},
+      sh = {sh_shellcheck}
     }
   }
 }
