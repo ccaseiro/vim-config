@@ -44,7 +44,7 @@ vim.api.nvim_set_keymap('n', '<leader>qc', ':cclose<CR>', {noremap = true, silen
 vim.api.nvim_set_keymap('n', '<leader>qp', ':cpred<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<leader>qn', ':cnext<CR>', {noremap = true, silent = true})
 
--- Fils
+-- Files
 wk.register({["<leader>fs"] = {'<cmd>write<cr>', 'Save'}})
 wk.register({["<leader>fw"] = {'<cmd>write<cr>', 'Save'}})
 
