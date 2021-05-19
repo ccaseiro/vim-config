@@ -60,4 +60,9 @@ function utils.hover_doc()
 end
 vim.cmd [[command! CCLspHoverDoc lua require 'cc.utils'.hover_doc()]]
 
+function utils.rename()
+    vim.cmd('Lspsaga rename')
+end
+vim.cmd [[command! CCLspRename lua require 'cc.utils'.rename()]]
+
 return utils
