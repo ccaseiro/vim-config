@@ -11,6 +11,7 @@ vim.api.nvim_set_keymap('n', '<Leader>ths', ':set hlsearch!<CR>', {noremap = tru
 -- explorer
 vim.api.nvim_set_keymap('n', '<Leader>ft', ':NvimTreeToggle<CR>', {noremap = true, silent = true})
 
+
 -- better window movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
@@ -70,4 +71,11 @@ nnoremap('<leader>ww', '<C-W>w')
 nnoremap('<leader>tn', ':set number!<cr>')
 nnoremap('<leader>tr', ':set relativenumber!<cr>')
 nnoremap('<leader>tl', ':set list!<cr>')
+
+-- Projects
+-- cd to current file's directory
+wk.register({["<leader>pc"] = {'<cmd>cd %:p:h<cr>:pwd<CR>', 'CWD current'}})
+-- cd to VIM config directory
+wk.register({["<leader>ph"] = {'<cmd>cd ' .. vim.fn.stdpath('config') .. '<cr>:pwd<CR>', 'CWD VIM'}})
+
 
