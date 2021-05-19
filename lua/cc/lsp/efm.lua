@@ -19,6 +19,8 @@ local sh_shellcheck = {
   lintFormats = {'%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m'}
 }
 
+local sh_shfmt = {formatCommand = 'shfmt -ci -s -bn', formatStdin = true}
+
 require'lspconfig'.efm.setup {
   -- activate debug if/when needed
   -- cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
@@ -47,7 +49,7 @@ require'lspconfig'.efm.setup {
         }, {formatCommand = 'yapf --quiet', formatStdin = true}, {formatCommand = 'isort --quiet -', formatStdin = true}
       },
       javascript = {eslintLint, prettier},
-      sh = {sh_shellcheck}
+      sh = {sh_shellcheck, sh_shfmt}
     }
   }
 }
