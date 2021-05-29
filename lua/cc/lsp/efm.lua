@@ -19,7 +19,7 @@ local sh_shellcheck = {
   lintFormats = {'%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m'}
 }
 
-local sh_shfmt = {formatCommand = 'shfmt -ci -s -bn', formatStdin = true}
+local sh_shfmt = {formatCommand = 'shfmt -ci -s -i 4 -bn', formatStdin = true}
 
 require'lspconfig'.efm.setup {
   -- activate debug if/when needed
