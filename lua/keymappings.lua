@@ -27,8 +27,11 @@ vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silen
 vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
 
 -- Plugin: nvim-miniyank
+wk.register({["<leader>y"] = {name = 'Yank'}})
 vim.api.nvim_set_keymap('n', 'p', '<Plug>(miniyank-autoput)', {noremap = false, silent = true})
 vim.api.nvim_set_keymap('n', 'P', '<Plug>(miniyank-autoPut)', {noremap = false, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>yn', '<Plug>(miniyank-cycle)', {noremap = false, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>ye', '<Plug>(miniyank-cycleback)', {noremap = false, silent = true})
 
 -- TAB switch buffer
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
