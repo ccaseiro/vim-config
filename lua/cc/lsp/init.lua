@@ -93,5 +93,9 @@ lspconfig.tsserver.setup {
 
 lspconfig.yamlls.setup({settings = {yaml = {schemas = {kubernetes = "/*.yaml"}}}})
 
+local pid = vim.fn.getpid()
+-- On linux/darwin if using a release build, otherwise under scripts/OmniSharp(.Core)(.cmd)
+local omnisharp_bin = "/Users/ccaseiro/Downloads/omnisharp-osx/run"
+require'lspconfig'.omnisharp.setup {cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)}}
 
 require('cc/lsp/efm')
