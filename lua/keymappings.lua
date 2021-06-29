@@ -82,3 +82,10 @@ wk.register({["<leader>pc"] = {'<cmd>cd %:p:h<cr>:pwd<CR>', 'CWD current'}})
 wk.register({["<leader>ph"] = {'<cmd>cd ' .. vim.fn.stdpath('config') .. '<cr>:pwd<CR>', 'CWD VIM'}})
 
 
+-- Find all the files in vim config
+wk.register({
+  ["<leader>fv"] = {
+    "<cmd>lua require'telescope.builtin'.find_files{ cwd = '" .. vim.fn.stdpath('config') .. "' }<CR>",
+    'FindFile in VIM'
+  }
+})
