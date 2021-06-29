@@ -57,6 +57,17 @@ local custom_attach = function(client)
     ]], false)
   end
 
+  -- we can toggle 'format on save' with a global option, that we ckeck later during BufWritePre
+  O = {}
+  O.autoformat = true
+  wk.register({
+    ["<leader>tf"] = {
+      '<cmd>lua O.autoformat = not O.autoformat; print("format on save = ".. (O.autoformat and "true" or "false") )<cr>',
+      'format on save'
+    }
+  })
+  vim.cmd [[autocmd BufWritePre <buffer> lua if O.autoformat then vim.lsp.buf.formatting_sync() end]]
+
 end
 
 -- override defaults
