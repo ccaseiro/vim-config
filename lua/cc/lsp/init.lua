@@ -83,6 +83,8 @@ lspconfig.pyright.setup {}
 -- Install server with:
 -- npm install -g typescript typescript-language-server
 lspconfig.tsserver.setup {
+  -- to enable debug, uncomment the next line
+  -- cmd = { "typescript-language-server", "--stdio", "--log-level", "4", "--tsserver-log-file", "tmp/tsserver.out", "--tsserver-log-verbosity", "verbose" },
   on_attach = function(client)
     custom_attach(client)
     client.resolved_capabilities.document_formatting = false;
