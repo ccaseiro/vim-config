@@ -38,6 +38,8 @@ return require('packer').startup(function()
 
   -- Treesiter
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use 'maxmellon/vim-jsx-pretty'
+
 
   -- Telescope
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
