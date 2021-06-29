@@ -73,7 +73,6 @@ end
 -- override defaults
 lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {on_attach = custom_attach})
 
-require('cc/lsp/efm')
 require('cc/lsp/lua')
 require('cc.lsp.graphql')
 
@@ -92,3 +91,5 @@ lspconfig.tsserver.setup {
 
 lspconfig.yamlls.setup({settings = {yaml = {schemas = {kubernetes = "/*.yaml"}}}})
 
+
+require('cc/lsp/efm')
