@@ -28,7 +28,7 @@ require'lspconfig'.efm.setup {
   -- activate debug if/when needed
   -- cmd = {'efm-langserver', '-logfile', '/tmp/efm.log', '-loglevel', '5'},
   init_options = {documentFormatting = true},
-  filetypes = {'lua', 'python', 'javascript', 'sh'},
+  filetypes = {'lua', 'python', 'javascript', 'javascriptreact', 'sh'},
   settings = {
     rootMarkers = {".git/"},
     languages = {
@@ -51,7 +51,8 @@ require'lspconfig'.efm.setup {
           lintFormats = {"%f:%l:%c: %m"}
         }, {formatCommand = 'yapf --quiet', formatStdin = true}, {formatCommand = 'isort --quiet -', formatStdin = true}
       },
-      javascript = {eslintLint, prettier},
+      javascript = {prettier, eslintLint},
+      javascriptreact = {eslintLint, prettier},
       sh = {sh_shellcheck, sh_shfmt}
     }
   }
