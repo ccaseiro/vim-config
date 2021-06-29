@@ -11,7 +11,10 @@ local eslintLint = {
   lintFormats = {"%f(%l,%c): %tarning %m", "%f(%l,%c): %rror %m"}
 }
 
-local prettier = {formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}', formatStdin = true}
+-- use './node_modules/.bin/prettier' in case it's executable, otherwise use global install.
+local prettier = vim.loop.fs_access('./node_modules/.bin/prettier', 1) and
+                     {formatCommand = './node_modules/.bin/prettier --stdin-filepath ${INPUT}', formatStdin = true} or
+                     {formatCommand = 'prettier --stdin-filepath ${INPUT}', formatStdin = true}
 
 local sh_shellcheck = {
   lintCommand = 'shellcheck -f gcc -x',
