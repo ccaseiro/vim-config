@@ -1,5 +1,5 @@
 local map_tele = vim.api.nvim_set_keymap
-local wk = require("which-key")
+local wk = require'cc.utils'.wk
 
 wk.register({["<leader><leader>"] = {'<cmd>Telescope<cr>', 'Telescope'}})
 map_tele("n", '<leader>ff', ':Telescope find_files<cr>', {})

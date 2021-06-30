@@ -1,6 +1,6 @@
 local nmap = require'cc.utils'.nmap
 local nnoremap = require'cc.utils'.nnoremap
-local wk = require("which-key")
+local wk = require'cc.utils'.wk
 
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '

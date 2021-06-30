@@ -1,5 +1,5 @@
 local lspconfig = require('lspconfig')
-local wk = require("which-key")
+local wk = require'cc.utils'.wk
 
 wk.register({["<leader>l"] = {name = 'LSP'}})
 wk.register({["<leader>li"] = {'<cmd>LspInfo<cr>', 'LspInfo'}})

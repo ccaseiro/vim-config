@@ -1,10 +1,8 @@
-local wk = require("which-key")
+local wk = require'cc.utils'.wk
 
 wk.register({
   ["<leader>"] = {
-    b = {name = "Buffers",
-    d = {'<cmd>bd<cr>', 'delete buffer'}
-  },
+    b = {name = "Buffers", d = {'<cmd>bd<cr>', 'delete buffer'}},
     d = {name = "Diagnostics"},
     f = {
       name = "File",
@@ -19,13 +17,7 @@ wk.register({
     o = {name = "Org/Wiki"},
     s = {name = "Search"},
     t = {name = "Toggle", h = "highlight"},
-    w = {
-      name = "Windows",
-      o = 'Focus current window',
-      s = 'Horizontal Split',
-      v = 'Vertical Split',
-      w = 'Cycle'
-    }
+    w = {name = "Windows", o = 'Focus current window', s = 'Horizontal Split', v = 'Vertical Split', w = 'Cycle'}
   }
 })
 
