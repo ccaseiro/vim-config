@@ -40,7 +40,6 @@ return require('packer').startup(function()
   use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'maxmellon/vim-jsx-pretty'
 
-
   -- Telescope
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
 
@@ -55,7 +54,6 @@ return require('packer').startup(function()
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
   use 'tpope/vim-unimpaired'
-  use 'tjdevries/astronauta.nvim'
   use 'bfredl/nvim-miniyank'
   use 'windwp/nvim-autopairs'
   use 'norcalli/nvim-colorizer.lua'
