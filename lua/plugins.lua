@@ -57,7 +57,7 @@ return require('packer').startup(function()
   use 'bfredl/nvim-miniyank'
   use 'windwp/nvim-autopairs'
   use 'norcalli/nvim-colorizer.lua'
-  use {"folke/which-key.nvim", config = function() require("which-key").setup {} end}
+  use 'ccaseiro/which-key.nvim'
   use 'mbbill/undotree'
 end)
 
