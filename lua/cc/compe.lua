@@ -5,7 +5,8 @@ require'compe'.setup {
   autocomplete = true,
   debug = false,
   min_length = 1,
-  preselect = 'enable',
+  -- preselect = 'enable',
+  preselect = 'always',
   throttle_time = 80,
   source_timeout = 200,
   incomplete_delay = 400,
@@ -18,13 +19,14 @@ require'compe'.setup {
     path = true,
     buffer = true,
     calc = true,
-    vsnip = true,
-    nvim_lsp = true,
+    vsnip = {priority = 10},
+    nvim_lsp = {priority = 1},
     nvim_lua = true,
     spell = true,
     tags = true,
     snippets_nvim = true,
-    treesitter = true
+    treesitter = true,
+    emoji = true
   }
 }
 
@@ -68,10 +70,8 @@ vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
-vim.cmd [[
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
-]]
+vim.api.nvim_set_keymap("i", "<C-Space>", "compe#complete()", {silent = true, expr = true})
+vim.api.nvim_set_keymap("i", "<CR>", "compe#confirm('<CR>')", {silent = true, expr = true})
+vim.api.nvim_set_keymap("i", "<C-e>", "compe#close('<C-e>')", {silent = true, expr = true})
+vim.api.nvim_set_keymap("i", "<C-f>", "compe#scroll({ 'delta': 4 })", {silent = true, expr = true})
+vim.api.nvim_set_keymap("i", "<C-d>", "compe#scroll({ 'delta': -4 })", {silent = true, expr = true})
