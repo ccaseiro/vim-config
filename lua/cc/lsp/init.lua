@@ -99,3 +99,44 @@ local omnisharp_bin = "/Users/ccaseiro/Downloads/omnisharp-osx/run"
 require'lspconfig'.omnisharp.setup {cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)}}
 
 require('cc/lsp/efm')
+
+-- -- symbols for autocomplete
+-- vim.lsp.protocol.CompletionItemKind = {
+--   "   (Text) ", "   (Method)", "   (Function)", "   (Constructor)", " ﴲ  (Field)", "[] (Variable)",
+--   "   (Class)", " ﰮ  (Interface)", "   (Module)", " 襁 (Property)", "   (Unit)", "   (Value)",
+--   " 練 (Enum)", "   (Keyword)", "   (Snippet)", "   (Color)", "   (File)", "   (Reference)",
+--   "   (Folder)", "   (EnumMember)", " ﲀ  (Constant)", " ﳤ  (Struct)", "   (Event)", "   (Operator)",
+--   "   (TypeParameter)"
+-- }
+vim.lsp.protocol.CompletionItemKind = {
+  "", " ", " ", "", "ﴲ", "[]", "", "ﰮ", "", "襁", "", "", "練", "", "", "",
+  "", "", "", "", "ﲀ", "ﳤ", "", "", ""
+}
+-- vim.lsp.protocol.CompletionItemKind = {
+--   '', -- Text
+--   '', -- Method
+--   '', -- Function
+--   '', -- Constructor
+--   '', -- Field
+--   '', -- Variable
+--   '', -- Class
+--   'ﰮ', -- Interface
+--   '', -- Module
+--   '', -- Property
+--   '', -- Unit
+--   '', -- Value
+--   '了', -- Enum
+--   '', -- Keyword
+--   '﬌', -- Snippet
+--   '', -- Color
+--   '', -- File
+--   '', -- Reference
+--   '', -- Folder
+--   '', -- EnumMember
+--   '', -- Constant
+--   '', -- Struct
+--   '', -- Event
+--   'ﬦ', -- Operator
+--   '' -- TypeParameter
+-- }
+
