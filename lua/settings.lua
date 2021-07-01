@@ -2,6 +2,10 @@ local opt = vim.opt
 
 opt.number = true
 opt.relativenumber = true -- without 'number', current line is always '0'
+
+opt.ignorecase = true -- Ignore case when searching...
+opt.smartcase = true -- ... unless there is a capital letter in the query
+
 -- opt.signcolumn = "auto:2-4" -- TODO: not working with telescope. Need to test/report
 opt.signcolumn = "yes:2"
 
