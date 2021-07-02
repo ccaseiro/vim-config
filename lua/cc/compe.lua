@@ -17,16 +17,16 @@ require'compe'.setup {
 
   source = {
     path = true,
-    buffer = true,
+    buffer = {priority = 1},
     calc = true,
-    vsnip = {priority = 10},
-    nvim_lsp = {priority = 1},
+    vsnip = {priority = 9},
+    nvim_lsp = {priority = 5},
     nvim_lua = true,
-    spell = true,
+    spell = {priority = 1},
     tags = true,
     snippets_nvim = true,
     treesitter = true,
-    emoji = true
+    emoji = {priority = 0}
   }
 }
 
