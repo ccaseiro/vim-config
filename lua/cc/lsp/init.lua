@@ -19,6 +19,11 @@ local mapper = function(mode, key, result)
   vim.api.nvim_buf_set_keymap(0, mode, key, "<cmd>" .. result .. "<CR>", {noremap = true, silent = true})
 end
 
+local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
+updated_capabilities.textDocument.completion.completionItem.snippetSupport = true
+updated_capabilities.textDocument.completion.completionItem.resolveSupport =
+    {properties = {"documentation", "detail", "additionalTextEdits"}}
+
 local custom_attach = function(client)
   local filetype = vim.api.nvim_buf_get_option(0, 'filetype')
 
@@ -71,7 +76,8 @@ local custom_attach = function(client)
 end
 
 -- override defaults
-lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config, {on_attach = custom_attach})
+lspconfig.util.default_config = vim.tbl_extend("force", lspconfig.util.default_config,
+                                               {on_attach = custom_attach, capabilities = updated_capabilities})
 
 require('cc/lsp/lua')
 require('cc.lsp.graphql')
