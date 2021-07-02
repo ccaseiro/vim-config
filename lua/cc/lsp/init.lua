@@ -104,6 +104,10 @@ local pid = vim.fn.getpid()
 local omnisharp_bin = "/Users/ccaseiro/Downloads/omnisharp-osx/run"
 require'lspconfig'.omnisharp.setup {cmd = {omnisharp_bin, "--languageserver", "--hostPID", tostring(pid)}}
 
+-- Install server with:
+-- brew install hashicorp/tap/terraform-ls
+require'lspconfig'.terraformls.setup {filetypes = {"tf", "terraform", "hcl"}}
+
 require('cc/lsp/efm')
 
 -- -- symbols for autocomplete
