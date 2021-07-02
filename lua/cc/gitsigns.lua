@@ -4,12 +4,12 @@ require'gitsigns'.setup({
     noremap = true,
     buffer = true,
 
-    ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},
-    ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'"},
+    ['n ]c'] = {expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns\".next_hunk()<CR>'"},
+    ['n [c'] = {expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns\".prev_hunk()<CR>'"},
     ['n <leader>gj'] = '<cmd>lua require"gitsigns".next_hunk()<CR>',
     ['n <leader>gk'] = '<cmd>lua require"gitsigns".prev_hunk()<CR>',
 
-		-- CC: changed <leader>h* -> <leader>g*
+    -- CC: changed <leader>h* -> <leader>g*
     ['n <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
     ['n <leader>gu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
     ['n <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
@@ -17,10 +17,13 @@ require'gitsigns'.setup({
     ['n <leader>gp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
     ['n <leader>gb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
 
+    ['v <leader>gs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+    ['v <leader>gr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+
     -- Text objects
     ['o ih'] = ':<C-U>lua require"gitsigns".select_hunk()<CR>',
     ['x ih'] = ':<C-U>lua require"gitsigns".select_hunk()<CR>'
-  },
+  }
 
 })
 
