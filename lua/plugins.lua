@@ -26,6 +26,10 @@ return require('packer').startup(function()
   use 'kosayoda/nvim-lightbulb'
   use 'liuchengxu/vista.vim'
 
+  -- Debugging
+  use "mfussenegger/nvim-dap"
+  use "mfussenegger/nvim-dap-python"
+
   -- Git
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
 
