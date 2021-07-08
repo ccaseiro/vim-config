@@ -3,7 +3,6 @@ local wk = require'cc.utils'.wk
 wk.register({
   ["<leader>"] = {
     b = {name = "Buffers", d = {'<cmd>bd<cr>', 'delete buffer'}},
-    d = {name = "Diagnostics"},
     f = {
       name = "File",
       o = {'Show in file tree'},
