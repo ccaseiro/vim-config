@@ -1,4 +1,4 @@
-require 'dap'
+local dap = require 'dap'
 require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 
 local wk = require'cc.utils'.wk
@@ -31,3 +31,23 @@ wk.register({
     "<cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", 'log message'
   }
 })
+
+-- download netcoredbg binaries from [https://github.com/Samsung/netcoredbg/releases/download/1.2.0-786/netcoredbg-osx.tar.gz]
+-- extract in `vim.fn.stdpath("data")/dap-adapters`: $HOME/.local/share/nvim/dap-adapters
+local dbg_path = vim.fn.stdpath("data") .. '/dap-adapters/'
+
+dap.adapters.netcoredbg = {
+  type = 'executable',
+  command = dbg_path .. 'netcoredbg/netcoredbg',
+  args = {'--interpreter=vscode'}
+}
+
+dap.configurations.cs = {
+  {
+    type = "netcoredbg",
+    name = "launch - netcoredbg",
+    request = "launch",
+    program = function() return vim.fn.input('Path to dll: ', vim.fn.getcwd() .. '/bin/Debug/', 'file') end
+  }
+}
+
