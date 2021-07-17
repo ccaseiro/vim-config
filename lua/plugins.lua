@@ -66,5 +66,6 @@ return require('packer').startup(function()
   use 'norcalli/nvim-colorizer.lua'
   use 'folke/which-key.nvim'
   use 'mbbill/undotree'
+  use 'vhyrro/neorg'
 end)
 

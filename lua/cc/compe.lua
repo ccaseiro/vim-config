@@ -27,7 +27,8 @@ require'compe'.setup {
     tags = true,
     snippets_nvim = true,
     treesitter = true,
-    emoji = {priority = 0}
+    emoji = {priority = 0},
+    neorg = true
   }
 }
 
