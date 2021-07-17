@@ -72,7 +72,7 @@ nnoremap('<leader>ww', '<C-W>w')
 -- Toggles
 nnoremap('<leader>tn', ':set number!<cr>')
 nnoremap('<leader>tr', ':set relativenumber!<cr>')
-nnoremap('<leader>tl', ':set list!<cr>')
+nnoremap('<leader>tc', ':set listchars!<cr>')
 
 -- Projects
 -- cd to current file's directory
@@ -87,3 +87,8 @@ wk.register({
     'FindFile in VIM'
   }
 })
+
+wk.register({["<leader>nc"] = {'<cmd>:cnext<CR>', 'next quickfix'}})
+wk.register({["<leader>ec"] = {'<cmd>:cprev<CR>', 'prev quickfix'}})
+wk.register({["<leader>nl"] = {'<cmd>:lnext<CR>', 'next loclist'}})
+wk.register({["<leader>el"] = {'<cmd>:lprev<CR>', 'prev loclist'}})

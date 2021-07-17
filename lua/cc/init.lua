@@ -8,6 +8,7 @@ require 'cc.dap'
 require 'cc.twilight'
 require 'cc.zen-mode'
 require 'cc.neorg'
+require 'cc.quickfix'
 
 -- Startify
 vim.api.nvim_set_keymap('n', '<leader>bh', ':Startify<CR>', {noremap = true, silent = true})
