@@ -35,6 +35,7 @@ return require('packer').startup(function()
 
   -- Colorcheme
   use 'christianchiarulli/nvcode-color-schemes.vim'
+  use 'folke/tokyonight.nvim'
 
   -- Status Line and Bufferline
   use {'akinsho/nvim-bufferline.lua', requires = 'kyazdani42/nvim-web-devicons'}
