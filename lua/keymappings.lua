@@ -32,9 +32,10 @@ vim.api.nvim_set_keymap('n', 'P', '<Plug>(miniyank-autoPut)', {noremap = false, 
 vim.api.nvim_set_keymap('n', '<Leader>yn', '<Plug>(miniyank-cycle)', {noremap = false, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>ye', '<Plug>(miniyank-cycleback)', {noremap = false, silent = true})
 
--- TAB switch buffer
+-- Buffers
 vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprev<CR>', {noremap = true, silent = true})
+wk.register({["<leader>bd"] = {'<cmd>BufDel<cr>', 'delete buffer'}})
 
 -- Escape
 -- vim.api.nvim_set_keymap('i', 'nn', '<ESC>', { noremap = true, silent = true })

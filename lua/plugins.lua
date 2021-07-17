@@ -70,5 +70,5 @@ return require('packer').startup(function()
   use {"folke/zen-mode.nvim"}
   use 'vhyrro/neorg'
   use 'stevearc/qf_helper.nvim'
+  use {'ojroques/nvim-bufdel'}
 end)
-
