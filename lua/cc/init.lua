@@ -5,6 +5,8 @@ require 'cc.undotree'
 require 'cc.nvim-lightbulb'
 require 'cc.vista'
 require 'cc.dap'
+require 'cc.twilight'
+require 'cc.zen-mode'
 require 'cc.neorg'
 
 -- Startify
