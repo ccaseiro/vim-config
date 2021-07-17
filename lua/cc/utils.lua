@@ -22,7 +22,11 @@ function utils.define_augroups(definitions) -- {{{1
   end
 end
 
-function utils.nnoremap(key, command) vim.api.nvim_set_keymap('n', key, command, {noremap = true, silent = true}) end
+function utils.nnoremap(key, command, options)
+  options = options or {}
+  if options["silent"] == nil then options.silent = true end
+  vim.api.nvim_set_keymap('n', key, command, {noremap = true, silent = options.silent})
+end
 
 function utils.nmap(key, command) vim.api.nvim_set_keymap('n', key, command, {noremap = false, silent = true}) end
 
