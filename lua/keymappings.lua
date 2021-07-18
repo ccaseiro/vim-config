@@ -52,12 +52,6 @@ vim.api.nvim_set_keymap('n', '<leader>qn', ':cnext<CR>', {noremap = true, silent
 wk.register({["<leader>fs"] = {'<cmd>write<cr>', 'Save'}})
 wk.register({["<leader>fw"] = {'<cmd>write<cr>', 'Save'}})
 
--- VimWiki
-nmap('<leader>ow', '<Plug>VimwikiIndex')
-nmap('<leader>ot', '<Plug>VimwikiTabIndex')
-nmap('<leader>os', '<Plug>VimwikiUISelect')
-nmap('<leader>oi', '<Plug>VimwikiDiaryIndex')
-
 nmap('<leader>o<leader>w', '<Plug>VimwikiMakeDiaryNote')
 nmap('<leader>o<leader>t', '<Plug>VimwikiTabMakeDiaryNote')
 nmap('<leader>o<leader>y', '<Plug>VimwikiMakeYesterdayDiaryNote')
