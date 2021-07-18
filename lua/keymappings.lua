@@ -65,10 +65,10 @@ nmap('<leader>o<leader>m', '<Plug>VimwikiMakeTomorrowDiaryNote')
 nmap('<leader>o<leader>e', '<Plug>VimwikiDiaryGenerateLinks')
 
 -- Windows manipulation
-nnoremap('<leader>ws', ':split<CR>')
-nnoremap('<leader>wv', ':vsplit<CR>')
-nnoremap('<leader>wo', ':only<CR>')
-nnoremap('<leader>ww', '<C-W>w')
+wk.register({["<leader>ws"] = {'<cmd>split<cr>', 'Horizontal Split'}})
+wk.register({["<leader>wv"] = {'<cmd>vsplit<cr>', 'Vertical Split'}})
+wk.register({["<leader>wo"] = {'<cmd>only<cr>', 'Only'}})
+wk.register({["<leader>ww"] = {'<C-W>w', 'Cycle'}})
 
 -- Toggles
 nnoremap('<leader>tn', ':set number!<cr>')
