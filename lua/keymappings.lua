@@ -16,6 +16,11 @@ vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
+-- -- Windows manipulation
+-- wk.register({["<leader>ws"] = {'<cmd>split<cr>', 'Horizontal Split'}})
+-- wk.register({["<leader>wv"] = {'<cmd>vsplit<cr>', 'Vertical Split'}})
+-- wk.register({["<leader>wo"] = {'<cmd>only<cr>', 'Only'}})
+-- wk.register({["<leader>ww"] = {'<C-W>w', 'Cycle'}})
 
 -- better indenting
 vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true, silent = true})
@@ -57,12 +62,6 @@ nmap('<leader>o<leader>t', '<Plug>VimwikiTabMakeDiaryNote')
 nmap('<leader>o<leader>y', '<Plug>VimwikiMakeYesterdayDiaryNote')
 nmap('<leader>o<leader>m', '<Plug>VimwikiMakeTomorrowDiaryNote')
 nmap('<leader>o<leader>e', '<Plug>VimwikiDiaryGenerateLinks')
-
--- Windows manipulation
-wk.register({["<leader>ws"] = {'<cmd>split<cr>', 'Horizontal Split'}})
-wk.register({["<leader>wv"] = {'<cmd>vsplit<cr>', 'Vertical Split'}})
-wk.register({["<leader>wo"] = {'<cmd>only<cr>', 'Only'}})
-wk.register({["<leader>ww"] = {'<C-W>w', 'Cycle'}})
 
 -- Toggles
 nnoremap('<leader>tn', ':set number!<cr>')
