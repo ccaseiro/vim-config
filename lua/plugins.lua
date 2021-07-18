@@ -49,7 +49,8 @@ return require('packer').startup(function()
   use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
 
   -- Note Taking
-  use 'vimwiki/vimwiki'
+  -- use 'vimwiki/vimwiki'
+  use 'lervag/wiki.vim'
 
   -- Startup Dashboard
   use 'mhinz/vim-startify'
