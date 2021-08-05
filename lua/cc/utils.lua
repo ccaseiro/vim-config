@@ -28,6 +28,12 @@ function utils.nnoremap(key, command, options)
   vim.api.nvim_set_keymap('n', key, command, {noremap = true, silent = options.silent})
 end
 
+function utils.inoremap(key, command, options)
+  options = options or {}
+  if options["silent"] == nil then options.silent = true end
+  vim.api.nvim_set_keymap('i', key, command, {noremap = true, silent = options.silent})
+end
+
 function utils.nmap(key, command) vim.api.nvim_set_keymap('n', key, command, {noremap = false, silent = true}) end
 
 function utils.goto_next()

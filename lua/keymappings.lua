@@ -1,5 +1,6 @@
 local nmap = require'cc.utils'.nmap
 local nnoremap = require'cc.utils'.nnoremap
+local inoremap = require'cc.utils'.inoremap
 local wk = require'cc.utils'.wk
 
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
@@ -27,8 +28,12 @@ vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true, silent = true})
 
 -- Move selected line / block of text in visual mode
-vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv=gv', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv=gv', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', '<C-j>', '<right><esc>:move .+1<CR>==i', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('i', '<C-k>', '<right><esc>:move .-2<CR>==i', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>j', '<esc>:move .+1<CR>==', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>k', '<esc>:move .-2<CR>==', {noremap = true, silent = true})
 
 -- Plugin: nvim-miniyank
 wk.register({["<leader>y"] = {name = 'Yank'}})
@@ -38,8 +43,8 @@ vim.api.nvim_set_keymap('n', '<Leader>yn', '<Plug>(miniyank-cycle)', {noremap = 
 vim.api.nvim_set_keymap('n', '<Leader>ye', '<Plug>(miniyank-cycleback)', {noremap = false, silent = true})
 
 -- Buffers
-vim.api.nvim_set_keymap('n', '<TAB>', ':bnext<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<S-TAB>', ':bprev<CR>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<C-TAB>', ':bnext<CR>', {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('n', '<C-S-TAB>', ':bprev<CR>', {noremap = true, silent = true})
 wk.register({["<leader>bd"] = {'<cmd>BufDel<cr>', 'delete buffer'}})
 
 -- Escape
@@ -66,7 +71,7 @@ nmap('<leader>o<leader>e', '<Plug>VimwikiDiaryGenerateLinks')
 -- Toggles
 nnoremap('<leader>tn', ':set number!<cr>')
 nnoremap('<leader>tr', ':set relativenumber!<cr>')
-nnoremap('<leader>tc', ':set listchars!<cr>')
+nnoremap('<leader>tc', ':set listchars&<cr>')
 
 -- Projects
 -- cd to current file's directory
@@ -81,6 +86,20 @@ wk.register({
     'FindFile in VIM'
   }
 })
+
+-- Misc
+nnoremap('Y', 'y$')
+
+-- Keeping it centered
+nnoremap('n', 'nzzzv')
+nnoremap('N', 'Nzzzv')
+nnoremap('J', 'mzJ`z')
+
+-- Undo Breakpoints
+inoremap(',', ',<C-g>u')
+inoremap('.', '.<C-g>u')
+inoremap('!', '!<C-g>u')
+inoremap('?', '?<C-g>u')
 
 wk.register({["<leader>nc"] = {'<cmd>:cnext<CR>', 'next quickfix'}})
 wk.register({["<leader>ec"] = {'<cmd>:cprev<CR>', 'prev quickfix'}})
