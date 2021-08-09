@@ -25,6 +25,16 @@ return require('packer').startup(function()
   use "rafamadriz/friendly-snippets"
   use 'kosayoda/nvim-lightbulb'
   use 'liuchengxu/vista.vim'
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup {
+        -- auto_preview = false,
+        -- auto_fold = true
+      }
+    end
+  }
 
   -- Debugging
   use "mfussenegger/nvim-dap"
