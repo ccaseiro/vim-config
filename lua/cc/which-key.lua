@@ -5,7 +5,6 @@ wk.register({
     f = {
       name = "File",
       o = {'Show in file tree'},
-      f = {"Open File"},
       r = {"Open Recent File"},
       t = 'toggle file tree'
       -- n = { "<cmd>enew<cr>", "New File" },
