@@ -11,5 +11,8 @@ map_tele("n", '<leader>fr', ':Telescope oldfiles<cr>', {})
 map_tele("n", '<leader>ss', ':Telescope live_grep<cr>', {})
 wk.register({["<leader>su"] = {'<cmd>Telescope grep_string<cr>', 'Telescope'}})
 wk.register({["<leader>s*"] = {'<cmd>Telescope grep_string<cr>', 'Telescope'}})
-map_tele("n", '<leader>bb', '<cmd>Telescope buffers<cr>', {})
+wk.register({
+  ["<leader>bb"] = {':Telescope buffers<cr>', 'Switch buffer'},
+  ["<leader>,"] = {':Telescope buffers<cr>', 'Switch buffer'}
+})
 map_tele("n", '<leader>h<Space>', '<cmd>Telescope help_tags<cr>', {})
