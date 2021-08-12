@@ -87,6 +87,10 @@ wk.register({
   }
 })
 
+-- Code
+wk.register({["<leader>c"] = {name = 'code'}})
+wk.register({["<leader>ce"] = {'<cmd>:silent! write|source %<CR>', 'eval buffer'}})
+
 -- Misc
 nnoremap('Y', 'y$')
 
