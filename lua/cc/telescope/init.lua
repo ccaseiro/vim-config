@@ -3,12 +3,15 @@ local wk = require'cc.utils'.wk
 
 wk.register({["<leader><leader>"] = {'<cmd>Telescope<cr>', 'Telescope'}})
 wk.register({
-  ["<leader>ff"] = {':Telescope find_files<cr>', 'Find file'}
+  ["<leader>ff"] = {':Telescope find_files<cr>', 'Find file'},
   -- ["<leader>."] = {':Telescope find_files<cr>', 'Find file'}
+  ["<leader>."] = {':Telescope file_browser<cr>', 'Find file'}
 })
-wk.register({["<leader>."] = {':Telescope file_browser<cr>', 'Find file'}})
 map_tele("n", '<leader>fr', ':Telescope oldfiles<cr>', {})
-map_tele("n", '<leader>ss', ':Telescope live_grep<cr>', {})
+wk.register({
+  ["<leader>ss"] = {':Telescope live_grep<cr>', 'Search Project'},
+  ["<leader>/"] = {':Telescope live_grep<cr>', 'Search Project'}
+})
 wk.register({["<leader>su"] = {'<cmd>Telescope grep_string<cr>', 'Telescope'}})
 wk.register({["<leader>s*"] = {'<cmd>Telescope grep_string<cr>', 'Telescope'}})
 wk.register({
