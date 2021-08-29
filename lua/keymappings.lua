@@ -46,6 +46,7 @@ vim.api.nvim_set_keymap('n', '<Leader>ye', '<Plug>(miniyank-cycleback)', {norema
 -- vim.api.nvim_set_keymap('n', '<C-TAB>', ':bnext<CR>', {noremap = true, silent = true})
 -- vim.api.nvim_set_keymap('n', '<C-S-TAB>', ':bprev<CR>', {noremap = true, silent = true})
 wk.register({["<leader>bd"] = {'<cmd>BufDel<cr>', 'delete buffer'}})
+wk.register({["<leader>bk"] = {'<cmd>BufDel<cr>', 'delete buffer'}})
 
 -- Escape
 -- vim.api.nvim_set_keymap('i', 'nn', '<ESC>', { noremap = true, silent = true })

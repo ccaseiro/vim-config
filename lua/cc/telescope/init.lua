@@ -8,10 +8,8 @@ wk.register({
   ["<leader>."] = {':Telescope file_browser<cr>', 'Find file'}
 })
 map_tele("n", '<leader>fr', ':Telescope oldfiles<cr>', {})
-wk.register({
-  ["<leader>ss"] = {':Telescope live_grep<cr>', 'Search Project'},
-  ["<leader>/"] = {':Telescope live_grep<cr>', 'Search Project'}
-})
+wk.register({["<leader>/"] = {':Telescope live_grep<cr>', 'Search Project'}})
+wk.register({["<leader>ss"] = {':Telescope current_buffer_fuzzy_find<cr>', 'Search buffer'}})
 wk.register({["<leader>su"] = {'<cmd>Telescope grep_string<cr>', 'Telescope'}})
 wk.register({["<leader>s*"] = {'<cmd>Telescope grep_string<cr>', 'Telescope'}})
 wk.register({
