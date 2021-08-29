@@ -1,6 +1,6 @@
 require'colorizer'.setup()
 require 'cc.gitsigns'
-require('nvim-autopairs').setup()
+-- require('nvim-autopairs').setup()
 require 'cc.undotree'
 require 'cc.nvim-lightbulb'
 require 'cc.vista'

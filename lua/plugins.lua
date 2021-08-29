@@ -80,7 +80,7 @@ return require('packer').startup(function()
   use 'tpope/vim-unimpaired'
   use 'justinmk/vim-sneak'
   use 'bfredl/nvim-miniyank'
-  use 'windwp/nvim-autopairs'
+  use {'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup({disable_filetype = {"lisp"}}) end}
   use 'norcalli/nvim-colorizer.lua'
   use 'folke/which-key.nvim'
   use 'mbbill/undotree'
