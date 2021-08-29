@@ -68,6 +68,11 @@ return require('packer').startup(function()
   -- Web development
   use 'mattn/emmet-vim'
 
+  -- Lisp
+  use 'vim-scripts/paredit.vim'
+  use 'vlime/vlime'
+  -- use 'kovisoft/slimv'
+
   -- general plugins
   use 'tpope/vim-repeat'
   use 'tpope/vim-surround'
