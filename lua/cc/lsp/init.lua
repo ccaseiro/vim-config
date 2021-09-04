@@ -42,9 +42,9 @@ local custom_attach = function(client)
   mapper('n', '<leader>ll', 'CCLspDiagShowLine')
 
   -- mapper('n', '<leader>lf', 'lua vim.lsp.buf.formatting()')
-  wk.register({["<leader>lf"] = {'<cmd>lua vim.lsp.buf.formatting()<cr>', 'Format'}})
-  wk.register({["<leader>lr"] = {'<cmd>CCLspRename<cr>', 'Rename'}})
-  wk.register({["<leader>la"] = {'<cmd>CCLspCodeActions<cr>', 'Code Action'}})
+  wk.register({["<leader>cf"] = {'<cmd>lua vim.lsp.buf.formatting()<cr>', 'Format'}})
+  wk.register({["<leader>cr"] = {'<cmd>CCLspRename<cr>', 'Rename'}})
+  wk.register({["<leader>ca"] = {'<cmd>CCLspCodeActions<cr>', 'Code Action'}})
 
   if filetype ~= 'lua' then mapper('n', 'K', 'CCLspHoverDoc') end
 
