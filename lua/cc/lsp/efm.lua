@@ -49,7 +49,8 @@ require'lspconfig'.efm.setup {
           lintCommand = "flake8 --stdin-display-name ${INPUT} -",
           lintStdin = true,
           lintFormats = {"%f:%l:%c: %m"}
-        }, {formatCommand = 'yapf --quiet', formatStdin = true}, {formatCommand = 'isort --quiet -', formatStdin = true}
+        }, -- {formatCommand = 'yapf --quiet', formatStdin = true}, 
+        {formatCommand = 'black --quiet -', formatStdin = true}, {formatCommand = 'isort --quiet -', formatStdin = true}
       },
       javascript = {prettier, eslintLint},
       javascriptreact = {eslintLint, prettier},
