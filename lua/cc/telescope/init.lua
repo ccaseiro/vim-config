@@ -1,9 +1,10 @@
 local map_tele = vim.api.nvim_set_keymap
 local wk = require'cc.utils'.wk
 
-wk.register({["<leader><leader>"] = {'<cmd>Telescope<cr>', 'Telescope'}})
+wk.register({["<leader>T"] = {'<cmd>Telescope<cr>', 'Telescope'}})
 wk.register({
   ["<leader>ff"] = {':Telescope find_files<cr>', 'Find file'},
+  ["<leader><leader>"] = {':Telescope find_files<cr>', 'Find file in project'},
   -- ["<leader>."] = {':Telescope find_files<cr>', 'Find file'}
   ["<leader>."] = {':Telescope file_browser<cr>', 'Find file'}
 })
